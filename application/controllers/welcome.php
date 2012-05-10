@@ -19,9 +19,29 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		
+               
+       $this->load->model('seleccionarusuarios'); // whatever you call it
+
+    $data['usuarios'] =  $this->seleccionarusuarios->get_usuarios();
+
+    /* note - you don't need to have the extension when it's a php file */
+    $this->load->view('welcome_message',$data);
+                
+                
+        
 	}
 }
 
+
+    
+   
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
+    ?>
