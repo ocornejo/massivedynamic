@@ -71,7 +71,21 @@ $db['default']['stricton'] = FALSE;
 
 /*Conexión a catalogo*/
 
-
+$db['default2']['hostname'] = '204.87.169.53';
+$db['default2']['username'] = 'mdynamic';
+$db['default2']['password'] = 'mdynamic_pass';
+$db['default2']['database'] = 'catalogo';
+$db['default2']['dbdriver'] = 'mysql';
+$db['default2']['dbprefix'] = '';
+$db['default2']['pconnect'] = TRUE;
+$db['default2']['db_debug'] = TRUE;
+$db['default2']['cache_on'] = FALSE;
+$db['default2']['cachedir'] = '';
+$db['default2']['char_set'] = 'utf8';
+$db['default2']['dbcollat'] = 'utf8_general_ci';
+$db['default2']['swap_pre'] = '';
+$db['default2']['autoinit'] = TRUE;
+$db['default2']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
