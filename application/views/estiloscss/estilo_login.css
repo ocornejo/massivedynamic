@@ -1,0 +1,84 @@
+body {
+	font: 11x Verdana;
+}
+
+h1{
+	font-size:18px;
+}
+h2{
+	font-size:11px;
+	padding-bottom:10px;
+}
+button{
+	background-color:#00CC00;
+}
+#LoginUsuarios{
+	color: #FFFFFF;
+	background-color:#FFFFFF;
+	font-weight:bold;
+}
+
+.fila{
+	clear:left;
+
+}
+
+.LoginUsuariosCabecera{
+	float:left;
+	background-color: #1D9995;
+	width:130px;
+	height:20px;
+	border-color:#FFFFFF;
+	border-width:thin;
+	border-style:solid;
+}
+
+.LoginUsuariosDato{
+	float:left;	
+	background-color: #C3E9DA;
+	width:200px;
+	height:20px;
+	border-color:#FFFFFF;
+	border-width:1px;
+	border-style:solid;
+}
+.LoginUsuariosError{
+	float:left;
+	width:400px;
+	height:20px;
+	color:#FF0000;
+}
+
+.LoginUsuariosError p{
+	vertical-align:top;
+	margin-top:3px;
+	margin-left:3px;
+}
+.Info{
+	clear:left;
+}
+.Info p{
+	height:5px;
+}
+
+.Titulo{
+	font: 14px Verdana;
+	font-weight:bold;
+}
+
+#BotonesRedesSociales{
+    color: #333300;
+    font-size:8pt;
+    padding: 3 3 3 10px;
+	width:90px;
+	height:200px;
+	float:right;
+}
+
+#BotonesRedesSociales ul{
+	margin-top:25px;
+}
+
+#BotonesRedesSociales li{
+	margin-bottom:75px;
+}

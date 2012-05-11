@@ -84,6 +84,8 @@
     {
         echo  $store->Nombre . '<br />'; // your fields/whatever you want to output.
     }
+    
+    
         ?>
         </div>
 

@@ -112,5 +112,8 @@ $autoload['language'] = array();
 $autoload['model'] = array();
 
 
+
+$autoload['libraries'] = array ('database','form_validation');
+
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */
