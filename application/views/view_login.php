@@ -4,7 +4,7 @@
 <title>Massive Dynamics, La mejor tienda virtual de Software de este universo y algunos otros</title>
 <?php include('rutas_config.php')?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="<?php echo $ruta_estilos ?>estilo_login" type="text/css" media="screen">
+<link rel="stylesheet" href="<?php echo $ruta_estilos ?>estilo_login.css" type="text/css" media="screen">
 <!--<link rel="stylesheet" href="../../php-login.css" type="text/css" media="screen">-->
 </head>
  

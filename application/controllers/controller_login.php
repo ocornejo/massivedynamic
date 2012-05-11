@@ -44,7 +44,7 @@ class Controller_login extends CI_Controller {
                     $this->load->view('Principal',$data);  
                 }
                 else{//Si no logró validar
-                    $data['error']="E-mail o password incorrecta, por favor vuelva a intentar";
+                    $data['error']="Usuario o password incorrecto, por favor vuelva a intentar";
                     //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje de error a presentar en pantalla
                     $this->load->view('view_login',$data);
                 }
