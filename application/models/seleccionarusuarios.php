@@ -2,7 +2,7 @@
 class seleccionarusuarios extends CI_Model{
 function get_usuarios()
 {
-   $DB1 = $this->load->database('default', TRUE); 
+   $DB2 = $this->load->database('default2', TRUE); 
 
    $query = $DB2->query('SELECT * FROM Productos');
     return $query;
