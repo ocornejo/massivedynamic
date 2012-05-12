@@ -89,5 +89,8 @@ $db['default2']['swap_pre'] = '';
 $db['default2']['autoinit'] = TRUE;
 $db['default2']['stricton'] = FALSE;
 
+
+$DB1 = $this->load->database('default', TRUE);
+$DB2 = $this->load->database('default2', TRUE);
 /* End of file database.php */
 /* Location: ./application/config/database.php */

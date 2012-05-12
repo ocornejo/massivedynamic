@@ -4,9 +4,9 @@ class Model_login extends CI_Model{
     function ValidarUsuario($usuario,$password){
         //La consulta se efectúa mediante Active Record. Una manera alternativa, y en lenguaje más sencillo, de generar las consultas Sql.
         
-        $query = $this->db->where('Username',$usuario);
-        $query = $this->db->where('Password',$password);
-        $query = $this->db->get('Usuarios');
+        $query = $this->DB1->where('Username',$usuario);
+        $query = $this->DB1->where('Password',$password);
+        $query = $this->DB1->get('Usuarios');
         
         return $sql->result();
         
