@@ -70,6 +70,8 @@ $db['default']['stricton'] = FALSE;
 
 
 /*Conexión a catalogo*/
+$active_group = "default2";
+$active_record = TRUE;
 
 $db['default2']['hostname'] = '204.87.169.53';
 $db['default2']['username'] = 'mdynamic';
