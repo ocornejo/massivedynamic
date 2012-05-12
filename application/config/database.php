@@ -74,8 +74,8 @@ $active_group = "default2";
 $active_record = TRUE;
 
 $db['default2']['hostname'] = '204.87.169.53';
-$db['default2']['username'] = 'mdynamic';
-$db['default2']['password'] = 'mdynamic_pass';
+$db['default2']['username'] = 'guaripolo';
+$db['default2']['password'] = 'guaripolo_pass';
 $db['default2']['database'] = 'catalogo';
 $db['default2']['dbdriver'] = 'mysql';
 $db['default2']['dbprefix'] = '';
