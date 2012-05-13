@@ -80,10 +80,10 @@
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 	<?php 
-        
+        echo "<h2>Los software que hay en la Base de Datos son:</h2></br>";
         foreach($resultado->result() as $row)
 {
-echo $row->Nombre;
+echo $row->Nombre." </br>";
 } ?>
         </div>
 
