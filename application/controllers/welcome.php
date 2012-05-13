@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
                
        $this->load->model('seleccionarusuarios'); // whatever you call it
 
-    $data=  $this->seleccionarusuarios->get_usuarios();
+    $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
 
     /* note - you don't need to have the extension when it's a php file */
     $this->load->view('welcome_message',$data);
