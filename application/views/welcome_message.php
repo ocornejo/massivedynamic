@@ -78,6 +78,7 @@
         <td>Descripcion</td>
         <td>Plataforma</td>
         <td>Precio</td>
+        <td>Imagen</td>
     </tr>";
         foreach($resultado->result() as $row)
 {
@@ -87,6 +88,7 @@ echo "<tr>".
         "<td>".$row->Descripcion."</td>".
         "<td>".$row->Plataforma."</td>".
         "<td>".$row->Precio."</td>".
+        "<td><img src='data:image/png;base64,".base64_encode($row->Img)."'></td>".
       "</tr>";
 } 
 echo "</table>"?>
