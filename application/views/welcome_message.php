@@ -79,7 +79,7 @@
 		<code>application/controllers/welcome.php</code>
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	<?php foreach($data->result() as $row)
+	<?php foreach($resultado->result() as $row)
 {
 echo $row->Nombre;
 } ?>
