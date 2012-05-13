@@ -80,11 +80,25 @@
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 	<?php 
-        echo "<h2>Los software que hay en la Base de Datos son:</h2></br>";
+        echo "<h2>Los software que hay en la Base de Datos son:</h2></br><table>
+    <tr>
+        <td>Codigo</td>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Plataforma</td>
+        <td>Precio</td>
+    </tr>";
         foreach($resultado->result() as $row)
 {
-echo $row->Nombre." </br>";
-} ?>
+echo "<tr>".
+        "<td>".$row->Codigo."</td>".
+        "<td>".$row->Nombre."</td>".
+        "<td>".$row->Descripcion."</td>".
+        "<td>".$row->Plataforma."</td>".
+        "<td>".$row->Precio."</td>".
+      "</tr>";
+} 
+echo "</table>"?>
         </div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
