@@ -58,6 +58,8 @@ class Controller_login extends CI_Controller {
     {
         $this->load->library('session');
         $this->session->destroy();//destruye la session y va a la vista de login
+        $this->load->model('seleccionarusuarios'); // carga los productos
+        $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
         $data["log"]=null;
         $this->load->view('welcome_message',$data);
     }
