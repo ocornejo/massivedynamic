@@ -94,9 +94,8 @@ table.sample td {
 	<h1>Bienvenido a Massive Dynamic!</h1>
         <?php
         $this->load->library('session');
-        $this->load->helper('form');
-        if($this->session->userdata('Username')!=null){
-            echo "Usted está identificado como ".$this->session->userdata('Username');
+        if($log!=null){
+            echo "Usted está identificado como ".$log;
         }
         else{
             $this->load->helper('url');
