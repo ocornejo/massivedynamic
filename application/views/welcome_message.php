@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <head>
 	
 	<title>Massive Dynamic, un Universo de Software</title>
