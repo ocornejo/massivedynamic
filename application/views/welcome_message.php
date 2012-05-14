@@ -93,12 +93,14 @@ table.sample td {
 <div id="container">
 	<h1>Bienvenido a Massive Dynamic!</h1>
         <?php
+        $this->load->helper('url');
         $this->load->library('session');
         if($log!=null){
             echo "Usted está identificado como ".$log;
+            echo "<a href='".site_url("controller_login/logout")."'>Logout</a>";
         }
         else{
-            $this->load->helper('url');
+            
         
         echo "<a href='".site_url('controller_login/login')."'>Identifiquese!</a>";     
         }
