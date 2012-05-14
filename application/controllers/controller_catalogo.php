@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Controller_Catalogo extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	{
 		
                
-       $this->load->model('seleccionarusuarios'); // whatever you call it
+       $this->load->model('model_catalogo'); // whatever you call it
 
     $data["resultado"]=  $this->modelcatalogo->get_productos();
     $this->load->library('session');
