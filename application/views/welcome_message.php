@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <head>
 	
 	<title>Massive Dynamic, un Universo de Software</title>
@@ -93,7 +92,17 @@ table.sample td {
 
 <div id="container">
 	<h1>Bienvenido a Massive Dynamic!</h1>
-
+        <?php
+        $this->load->library('session');
+        if($this->session->userdata('Username')!=null){
+            echo "Usted está identificado como ".$this->session->userdata('Username');
+        }
+        else{
+            $this->load->helper('url');
+        
+        echo "<a href='".site_url('controller_login/login')."'>Identifiquese!</a>";     
+        }
+        ?>
 	<div id="body">
 			<?php 
         echo "<h2>El software disponible es el siguiente:</h2></br><table class='sample'>

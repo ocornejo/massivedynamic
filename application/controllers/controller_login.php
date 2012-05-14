@@ -8,7 +8,7 @@ class Controller_login extends CI_Controller {
         if($this->session->userdata('Username')!=null){
             $data['usuario']=$this->session->userdata('Username');
                     //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje a presentar en pantalla
-                    $this->load->view('Principal',$data); 
+                    $this->load->view('welcome'); 
         }
         else{
         //Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa:
@@ -39,9 +39,9 @@ class Controller_login extends CI_Controller {
                       enviándole como dato el usuario
                     */
                     $this->session->set_userdata('Username',$_POST['username']);
-                    $data['usuario']=$_POST['username'];
+     
                     //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje de error a presentar en pantalla
-                    $this->load->view('Principal',$data);  
+                    $this->load->view('welcome');  
                 }
                 else{//Si no logró validar
                     $data['error']="Usuario o password incorrecto, por favor vuelva a intentar";
