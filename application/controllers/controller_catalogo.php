@@ -23,7 +23,7 @@ class Controller_Catalogo extends CI_Controller {
                
        $this->load->model('model_catalogo'); // whatever you call it
 
-    $data["resultado"]=  $this->modelcatalogo->get_productos();
+    $data["resultado"]=  $this->model_catalogo->get_productos();
     $this->load->library('session');
     if($this->session->userdata('Username')!=null){
             $data["log"]=$this->session->userdata('Username');
