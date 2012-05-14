@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "contoller_catalogo";
+$route['default_controller'] = "contoller_catalogo/index";
 $route['404_override'] = '';
 
 
