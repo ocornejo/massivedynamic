@@ -97,7 +97,7 @@ table.sample td {
         $this->load->library('session');
         if($log!=null){
             echo "Usted está identificado como ".$log;
-            echo "<a href='".site_url("controller_login/logout")."'>Logout</a>";
+            echo "<a href='".site_url("controller_login/logout")."'> Cerrar Sesión</a>";
         }
         else{
             

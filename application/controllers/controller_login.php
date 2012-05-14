@@ -7,8 +7,10 @@ class Controller_login extends CI_Controller {
         $this->load->helper('form');
         if($this->session->userdata('Username')!=null){
             $data['log']=$this->session->userdata('Username');
-                    //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje a presentar en pantalla
-                    $this->load->view('welcome_message',$data); 
+            $this->load->model('seleccionarusuarios'); // carga los productos
+            $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
+                    //Lo regresamos a la pantalla del catalogo y pasamos como parámetro el mensaje a presentar en pantalla
+            $this->load->view('welcome_message',$data); 
         }
         else{
         //Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa:
@@ -40,6 +42,8 @@ class Controller_login extends CI_Controller {
                     */
                     $this->session->set_userdata('Username',$_POST['username']);
                     $data['log']=$this->session->userdata('Username');
+                    $this->load->model('seleccionarusuarios'); // carga los productos
+                    $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
                     //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje de error a presentar en pantalla
                     $this->load->view('welcome_message',$data);  
                 }
