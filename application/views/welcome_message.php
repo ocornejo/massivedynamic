@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	
-	<title>Welcome to CodeIgniter</title>
+	<title>Massive Dynamic, un Universo de Software</title>
 
 	<style type="text/css">
 
@@ -97,9 +97,9 @@ table.sample td {
 			<?php 
         echo "<h2>El software disponible es el siguiente:</h2></br><table class='sample'>
     <tr>
-        <td><h5>Codigo</h5></td>
+        <td><h5>Código</h5></td>
         <td><h5>Nombre</h5></td>
-        <td><h5>Descripcion</h5></td>
+        <td><h5>Descripción</h5></td>
         <td><h5>Plataforma</h5></td>
         <td><h5>Precio</h5></td>
         <td><h5>Imagen</h5></td>
