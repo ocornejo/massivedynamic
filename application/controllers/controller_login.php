@@ -7,10 +7,10 @@ class Controller_login extends CI_Controller {
         $this->load->helper('form');
         if($this->session->userdata('Username')!=null){
             $data['log']=$this->session->userdata('Username');
-            $this->load->model('seleccionarusuarios'); // carga los productos
-            $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
+            $this->load->model('model_catalogo'); // carga los productos
+            $data["resultado"]=  $this->model_catalogo->get_productos();
                     //Lo regresamos a la pantalla del catalogo y pasamos como parámetro el mensaje a presentar en pantalla
-            $this->load->view('welcome_message',$data); 
+            $this->load->view('view_catalogo',$data); 
         }
         else{
         //Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa:
@@ -42,10 +42,10 @@ class Controller_login extends CI_Controller {
                     */
                     $this->session->set_userdata('Username',$_POST['username']);
                     $data['log']=$this->session->userdata('Username');
-                    $this->load->model('seleccionarusuarios'); // carga los productos
-                    $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
+                    $this->load->model('model_catalogo'); // carga los productos
+                    $data["resultado"]=  $this->model_catalogo->get_productos();
                     //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje de error a presentar en pantalla
-                    $this->load->view('welcome_message',$data);  
+                    $this->load->view('view_catalogo',$data);  
                 }
                 else{//Si no logró validar
                     $data['error']="Usuario o password incorrecto, por favor vuelva a intentar";
@@ -62,10 +62,10 @@ class Controller_login extends CI_Controller {
     {
         $this->load->library('session');
         $this->session->destroy();//destruye la session y va a la vista de login
-        $this->load->model('seleccionarusuarios'); // carga los productos
-        $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
+        $this->load->model('model_catalogo'); // carga los productos
+        $data["resultado"]=  $this->model_catalogo->get_productos();
         $data["log"]=null;
-        $this->load->view('welcome_message',$data);
+        $this->load->view('view_catalogo',$data);
     }
 }
 ?>

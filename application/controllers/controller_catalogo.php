@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
                
        $this->load->model('seleccionarusuarios'); // whatever you call it
 
-    $data["resultado"]=  $this->seleccionarusuarios->get_usuarios();
+    $data["resultado"]=  $this->modelcatalogo->get_productos();
     $this->load->library('session');
     if($this->session->userdata('Username')!=null){
             $data["log"]=$this->session->userdata('Username');
@@ -33,7 +33,7 @@ class Welcome extends CI_Controller {
            
         }
     /* note - you don't need to have the extension when it's a php file */
-    $this->load->view('welcome_message',$data);
+    $this->load->view('view_catalogo',$data);
                 
                 
         
