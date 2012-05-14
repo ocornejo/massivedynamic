@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <head>
 	
 	<title>Massive Dynamic, un Universo de Software</title>
