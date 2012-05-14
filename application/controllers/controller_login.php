@@ -57,7 +57,7 @@ class Controller_login extends CI_Controller {
     function logout()
     {
         $this->load->library('session');
-        $this->session->destroy();
+        $this->session->destroy();//destruye la session y va a la vista de login
         $this->load->view('view_login');
     }
 }

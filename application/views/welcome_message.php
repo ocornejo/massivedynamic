@@ -88,7 +88,7 @@ echo "<tr>".
         "<td>".$row->Descripcion."</td>".
         "<td>".$row->Plataforma."</td>".
         "<td>".$row->Precio."</td>".
-        "<td><img src='data:image/png;base64,".base64_encode($row->Img)."'></td>".
+        "<td><img src='data:image/png;base64,".base64_encode($row->Img)."'/></td>".
       "</tr>";
 } 
 echo "</table>"?>
