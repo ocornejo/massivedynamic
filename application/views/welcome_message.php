@@ -62,6 +62,30 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
+        table.sample {
+	border-width: 1px;
+	border-spacing: 2px;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: collapse;
+	background-color: white;
+}
+table.sample th {
+	border-width: 2px;
+	padding: 1px;
+	border-style: outset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+}
+table.sample td {
+	border-width: 2px;
+	padding: 1px;
+	border-style: outset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+}
 	</style>
 </head>
 <body>
@@ -71,14 +95,14 @@
 
 	<div id="body">
 			<?php 
-        echo "<h2>Los software que hay en la Base de Datos son:</h2></br><table>
+        echo "<h2>El software disponible es el siguiente:</h2></br><table class='sample'>
     <tr>
-        <td>Codigo</td>
-        <td>Nombre</td>
-        <td>Descripcion</td>
-        <td>Plataforma</td>
-        <td>Precio</td>
-        <td>Imagen</td>
+        <td><h5>Codigo</h5></td>
+        <td><h5>Nombre</h5></td>
+        <td><h5>Descripcion</h5></td>
+        <td><h5>Plataforma</h5></td>
+        <td><h5>Precio</h5></td>
+        <td><h5>Imagen</h5></td>
     </tr>";
         foreach($resultado->result() as $row)
 {
