@@ -23,7 +23,7 @@ class Controller_registro extends CI_Controller {
                 $this->load->view('view_registro');
             }
             else{//Si los campos fueron correctamente rellanados por el usuario,
-                $this->load->model('model_usuario');
+                $this->load->model('model_registro');
                 
                 //Vemos si el usuario existe en la base de datos 
                 $ExisteUsuarioyPassoword=$this->model_registro->ValidarUsuario($_POST['username']);
