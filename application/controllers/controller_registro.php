@@ -38,13 +38,13 @@ class Controller_registro extends CI_Controller {
                  //   $this->form_validation->set_message('username', 'Usuario ya existe');
                    // $this->load->view('view_registro');
                       
-                }
+                //}
                 //else{//Si no existe
                 $this->load->model('model_registro');
                      $this->model_registro->IngresarUsuario($_POST['username'],$_POST['passwordlogin'],$_POST['nombre'],$_POST['correo']);
                      $this->load->view('view_registrado');
                      $this->session->set_userdata('Username',$_POST['username']);
-               // }
+                }
             }
         //}
     
