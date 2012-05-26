@@ -17,7 +17,7 @@ class Controller_registro extends CI_Controller {
             $this->form_validation->set_rules('correo','Email','required');
             
             //Verificamos si el usuario superó la validación
-            /*if(($this->form_validation->run()==FALSE)){
+            if(($this->form_validation->run()==FALSE)){
                 //En caso que no, volvemos a presentar la pantalla de login
                 $this->form_validation->set_message('correo', 'Correo no valido');
                 $this->load->view('view_registro');
@@ -35,21 +35,20 @@ class Controller_registro extends CI_Controller {
                       Muestro la vista principal de lo que sería mi aplicación,
                       enviándole como dato el usuario
                     */
-                 //   $this->form_validation->set_message('username', 'Usuario ya existe');
-                   // $this->load->view('view_registro');
+                    $this->form_validation->set_message('username', 'Usuario ya existe');
+                    $this->load->view('view_registro');
                       
-                //}
-                //else{//Si no existe
-                $this->load->model('model_registro');
+                }
+                else{//Si no existe
                      $this->model_registro->IngresarUsuario($_POST['username'],$_POST['passwordlogin'],$_POST['nombre'],$_POST['correo']);
                      $this->load->view('view_registrado');
                      $this->session->set_userdata('Username',$_POST['username']);
                 }
             }
-        //}
+        }
     
     
     
-    
+    }
 }
 ?>
