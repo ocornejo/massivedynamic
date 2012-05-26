@@ -9,7 +9,7 @@
 </head>
  
 <body style="margin-top:0px">
-<?php echo  form_open('controller_login/login'); ?>
+<?php echo  form_open('controller_registro/registro'); ?>
 <div class="Info">
     <p class="Titulo">Por su seguridad, requerimos sus datos de acceso</p>
     <p>&nbsp;</p>    
