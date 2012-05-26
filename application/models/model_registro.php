@@ -10,13 +10,14 @@ class Model_registro extends CI_Model{
         //Devolvemos al controlador la fila que coincide con la búsqueda. (FALSE en caso que no existir coincidencias)
         return $query->row();
     }
-    function ValidarUsuario($usuario,$password,$nombre,$correo){
+    function IngresarUsuario($usuario,$password,$nombre,$correo){
         //La consulta se efectúa mediante Active Record. Una manera alternativa, y en lenguaje más sencillo, de generar las consultas Sql.
         $DB1=$this->load->database('default',TRUE);
-        $data = array('usuario' => $usuario, 'password' => $password, 'nombre' => $nombre,'correo' => $correo);
-        $str = $DB1->insert_string('usuarios', $data);
+        $data = array('idUsuarios' => 5, 'password' => $password, 'nombre' => $nombre,'correo' => $correo);
+        $str = $DB1->insert_string('Usuarios', $data);
+        $DB1->query($str);
         //Devolvemos al controlador la fila que coincide con la búsqueda. (FALSE en caso que no existir coincidencias)
-        return $query->row();
+        return;
     }
 }
 ?>
