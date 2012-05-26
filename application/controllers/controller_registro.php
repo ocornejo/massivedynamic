@@ -22,7 +22,7 @@ class Controller_registro extends CI_Controller {
                 $this->form_validation->set_message('correo', 'Correo no valido');
                 $this->load->view('view_registro');
             }
-            else{//Si los campos fueron correctamente rellanados por el usuario,*/
+            else{//Si los campos fueron correctamente rellanados por el usuario,
                 $this->load->model('model_registro');
                 
                 //Vemos si el usuario existe en la base de datos 
@@ -35,17 +35,17 @@ class Controller_registro extends CI_Controller {
                       Muestro la vista principal de lo que sería mi aplicación,
                       enviándole como dato el usuario
                     */
-                    $this->form_validation->set_message('username', 'Usuario ya existe');
-                    $this->load->view('view_registro');
+                 //   $this->form_validation->set_message('username', 'Usuario ya existe');
+                   // $this->load->view('view_registro');
                       
                 }
-                else{//Si no existe
+                //else{//Si no existe
                      $this->model_registro->IngresarUsuario($_POST['username'],$_POST['passwordlogin'],$_POST['nombre'],$_POST['correo']);
                      $this->load->view('view_registrado');
                      $this->session->set_userdata('Username',$_POST['username']);
-                }
+               // }
             }
-        }
+        //}
     
     
     
