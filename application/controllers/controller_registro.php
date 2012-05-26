@@ -17,12 +17,12 @@ class Controller_registro extends CI_Controller {
             $this->form_validation->set_rules('correo','Email','required');
             
             //Verificamos si el usuario superó la validación
-            if(($this->form_validation->run()==FALSE)){
+            /*if(($this->form_validation->run()==FALSE)){
                 //En caso que no, volvemos a presentar la pantalla de login
                 $this->form_validation->set_message('correo', 'Correo no valido');
                 $this->load->view('view_registro');
             }
-            else{//Si los campos fueron correctamente rellanados por el usuario,
+            else{//Si los campos fueron correctamente rellanados por el usuario,*/
                 $this->load->model('model_registro');
                 
                 //Vemos si el usuario existe en la base de datos 
@@ -49,6 +49,6 @@ class Controller_registro extends CI_Controller {
     
     
     
-    }
+    
 }
 ?>
