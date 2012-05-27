@@ -12,6 +12,17 @@ class Model_paypal extends CI_Model {
         //Devolvemos al controlador la fila que coincide con la búsqueda. (FALSE en caso que no existir coincidencias)
         return;
     }
+    
+    function getUser($email,$password){
+        $DB1 = $this->load->database('default',TRUE);
+        
+        $query = $DB1->where('email',$email);
+        $query = $DB1->where('password',$password);
+        $query = $DB1->get('users');
+        
+        //Devolvemos al controlador la fila que coincide con la búsqueda. (FALSE en caso que no existir coincidencias)
+        return $query->row();
+    }
 
 }
 

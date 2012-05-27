@@ -1,7 +1,6 @@
 
 
 <?php
-
 //Hecho en base a http://es.paperblog.com/paypal-nvp-api-con-codeigniter-278257/
 //variables en https://cms.paypal.com/us/cgi-bin/?&cmd=_render-content&content_ID=developer/e_howto_api_nvp_r_SetExpressCheckout
 
@@ -78,15 +77,39 @@ Buyer Email: ' . $email . '
             fclose($fp);
         }
     }
-    
-    function pagar(){
+
+    function pagar() {
         $this->load->view('view_compra');
     }
-    function login(){
-        
-        
+
+    function login() {
+
+
         $this->load->model('model_paypal');
-        $this->load->view('view_loginPaypal');
+
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            $email = mysql_escape_string($_POST['email']);
+            $password = md5($_POST['password']);
+            
+            $data["resultado"] = $this->model_paypal->getUser($email,$password);
+            $data["isSet"]=TRUE;
+            
+            $verify = mysql_num_rows($data["resultado"]);
+            $data["verify"]= $verify;
+            
+                    
+            $this->load->view('view_loginPaypal',$data);
+        } else {
+            
+            $data["isSet"] = FALSE;
+            
+            $this->load->view('view_loginPaypal',$data);
+            
+                      
+        }
+        
+
+
     }
 
 }
