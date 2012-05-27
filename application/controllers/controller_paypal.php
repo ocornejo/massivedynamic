@@ -1,64 +1,93 @@
 
 
 <?php
+
 //Hecho en base a http://es.paperblog.com/paypal-nvp-api-con-codeigniter-278257/
 //variables en https://cms.paypal.com/us/cgi-bin/?&cmd=_render-content&content_ID=developer/e_howto_api_nvp_r_SetExpressCheckout
 
 
 define('PAYPAL_URL', 'https://www.sandbox.paypal.com/webscr&cmd=_express-checkout&token=');
- 
-class Controller_Paypal extends Controller {
- 
-    function Controller_Paypal()
-    {
-        parent::Controller();
+
+class Controller_Paypal extends CI_Controller {
+
+    function ipn() {
+
+        $this->load->model('model_paypal');
+
+// read the post from PayPal system and add 'cmd'
+        $req = 'cmd=_notify-validate';
+        foreach ($_POST as $key => $value) {
+            $value = urlencode(stripslashes($value));
+            $req .= "&$key=$value";
+        }
+// post back to PayPal system to validate
+        $header = "POST /cgi-bin/webscr HTTP/1.0\r\n";
+        $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
+        $header .= "Content-Length: " . strlen($req) . "\r\n\r\n";
+
+        $fp = fsockopen('ssl://www.paypal.com', 443, $errno, $errstr, 30);
+
+        if (!$fp) {
+// HTTP ERROR
+        } else {
+            fputs($fp, $header . $req);
+            while (!feof($fp)) {
+                $res = fgets($fp, 1024);
+                if (strcmp($res, "VERIFIED") == 0) {
+
+// PAYMENT VALIDATED & VERIFIED!
+                    $email = $_POST['payer_email'];
+                    $password = mt_rand(1000, 9999);
+                    $this->model_paypal->insertUser($password, $email);
+
+                    $to = $email;
+                    $subject = 'Download Area | Login Credentials';
+                    $message = '
+
+Thank you for your purchase
+
+Your account information
+-------------------------
+Email: ' . $email . '
+Password: ' . $password . '
+-------------------------
+
+You can now login at http://yourdomain.com/PayPal/';
+                    $headers = 'From:noreply@yourdomain.com' . "\r\n";
+
+                    mail($to, $subject, $message, $headers);
+                } else if (strcmp($res, "INVALID") == 0) {
+
+// PAYMENT INVALID & INVESTIGATE MANUALY!
+                    $to = 'invalid@yourdomain.com';
+                    $subject = 'Download Area | Invalid Payment';
+                    $message = '
+
+Dear Administrator,
+
+A payment has been made but is flagged as INVALID.
+Please verify the payment manualy and contact the buyer.
+
+Buyer Email: ' . $email . '
+';
+                    $headers = 'From:noreply@yourdomain.com' . "\r\n";
+
+                    mail($to, $subject, $message, $headers);
+                }
+            }
+            fclose($fp);
+        }
     }
- 
-    function pagar($nombre, $valor) {
-    $this->paypal_api_lib->add_nvp('RETURNURL', site_url("controller_compra/comprado"));//va cuando se realiza la compra bien
-    $this->paypal_api_lib->add_nvp('CANCELURL', site_url("controller_compra/nocomprado"));//va cuando no se realiza la compra bien
-    $this->paypal_api_lib->add_nvp('NOSHIPPING', '0');//paypal muestra la dirección de shipping 
-    $this->paypal_api_lib->add_nvp('ALLOWNOTE', '1');
-    $this->paypal_api_lib->add_nvp('SOLUTIONTYPE', 'Sole'); // esto es lo que no obliga a que se tenga que tener cuenta Paypal
-    $this->paypal_api_lib->add_nvp('LANDINGPAGE', 'Billing');
-    $this->paypal_api_lib->add_nvp('AMT', '69.00');// El costo total de la operación al comprador
-    $this->paypal_api_lib->add_nvp('NOSHIPPING', '2');//si no se pasa la dirección de shipping paypal la obtiene de la cuenta del comprador
-    $this->paypal_api_lib->add_nvp('HDRIMG', 'http://1.bp.blogspot.com/-op-S2WhOqrU/TZp2DjdpVqI/AAAAAAAAAPQ/ErYyWi2ODlY/s320/MassiveDynamic.png');
-    $this->paypal_api_lib->add_nvp('CURRENCYCODE', 'USD');//MONEDA, NO SALE PESO CHILENO 
-    $this->paypal_api_lib->add_nvp('L_NAME0', $nombre);//Nombre del elemento comprado
-    $this->paypal_api_lib->add_nvp('L_AMT0', $valor);
     
-    $this->load->library('session');
-    $sesion = array('paypalAmount'=>'69.00');
-    $this->session->set_userdata($sesion);
- 
-    if($this->paypal_api_lib->send_api_call('SetExpressCheckout')){
-      if (strtoupper($this->paypal_api_lib->nvp_data["ACK"]) =="SUCCESS") {
-                    $token = urldecode($this->paypal_api_lib->nvp_data["TOKEN"]);
-                    $payPalURL = PAYPAL_URL.$token;
-                    header("Location: ".$payPalURL);
-          exit();
-      }
+    function pagar(){
+        $this->load->view('view_compra');
     }
-    paypal_errors(); 
-  }
-    
-  function ok() {
-    $this->load->library('session');
- 
-    $this->paypal_api_lib->add_nvp('TOKEN', $_REQUEST['token']);
-    $this->paypal_api_lib->add_nvp('PAYERID', $_REQUEST['PayerID']);
-    $this->paypal_api_lib->add_nvp('PAYMENTACTION', 'Sale');
-    $this->paypal_api_lib->add_nvp('AMT', $this->session->userdata('paypalAmount'));
-    $this->paypal_api_lib->add_nvp('CURRENCYCODE', 'USD');
-    $this->paypal_api_lib->add_nvp('IPADDRESS', $_SERVER['SERVER_NAME']);
- 
-    if($this->paypal_api_lib->send_api_call('DoExpressCheckoutPayment')) {
-      var_dump($this->paypal_api_lib->nvp_data);
-    } else {
-      paypal_errors();
+    function login(){
+        
+        
+        $this->load->model('model_paypal');
+        $this->load->view('view_loginPaypal');
     }
-  }
- 
+
 }
 ?>
