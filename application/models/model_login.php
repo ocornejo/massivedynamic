@@ -5,7 +5,7 @@ class Model_login extends CI_Model{
         //La consulta se efectúa mediante Active Record. Una manera alternativa, y en lenguaje más sencillo, de generar las consultas Sql.
         $DB1=$this->load->database('default',TRUE);
         $query = $DB1->where('Username',$usuario);
-        $query = $DB1->where('Password',$password);
+        $query = $DB1->where('Password',md5($password));
         $query = $DB1->get('Usuarios');
         
         //Devolvemos al controlador la fila que coincide con la búsqueda. (FALSE en caso que no existir coincidencias)
