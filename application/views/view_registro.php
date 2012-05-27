@@ -3,7 +3,7 @@
 <head>
 <title>Massive Dynamics, La mejor tienda virtual de Software de este universo y algunos otros</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="<?php echo baseurl()."/estiloscss/";?>estilo_login.css" type="text/css" media="screen">
+<link rel="stylesheet" href="<?php// echo baseurl()."/estiloscss/";?>estilo_login.css" type="text/css" media="screen">
 <!--<link rel="stylesheet" href="../../php-login.css" type="text/css" media="screen">-->
 </head>
  
