@@ -1,139 +1,122 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
-<meta http-equiv="content-type" content="text/html; charset=iso-8859" />
+<!DOCTYPE HTML>
+<html>
 <head>
-	
-	<title>Massive Dynamic, un Universo de Software</title>
+<meta charset="UTF-8">
+<title>Massive Dynamic, un universo de software</title>
+<?php $this->load->helper('url'); ?>
 
-	<style type="text/css">
+<link rel="icon" href="<?php echo base_url()?>images/favicon.gif" type="image/x-icon"/>
+<link rel="shortcut icon" href="<?php echo base_url()?>images/favicon.gif" type="image/x-icon"/> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/styles.css"/>
+<link type="text/css" href="<?php echo base_url()?>css/fancymoves.css" media="screen" charset="utf-8" rel="stylesheet"  />
 
-	::selection{ background-color: #E13300; color: white; }
-	::moz-selection{ background-color: #E13300; color: white; }
-	::webkit-selection{ background-color: #E13300; color: white; }
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>js/slider.js" charset="utf-8"></script>
 
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
+<style type="text/css" media="screen">
+    @font-face {
+        font-family: 'BebasNeueRegular';
+        src: url('BebasNeue-webfont.eot');
+        src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+            url('BebasNeue-webfont.woff') format('woff'),
+            url('BebasNeue-webfont.ttf') format('truetype'),
+            url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    h1.fontface {font: 72px/80px 'BebasNeueRegular', Arial, sans-serif;letter-spacing: 0;}
+    h2.fontface {font: 35px/43px 'BebasNeueRegular', Arial, sans-serif;letter-spacing: 0;}
+    h3.fontface {font: 25px/33px 'BebasNeueRegular', Arial, sans-serif;letter-spacing: 2px;}
+    h4.fontface {font: 20px/28px 'BebasNeueRegular', Arial, sans-serif;letter-spacing: 0;}
+    p.style1 {font: 18px/27px 'BebasNeueRegular', Arial, sans-serif;}
+</style>
 
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
+  <script type="text/javascript" src="<?php echo base_url()?>demo/demo.js"></script>
+  
+  <!-- FancyBox scripts -->
+  <script type="text/javascript" src="<?php echo base_url()?>fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $("a.pop1").fancybox();
+          
+          $("a.pop2").fancybox({
+              'overlayShow'	: false,
+              'transitionIn'	: 'elastic',
+              'transitionOut'	: 'elastic'
+          });
+          
+          $("a.pop3").fancybox({
+              'transitionIn'	: 'none',
+              'transitionOut'	: 'none',
+              'overlayColor'	: '#000',
+              'overlayOpacity'	: 0.7
+          });
+          
+          $("a.pop4").fancybox({
+              'opacity'		: true,
+              'overlayShow'	: false,
+              'transitionIn'	: 'elastic',
+              'transitionOut'	: 'none'
+          });
+          
+          $("a.pop5").fancybox();
+          
+          $("a#example6").fancybox({
+              'titlePosition'	: 'outside',
+              'overlayColor'	: '#000',
+              'overlayOpacity'	: 0.9
+          });
+          
+          $("a.pop6").fancybox({
+              'titlePosition'	: 'inside'
+          });
+          
+          $("a.pop7").fancybox({
+              'titlePosition'	: 'over'
+          });
+      });
+  </script>
 
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body{
-		margin: 0 15px 0 15px;
-	}
-	
-	p.footer{
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-	
-	#container{
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
-	}
-        table.sample {
-	border-width: 1px;
-	border-spacing: 2px;
-	border-style: outset;
-	border-color: gray;
-	border-collapse: collapse;
-	background-color: white;
-}
-table.sample th {
-	border-width: 2px;
-	padding: 1px;
-	border-style: outset;
-	border-color: gray;
-	background-color: white;
-	-moz-border-radius: ;
-}
-table.sample td {
-	border-width: 2px;
-	padding: 1px;
-	border-style: outset;
-	border-color: gray;
-	background-color: white;
-	-moz-border-radius: ;
-}
-	</style>
 </head>
 <body>
-
-<div id="container">
-	<h1>Bienvenido a Massive Dynamic!</h1>
-        <?php
-        $this->load->helper('url');
-        $this->load->library('session');
-        if($log!=null){
-            echo "Usted está identificado como ".$log;
-            echo "<a href='".site_url("controller_login/logout")."'> Cerrar Sesión</a>";
-        }
-        else{
-            
-        
-        echo "<a href='".site_url('controller_login/login')."'>Identifiquese!</a>";     
-        }
-        ?>
-	<div id="body">
-			<?php 
-        echo "<h2>El software disponible es el siguiente:</h2></br><table class='sample'>
-    <tr>
-        <td><h5>Código</h5></td>
-        <td><h5>Nombre</h5></td>
-        <td><h5>Descripción</h5></td>
-        <td><h5>Plataforma</h5></td>
-        <td><h5>Precio</h5></td>
-        <td><h5>Imagen</h5></td>
-    </tr>";
-        foreach($resultado->result() as $row)
-{
-echo "<tr>".
-        "<td>".$row->Codigo."</td>".
-        "<td>".$row->Nombre."</td>".
-        "<td>".$row->Descripcion."</td>".
-        "<td>".$row->Plataforma."</td>".
-        "<td>".$row->Precio."</td>".
-        "<td><img src='data:image/png;base64,".$row->Img."'/></td>".
-      "</tr>";
-} 
-echo "</table>"?>
+    <header>
+        <div id="container">
+            <h1 class="fontface" id="title">MDS</h1>
+            <nav><ul>
+                    <li><a href="#">Home</a></li>
+                    <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>CatÃ¡logo</a>"?></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul></nav>
         </div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
-</div>
+    </header>
+    
+    <div id="container">
+        <section id="intro">
+            <div id="slider-three">
+            <?php
+                foreach($resultado->result() as $row){
+                    echo "<div>";
+                    echo "<a href='".site_url('controller_producto/producto/'.$row->idProductos.'')."'>
+                        <img src='data:image/png;base64,".base64_encode($row->Img)."'>
+                            </a><br /><br /><br />";
+                    echo "<p>".$row->Nombre."</p>";
+                    echo "</div>";
+                } ?>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <br>
+            <p>Â© 2012 Massive Dynamic Store</p>
+        </div>
+   </footer>
 
 </body>
 </html>

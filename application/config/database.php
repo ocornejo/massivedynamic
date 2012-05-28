@@ -54,7 +54,7 @@ $active_record = FALSE;
 /*Conexión a bd interna*/
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['password'] = 'cortexifan';
 $db['default']['database'] = 'fringedivision';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
