@@ -1,15 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class PdtTest extends CI_Controller {
-
+        
+    public function ppp(){
+        $this->load->view("view_compra");
+    }
 	public function index()
 	{
                 $this->load->library('curl');
 		$data['cmd'] = "_notify-synch";
 		$data['tx'] = $this->input->get('tx');
 		$data['at'] = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO";
-
+                    
 		$result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
+                echo $result;
 		$deformat = $this->deformat($result);
 
 		if($deformat === false)

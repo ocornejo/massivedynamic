@@ -102,27 +102,27 @@
             <h1><p><?php echo $row->Nombre;?></p></h1>
             <table cellspacing="5">
             <tr>
-            <td rowspan="4"><?php echo "<img src='data:image/png;base64,".$row->Img."'>";?></td>
+            <td rowspan="4" width="300"><?php echo "<img src='data:image/png;base64,".$row->Img."'>";?></td>
             <td><p><b>C&oacute;digo:</b></p></td>
             <td><p><?php echo $row->Codigo;?></p></td>
+            <td></td>
             </tr>
             <tr>
             <td><p><b>Plataforma:</b></p></td>
             <td><p><?php echo $row->Plataforma;?></p></td>
+            <td></td>
             </tr>
             <tr>
             <td><p><b>Precio:</b></p></td>
             <td><p><?php echo "$".$row->Precio;?></p></td>
+            <td></td>
             </tr>
-            <tr>
-            <td><p><b>Descripci&oacute;n:</b></p></td>
+            <td valign="top" width="100"><p><b>Descripci&oacute;n:</b></p></td>
             <td><p><?php echo utf8_decode($row->Descripcion);?></p></td>
-            </tr>
-            <tr>
-            <td><form action="" method="post"><input name="boton" type="submit" value="COMPRAR JUEGO" /></form></td>
             <td></td>
             </tr>
             </table>
+            <form action="" method="post"><input name="boton" type="submit" value="Comprar" /></form>
             <?php } ?>
         </section>
     </div>

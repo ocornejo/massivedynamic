@@ -1,29 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Nettuts.com | Purchase access to download area</title>
+        <title>Massive Dynamic</title>
         <link rel="stylesheet" type="text/css" media="All"/>
     </head>
     <body>
 
         <div id="wrap">
-            <h3>Purchase Access</h3>
-            <p>Please click the button below to receive login details for the download area. <br />
-    
-                Already have an account?
-       
-                <?php 
-                $this->load->helper('url');
-                echo anchor('controller_paypal/login', 'Login', 'title="Login"');?>
-            </p>
-
-            <!-- Paste your PayPal button code here (That you will get in the next step) -->
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="8Y76UBA8P2QEY">
-                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
-                <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-            </form>
+           <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" accept-charset="utf-8">
+    <p>
+    <input type="hidden" name="cmd" value="_xclick" />
+    <input type="hidden" name="charset" value="utf-8" />
+    <input type="hidden" name="business" value="ocornejo@alumnos.inf.utfsm.cl" />
+    <input type="hidden" name="item_name" value="Counter Strike" />
+    <input type="hidden" name="item_number" value="Counter Strike" />
+    <input type="hidden" name="amount" value="20.00" />
+    <input type="hidden" name="currency_code" value="USD" />
+    <input type="hidden" name="return" value="http://massivedynamic.inf.utfsm.cl/massivedynamic/index.php/pdttest/index" />
+    <input type="hidden" name="cancel_return" value="http://massivedynamic.inf.utfsm.cl/massivedynamic/index.php/pdttest/index" />
+    <input type="hidden" name="bn" value="Business_BuyNow_WPS_SE" />
+    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit" alt="Buy Now" />
+    </p>
+</form>
 
         </div>
 
