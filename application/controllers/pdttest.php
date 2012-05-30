@@ -4,6 +4,7 @@ class PdtTest extends CI_Controller {
 
 	public function index()
 	{
+                $this->load->library('curl');
 		$data['cmd'] = "_notify-synch";
 		$data['tx'] = $this->input->get('tx');
 		$data['at'] = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO";
