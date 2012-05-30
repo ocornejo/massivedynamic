@@ -35,27 +35,19 @@
     .fila{clear:left;}
     
 .LoginUsuariosCabecera{
-	float:left;
+	
 	background-color: #1D9995;
 	width:130px;
 	height:20px;
-	border-color:#FFFFFF;
-	border-width:thin;
-	border-style:solid;
 }
 
-.LoginUsuariosDato{
-	float:left;	
-	background-color: #C3E9DA;
-	width:200px;
+.LoginUsuariosDato{	
+	width:230px;
 	height:20px;
-	border-color:#FFFFFF;
-	border-width:1px;
-	border-style:solid;
 }
 .LoginUsuariosError{
 	float:left;
-	width:400px;
+	width:500px;
 	height:20px;
 	color:#FF0000;
 }
@@ -64,6 +56,10 @@
 	vertical-align:top;
 	margin-top:3px;
 	margin-left:3px;
+}
+#formulario{
+     margin:0 auto 0 auto;
+     width: 400px;
 }
 </style>
 
@@ -85,11 +81,11 @@
     
     <div id="container">
         <section id="intro">
-            <center>
-            
+           
+            <div id="formulario">
            <?php echo  form_open('controller_registro/registrar'); ?>
 <div class="Info">
-    <p class="Titulo">Por su seguridad, requerimos sus datos de acceso</p>
+    <p class="Titulo">Obtenga ahora su cuenta en Massive Dynamics y acceda a un universo de diversi&oacute;n</p>
     <p>&nbsp;</p>    
 </div>
 <div id="LoginUsuarios">
@@ -121,8 +117,8 @@
         <div class="LoginUsuariosError"><?PHP form_error('correo');?></div>
     </div> 
     <div class="fila">
-        <div class="LoginUsuariosCabecera"><input type="submit" value="Registrar"></div>
-        <div class="LoginUsuariosDato"></div>
+        <input type="submit" value="Registrar">
+        
     </div>        
 </div>
 <p>&nbsp;</p>    
@@ -130,10 +126,10 @@
 </form>
                 
                 
+</div>
                 
                 
-                
-            </center>
+           
         </section>
     </div>
     

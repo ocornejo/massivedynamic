@@ -63,6 +63,10 @@
 	margin-top:3px;
 	margin-left:3px;
 }
+#formulario{
+     margin:0 auto 0 auto;
+     width: 400px;
+}
 </style>
 
 </head>
@@ -81,7 +85,7 @@
     
     <div id="container">
         <section id="intro">
-            <center>
+            <div id="formulario">
             <?php echo  form_open('controller_login/login'); ?>
 <div class="Info">
     <p class="Titulo">Por su seguridad, requerimos sus datos de acceso</p>
@@ -104,20 +108,16 @@
         <div class="LoginUsuariosCabecera">Contrase&ntilde;a:</div>
         <div class="LoginUsuariosDato"><input type="password" name="passwordlogin" value="<?PHP set_value('passwordlogin'); ?>" size="25" /></div>
         <div class="LoginUsuariosError"><?PHP form_error('passwordlogin');?></div>
-    </div>
+    </div>      
     <div class="fila">
-        <div class="LoginUsuariosCabecera"></div>
-        <div class="LoginUsuariosDato"></div>
-    </div>        
-    <div class="fila">
-        <div class="LoginUsuariosCabecera"><input type="submit" value="Ingresar"></div>
-        <div class="LoginUsuariosDato"></div>
+        <input type="submit" value="Ingresar">
+    
     </div>        
 </div>
 <p>&nbsp;</p>    
 <p>&nbsp;</p>    
 </form>
-            </center>
+            </div>
         </section>
     </div>
     
