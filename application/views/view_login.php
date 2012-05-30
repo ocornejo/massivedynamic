@@ -97,6 +97,7 @@
     
     <div id="container">
         <section id="intro">
+            <center>
             <?php echo  form_open('controller_login/login'); ?>
 <div class="Info">
     <p class="Titulo">Por su seguridad, requerimos sus datos de acceso</p>
@@ -132,6 +133,7 @@
 <p>&nbsp;</p>    
 <p>&nbsp;</p>    
 </form>
+            </center>
         </section>
     </div>
     

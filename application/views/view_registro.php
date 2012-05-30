@@ -98,6 +98,7 @@
     
     <div id="container">
         <section id="intro">
+            <center>
             
            <?php echo  form_open('controller_registro/registrar'); ?>
 <div class="Info">
@@ -119,7 +120,7 @@
     </div>        
     <div class="fila">
         <div class="LoginUsuariosCabecera">Contrase&ntilde;a:</div>
-        <div class="LoginUsuariosDato"><input type="password" name="passwordlogin" value="<?PHP set_value('passwordlogin'); ?>" size="255" /></div>
+        <div class="LoginUsuariosDato"><input type="password" name="passwordlogin" value="<?PHP set_value('passwordlogin'); ?>" size="25" /></div>
         <div class="LoginUsuariosError"><?PHP form_error('passwordlogin');?></div>
     </div>
     <div class="fila">
@@ -145,7 +146,7 @@
                 
                 
                 
-           
+            </center>
         </section>
     </div>
     
