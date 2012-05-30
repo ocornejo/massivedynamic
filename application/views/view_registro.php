@@ -98,7 +98,7 @@
     
     <div id="container">
         <section id="intro">
-            <div id="slider-three">
+            
            <?php echo  form_open('controller_registro/registrar'); ?>
 <div class="Info">
     <p class="Titulo">Por su seguridad, requerimos sus datos de acceso</p>
@@ -145,7 +145,7 @@
                 
                 
                 
-            </div>
+           
         </section>
     </div>
     
