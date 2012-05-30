@@ -90,8 +90,8 @@
             <nav><ul>
                     <li><a href="#">Home</a></li>
                     <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Catálogo</a>"?></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
+                    <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>"?></li>
                 </ul></nav>
         </div>
     </header>
