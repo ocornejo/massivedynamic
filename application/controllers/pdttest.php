@@ -1,11 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class PdtTest extends CI_Controller {
-    
-        function __construct() {
-        parent::__construct();
-        $this->load->library('curl');
-    }
 
 	public function index()
 	{
@@ -41,7 +36,7 @@ class PdtTest extends CI_Controller {
 
 	}
 
-
+	
 
 	public function deformat($result)
 	{
@@ -66,4 +61,5 @@ class PdtTest extends CI_Controller {
 	}
 
 }
-?>
+/* End of file pdttest.php */
+/* Location: ./application/controllers/pdttest.php */
