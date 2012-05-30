@@ -15,7 +15,7 @@
  * @copyright   Copyright (c) 2006, http://aroussi.com/ci/
  *
  */
-class Paypal extends Controller {
+class Paypal extends CI_Controller {
 
     function Paypal() {
         parent::Controller();

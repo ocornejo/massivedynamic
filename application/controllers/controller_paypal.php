@@ -96,8 +96,7 @@ Buyer Email: ' . $email . '
             
             $verify = mysql_num_rows($data["resultado"]);
             $data["verify"]= $verify;
-            
-                    
+                        
             $this->load->view('view_loginPaypal',$data);
         } else {
             
