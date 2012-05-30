@@ -31,56 +31,43 @@
     h3.fontface {font: 25px/33px 'BebasNeueRegular', Arial, sans-serif;letter-spacing: 2px;}
     h4.fontface {font: 20px/28px 'BebasNeueRegular', Arial, sans-serif;letter-spacing: 0;}
     p.style1 {font: 18px/27px 'BebasNeueRegular', Arial, sans-serif;}
+    
+    .fila{clear:left;}
+    
+.LoginUsuariosCabecera{
+	float:left;
+	background-color: #1D9995;
+	width:130px;
+	height:20px;
+	border-color:#FFFFFF;
+	border-width:thin;
+	border-style:solid;
+}
+
+.LoginUsuariosDato{
+	float:left;	
+	background-color: #C3E9DA;
+	width:200px;
+	height:20px;
+	border-color:#FFFFFF;
+	border-width:1px;
+	border-style:solid;
+}
+.LoginUsuariosError{
+	float:left;
+	width:400px;
+	height:20px;
+	color:#FF0000;
+}
+
+.LoginUsuariosError p{
+	vertical-align:top;
+	margin-top:3px;
+	margin-left:3px;
+}
 </style>
 
-  <script type="text/javascript" src="<?php echo base_url()?>demo/demo.js"></script>
   
-  <!-- FancyBox scripts -->
-  <script type="text/javascript" src="<?php echo base_url()?>fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-  <script type="text/javascript" src="<?php echo base_url()?>fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-
-  <script type="text/javascript">
-      $(document).ready(function() {
-          $("a.pop1").fancybox();
-          
-          $("a.pop2").fancybox({
-              'overlayShow'	: false,
-              'transitionIn'	: 'elastic',
-              'transitionOut'	: 'elastic'
-          });
-          
-          $("a.pop3").fancybox({
-              'transitionIn'	: 'none',
-              'transitionOut'	: 'none',
-              'overlayColor'	: '#000',
-              'overlayOpacity'	: 0.7
-          });
-          
-          $("a.pop4").fancybox({
-              'opacity'		: true,
-              'overlayShow'	: false,
-              'transitionIn'	: 'elastic',
-              'transitionOut'	: 'none'
-          });
-          
-          $("a.pop5").fancybox();
-          
-          $("a#example6").fancybox({
-              'titlePosition'	: 'outside',
-              'overlayColor'	: '#000',
-              'overlayOpacity'	: 0.9
-          });
-          
-          $("a.pop6").fancybox({
-              'titlePosition'	: 'inside'
-          });
-          
-          $("a.pop7").fancybox({
-              'titlePosition'	: 'over'
-          });
-      });
-  </script>
 
 </head>
 <body>
