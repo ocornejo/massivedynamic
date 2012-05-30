@@ -89,8 +89,8 @@
             <nav><ul>
                     <li><a href="#">Home</a></li>
                     <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Catálogo</a>"?></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
+                    <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>"?></li>
                 </ul></nav>
         </div>
     </header>
@@ -99,27 +99,29 @@
         <section id="intro">
             <?php
             foreach ($producto->result() as $row){?>
-            <table>
+            <h1><p><?php echo $row->Nombre;?></p></h1>
+            <table cellspacing="5">
             <tr>
-            <td rowspan="5"><?php echo "<img src='data:image/png;base64,".$row->Img."'>";?></td>
-            <td><b>Nombre:</b></td>
-            <td><?php echo $row->Nombre;?></td>
+            <td rowspan="4"><?php echo "<img src='data:image/png;base64,".$row->Img."'>";?></td>
+            <td><p><b>C&oacute;digo:</b></p></td>
+            <td><p><?php echo $row->Codigo;?></p></td>
             </tr>
             <tr>
-            <td><b>C&oacute;digo:</b></td>
-            <td><?php echo $row->Codigo;?></td>
+            <td><p><b>Plataforma:</b></p></td>
+            <td><p><?php echo $row->Plataforma;?></p></td>
             </tr>
             <tr>
-            <td><b>Plataforma:</b></td>
-            <td><?php echo $row->Plataforma;?></td>
+            <td><p><b>Precio:</b></p></td>
+            <td><p><?php echo "$".$row->Precio;?></p></td>
             </tr>
             <tr>
-            <td><b>Precio:</b></td>
-            <td><?php echo "$".$row->Precio;?></td>
+            <td><p><b>Descripci&oacute;n:</b></p></td>
+            <td><p><?php echo utf8_decode($row->Descripcion);?></p></td>
             </tr>
             <tr>
-            <td><b>Descripci&oacute;n:</b></td>
-            <td><?php echo $row->Descripcion;?></td>
+            <td><form action="" method="post"><input name="boton" type="submit" value="COMPRAR JUEGO" /></form></td>
+            <td></td>
+            </tr>
             </table>
             <?php } ?>
         </section>
