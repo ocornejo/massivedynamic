@@ -101,7 +101,7 @@
             foreach ($producto->result() as $row){?>
             <table>
             <tr>
-            <td rowspan="5"><?php echo "<img src='data:image/png;base64,".base64_encode($row->Img)."'>";?></td>
+            <td rowspan="5"><?php echo "<img src='data:image/png;base64,".$row->Img."'>";?></td>
             <td><b>Nombre:</b></td>
             <td><?php echo $row->Nombre;?></td>
             </tr>
