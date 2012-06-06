@@ -9,7 +9,7 @@ class PdtTest extends CI_Controller {
         $desc = //set to the order description to be appear on the PayPal website;
                 //$orderno = //set to unique order number;
         $dolar= 508;        
-        $nettotal = 3000/$dolar; //set to productTotal + shipmentFee + tax;
+        $nettotal = (int) 3000/$dolar; //set to productTotal + shipmentFee + tax;
 
 //Save order information to database using the unique order number with status set as Pending...
 
