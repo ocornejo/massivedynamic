@@ -7,8 +7,8 @@ class PdtTest extends CI_Controller {
 
     public function ppp() {
         $desc = //set to the order description to be appear on the PayPal website;
-                $orderno = //set to unique order number;
-                $nettotal = //set to productTotal + shipmentFee + tax;
+                //$orderno = //set to unique order number;
+                $nettotal = 30; //set to productTotal + shipmentFee + tax;
                
 
 //Save order information to database using the unique order number with status set as Pending...
