@@ -8,8 +8,8 @@ class PdtTest extends CI_Controller {
     public function ppp() {
         $desc = //set to the order description to be appear on the PayPal website;
                 //$orderno = //set to unique order number;
-                $nettotal = 30; //set to productTotal + shipmentFee + tax;
-               
+        $dolar= 508;        
+        $nettotal = 3000/$dolar; //set to productTotal + shipmentFee + tax;
 
 //Save order information to database using the unique order number with status set as Pending...
 
@@ -100,6 +100,7 @@ class PdtTest extends CI_Controller {
                     "Business: " . $ppInfo["business"] . "\n" .
                     "Receiver Email: " . $ppInfo["receiver_email"] . "\n" .
                     "Receiver Id: " . $ppInfo["receiver_id"] . "\n";
+            echo $oremarks;
 
 //Update database using $orderno, set status to Paid
 //Send confirmation email to buyer and notification email to merchant
