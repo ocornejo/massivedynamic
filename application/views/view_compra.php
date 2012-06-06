@@ -16,8 +16,8 @@
     <input type="hidden" name="item_number" value="Counter Strike" />
     <input type="hidden" name="amount" value="20.00" />
     <input type="hidden" name="currency_code" value="USD" />
-    <input type="hidden" name="return" value="http://massivedynamic.inf.utfsm.cl/massivedynamic/index.php/pdttest/index" />
-    <input type="hidden" name="cancel_return" value="http://massivedynamic.inf.utfsm.cl/massivedynamic/index.php/pdttest/index" />
+    <input type="hidden" name="return" value="http://massivedynamic.inf.utfsm.cl/index.php/pdttest/index" />
+    <input type="hidden" name="cancel_return" value="http://massivedynamic.inf.utfsm.cl/index.php/pdttest/index" />
     <input type="hidden" name="bn" value="Business_BuyNow_WPS_SE" />
     <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" name="submit" alt="Buy Now" />
     </p>
