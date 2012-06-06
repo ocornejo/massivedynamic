@@ -11,7 +11,7 @@
     <p>
     <input type="hidden" name="cmd" value="_xclick" />
     <input type="hidden" name="charset" value="utf-8" />
-    <input type="hidden" name="business" value="ocornejo@alumnos.inf.utfsm.cl" />
+    <input type="hidden" name="business" value="Massive Dynamic's Store" />
     <input type="hidden" name="item_name" value="Counter Strike" />
     <input type="hidden" name="item_number" value="Counter Strike" />
     <input type="hidden" name="amount" value="20.00" />
