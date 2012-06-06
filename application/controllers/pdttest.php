@@ -9,7 +9,7 @@ class PdtTest extends CI_Controller {
         $desc = //set to the order description to be appear on the PayPal website;
                 $orderno = //set to unique order number;
                 $nettotal = //set to productTotal + shipmentFee + tax;
-                $_SESSION["ss_last_orderno"] = $orderno;
+               
 
 //Save order information to database using the unique order number with status set as Pending...
 
@@ -40,7 +40,7 @@ class PdtTest extends CI_Controller {
     }
 
     public function index() {
-        $ppAcc = "leepeng@forecepts.com";
+        $ppAcc = "oc77_1338396747_biz@gmail.com";
         $at = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO"; //PDT Identity Token
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
 //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
@@ -64,7 +64,7 @@ class PdtTest extends CI_Controller {
             exit("ERROR: Failed updating order. PayPal PDT service failed.");
 
         $longstr = str_replace("\r", "", $result);
-        $lines = preg_split("\n", $longstr);
+        $lines = explode("\n", $longstr);
         //$lines = split("\n", $longstr);
 
 //parse the result string and store information to array
