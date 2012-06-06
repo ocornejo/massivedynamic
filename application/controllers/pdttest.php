@@ -16,7 +16,7 @@ class PdtTest extends CI_Controller {
 
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
 //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
-        $ppAcc = "leepeng@forecepts.com"; //PayPal account email
+        $ppAcc = "ocornejo@alumnos.inf.utfsm.cl"; //PayPal account email
         $cancelURL = "http://www.yourmerchant.com/paypal_cancel.php";
         $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/pdttest/index";
 
@@ -40,7 +40,6 @@ class PdtTest extends CI_Controller {
     }
 
     public function index() {
-        $orderno = $_SESSION["ss_last_orderno"];
         $ppAcc = "leepeng@forecepts.com";
         $at = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO"; //PDT Identity Token
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
@@ -65,7 +64,8 @@ class PdtTest extends CI_Controller {
             exit("ERROR: Failed updating order. PayPal PDT service failed.");
 
         $longstr = str_replace("\r", "", $result);
-        $lines = split("\n", $longstr);
+        $lines = preg_split("\n", $longstr);
+        //$lines = split("\n", $longstr);
 
 //parse the result string and store information to array
         if ($lines[0] == "SUCCESS") {
