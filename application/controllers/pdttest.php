@@ -16,7 +16,7 @@ class PdtTest extends CI_Controller {
 
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
 //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
-        $ppAcc = "ocornejo@alumnos.inf.utfsm.cl"; //PayPal account email
+        $ppAcc = "oc77_1338396747_biz@gmail.com"; //PayPal account email
         $cancelURL = "http://www.yourmerchant.com/paypal_cancel.php";
         $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/pdttest/index";
 
