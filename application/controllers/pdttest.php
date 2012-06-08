@@ -7,10 +7,10 @@ class PdtTest extends CI_Controller {
 
     public function ppp() {
         $desc = //set to the order description to be appear on the PayPal website;
-                //$orderno = //set to unique order number;
-        $dolar= 508;        
-        $nettotal = (int) 3000/$dolar; //set to productTotal + shipmentFee + tax;
-
+        $orderno = 1;//set to unique order number;
+        $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
+        $data = (int) json_decode($json, TRUE);//set to productTotal + shipmentFee + tax;
+        $nettotal = (int) 5000/$data;
 //Save order information to database using the unique order number with status set as Pending...
 
 
