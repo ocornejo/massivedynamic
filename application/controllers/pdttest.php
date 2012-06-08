@@ -40,6 +40,7 @@ class PdtTest extends CI_Controller {
     }
 
     public function index() {
+        echo "HOLA";
         $ppAcc = "oc77_1338396747_biz@gmail.com";
         $at = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO"; //PDT Identity Token
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
