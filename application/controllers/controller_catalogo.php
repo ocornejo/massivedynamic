@@ -5,25 +5,14 @@ if (!defined('BASEPATH'))
 
 class Controller_Catalogo extends CI_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -  
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in 
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
-     */
+
+    function Controller_Catalago(){
+        parent::__construct();
+        $this->load->model('model_catalogo');
+    }
+    
     public function index() {
 
-
-        $this->load->model('model_catalogo'); // whatever you call it
 
         $data["resultado"] = $this->model_catalogo->get_productos();
         $this->load->library('session');
@@ -35,14 +24,27 @@ class Controller_Catalogo extends CI_Controller {
         /* note - you don't need to have the extension when it's a php file */
         $this->load->view('view_catalogo', $data);
     }
+    
+    public function addToCart(){
+        if($this->cart_model->validate_add_cart_item() == TRUE){  
+  
+        // Check if user has javascript enabled  
+        if($this->input->post('ajax') != '1'){  
+            redirect('cart'); // If javascript is not enabled, reload the page with new data  
+        }else{  
+            echo 'true'; // If javascript is enabled, return true, so the cart gets updated  
+        }  
+    }  
+        
+    }
+    public function emptyCart(){
+        
+    }
+    public function showCart(){
+        
+    }
 
 }
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
 ?>

@@ -1,115 +1,92 @@
-
-
 <?php
-//Hecho en base a http://es.paperblog.com/paypal-nvp-api-con-codeigniter-278257/
-//variables en https://cms.paypal.com/us/cgi-bin/?&cmd=_render-content&content_ID=developer/e_howto_api_nvp_r_SetExpressCheckout
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class PdtTest extends CI_Controller {
+
+    public function ppp() {
+        $desc = "Compra en Massive Dynamic's Store";//set to the order description to be appear on the PayPal website;
+        $orderno = 1; //set to unique order number;
+        $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
+        $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
+        $nettotal = (int) (5000 / $data);
+//Save order information to database using the unique order number with status set as Pending...
 
 
-define('PAYPAL_URL', 'https://www.sandbox.paypal.com/webscr&cmd=_express-checkout&token=');
+        $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
+        //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
+        $ppAcc = "oc77_1338396747_biz@gmail.com"; //PayPal account email
+        $cancelURL = "http://massivedynamic.inf.utfsm.cl";
+        $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/pdttest/index";
 
-class Controller_Paypal extends CI_Controller {
+        $buffer =
+                "<form action='$url' method='post' name='frmPayPal'>\n" .
+                "<input type='hidden' name='business' value='$ppAcc'>\n" .
+                "<input type='hidden' name='cmd' value='_xclick'>\n" .
+                "<input type='hidden' name='item_name' value='$desc'>\n" .
+                "<input type='hidden' name='item_number' value='$orderno'>\n" .
+                "<input type='hidden' name='amount' value='$nettotal'>\n" .
+                "<input type='hidden' name='no_shipping' value='1'>\n" .
+                "<input type='hidden' name='currency_code' value='USD'>\n" .
+                "<input type='hidden' name='handling' value='0'>\n" .
+                "<input type='hidden' name='cancel_return' value='$cancelURL'>\n" .
+                "<input type='hidden' name='return' value='$returnURL'>\n" .
+                "<input type='image' src='https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' name='submit' alt='Pagar ahora' />" .
+                "</form>\n" .
+                "<script language='javascript'>document.frmPayPal.submit();'</script>\n'";
 
-    function ipn() {
-
-        $this->load->model('model_paypal');
-
-// read the post from PayPal system and add 'cmd'
-        $req = 'cmd=_notify-validate';
-        foreach ($_POST as $key => $value) {
-            $value = urlencode(stripslashes($value));
-            $req .= "&$key=$value";
-        }
-// post back to PayPal system to validate
-        $header = "POST /cgi-bin/webscr HTTP/1.0\r\n";
-        $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
-        $header .= "Content-Length: " . strlen($req) . "\r\n\r\n";
-
-        $fp = fsockopen('ssl://www.paypal.com', 443, $errno, $errstr, 30);
-
-        if (!$fp) {
-// HTTP ERROR
-        } else {
-            fputs($fp, $header . $req);
-            while (!feof($fp)) {
-                $res = fgets($fp, 1024);
-                if (strcmp($res, "VERIFIED") == 0) {
-
-// PAYMENT VALIDATED & VERIFIED!
-                    $email = $_POST['payer_email'];
-                    $password = mt_rand(1000, 9999);
-                    $this->model_paypal->insertUser($password, $email);
-
-                    $to = $email;
-                    $subject = 'Download Area | Login Credentials';
-                    $message = '
-
-Thank you for your purchase
-
-Your account information
--------------------------
-Email: ' . $email . '
-Password: ' . $password . '
--------------------------
-
-You can now login at http://yourdomain.com/PayPal/';
-                    $headers = 'From:noreply@yourdomain.com' . "\r\n";
-
-                    mail($to, $subject, $message, $headers);
-                } else if (strcmp($res, "INVALID") == 0) {
-
-// PAYMENT INVALID & INVESTIGATE MANUALY!
-                    $to = 'invalid@yourdomain.com';
-                    $subject = 'Download Area | Invalid Payment';
-                    $message = '
-
-Dear Administrator,
-
-A payment has been made but is flagged as INVALID.
-Please verify the payment manualy and contact the buyer.
-
-Buyer Email: ' . $email . '
-';
-                    $headers = 'From:noreply@yourdomain.com' . "\r\n";
-
-                    mail($to, $subject, $message, $headers);
-                }
-            }
-            fclose($fp);
-        }
-    }
-
-    function pagar() {
-        $this->load->view('view_compra');
-    }
-
-    function login() {
-
-
-        $this->load->model('model_paypal');
-
-        if (isset($_POST['email']) && isset($_POST['password'])) {
-            $email = mysql_escape_string($_POST['email']);
-            $password = md5($_POST['password']);
-            
-            $data["resultado"] = $this->model_paypal->getUser($email,$password);
-            $data["isSet"]=TRUE;
-            
-            $verify = mysql_num_rows($data["resultado"]);
-            $data["verify"]= $verify;
-                        
-            $this->load->view('view_loginPaypal',$data);
-        } else {
-            
-            $data["isSet"] = FALSE;
-            
-            $this->load->view('view_loginPaypal',$data);
-            
-                      
-        }
+        echo($buffer);
         
+        
+    }
 
+    public function index() {
+        $this->load->library('curl');
+        $data['cmd'] = "_notify-synch";
+        $data['tx'] = $this->input->get('tx');
+        $data['at'] = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO";
 
+        $result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
+        $deformat = $this->deformat($result);
+
+        if ($deformat === false) {
+            echo "There was an issue with your request, log data and research further.";
+        } else {
+            if ($deformat['payment_status'] == "Completed") {
+                echo "Your transaction has been completed, and a receipt for your purchase has been emailed to you.<br>You may log into your account at <a href='https://www.paypal.com'>www.paypal.com</a> to view details of this transaction.";
+            } else {
+                echo "Payment might be echeck and still processing as it's not completed. I would suggest showing a thank you page but research this further.";
+            }
+        }
+
+        echo "<ul>";
+        foreach ($deformat as $key => $value) {
+            echo "<li>" . $key . " ===> " . $value . "</li>";
+        }
+        echo "</ul>";
+        $this->model_paypal->ingresaPago($deformat);
+
+    }
+
+    public function deformat($result) {
+        $lines = explode("\n", $result);
+        $keyarray = array();
+
+//Check to see if request was a success
+        if (strcmp($lines[0], "SUCCESS") == 0) {
+            for ($i = 1; $i < count($lines); $i++) {
+                list($key, $val) = explode("=", $lines[$i]);
+                $keyarray[urldecode($key)] = urldecode($val);
+            }
+            return $keyarray;
+        } else {
+//Their was an issue with the request so return false
+            return false;
+        }
     }
 
 }
-?>
+
+/* End of file pdttest.php */
+/* Location: ./application/controllers/pdttest.php */

@@ -12,6 +12,8 @@
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="<?php echo base_url()?>js/slider.js" charset="utf-8"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.3.2.min.js"></script>  
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/core.js"></script>
 
 <style type="text/css" media="screen">
     @font-face {
@@ -96,7 +98,7 @@
     </header>
     
     <div id="container">
-        <section id="intro">
+        <section id="intro" class="products">
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
@@ -122,7 +124,17 @@
             <td></td>
             </tr>
             </table>
-            <form action="" method="post"><input name="boton" type="submit" value="Comprar" /></form>
+            <?php form_open('controller_catalogo/addToCart'); ?>  
+            <fieldset>  
+                <label>Cantidad</label>  
+                <?php echo form_hidden('idProductos', $row->idProductos); ?>  
+                <?php echo form_submit('add', 'Añadir al carro'); ?>  
+            </fieldset>  
+            <?php echo form_close(); ?>  
+            
+            
+            
+            
             <?php } ?>
         </section>
     </div>
