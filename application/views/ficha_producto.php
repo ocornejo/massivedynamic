@@ -97,8 +97,9 @@
         </div>
     </header>
     
-    <div id="container">
-        <section class="products" id="intro" >
+    <div id="container" >
+        <section id="intro" >
+            <ul class="ficha_producto">
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
@@ -133,7 +134,7 @@
             
             
             
-            
+            </ul>
             <?php } ?>
         </section>
     </div>

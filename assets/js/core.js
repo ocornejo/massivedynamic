@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var link = "/index.php/";
 	
 	
-	$("section.products form").submit(function() {
+	$("ul.ficha_producto form").submit(function() {
 		// Get the product ID and the quantity 
 		var id = $(this).find('input[name=Codigo]').val();
 		//var qty = $(this).find('input[name=quantity]').val();
