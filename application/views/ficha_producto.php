@@ -127,7 +127,7 @@
             <?php form_open('controller_catalogo/addToCart'); ?>  
             <fieldset>  
                 <label>Cantidad</label>  
-                <?php echo form_hidden('idProductos', $row->idProductos); ?>  
+                <?php echo form_hidden('idProductos', $row->Codigo); ?>  
                 <?php echo form_submit('add', 'Añadir al carro'); ?>  
             </fieldset>  
             <?php echo form_close(); ?>  
