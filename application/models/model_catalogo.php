@@ -31,13 +31,12 @@ class Model_Catalogo extends CI_Model{
             // Create an array with product information  
             $data = array(  
                     'id'      => $id,  
-                    'qty'     => $cty,  
                     'price'   => $row->price,  
                     'name'    => $row->name  
             );  
   
             // Add the data to the cart using the insert function that is available because we loaded the cart library  
-            $this->cart->insert($data);   
+            $this->controller_catalogo->insert($data);   
   
             return TRUE; // Finally return TRUE  
         }  
