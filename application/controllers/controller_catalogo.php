@@ -13,7 +13,7 @@ class Controller_Catalogo extends CI_Controller {
     
     public function index() {
 
-
+        $this->load->model('model_catalogo');
         $data["resultado"] = $this->model_catalogo->get_productos();
         $this->load->library('session');
         if ($this->session->userdata('Username') != null) {
@@ -26,6 +26,7 @@ class Controller_Catalogo extends CI_Controller {
     }
     
     public function addToCart(){
+        $this->load->model('model_catalogo');
         if($this->cart_model->validate_add_cart_item() == TRUE){  
   
         // Check if user has javascript enabled  
