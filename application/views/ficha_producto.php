@@ -97,8 +97,8 @@
         </div>
     </header>
     
-    <div id="container" class="products">
-        <section id="intro" >
+    <div id="container">
+        <section class="products" id="intro" >
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
@@ -125,10 +125,10 @@
             </tr>
             </table>
             <?php form_open('controller_catalogo/addToCart'); ?>  
-            <fieldset> 
+           
                 <?php echo form_hidden('Codigo', $row->Codigo); ?>  
-                <?php echo form_submit('add', 'Añadir al carro'); ?>  
-            </fieldset>  
+                <?php echo form_submit('add', 'Anadir al carro'); ?>  
+            
             <?php echo form_close(); ?>  
             
             
