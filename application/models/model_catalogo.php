@@ -16,11 +16,11 @@ class Model_Catalogo extends CI_Model{
     function validate_add_cart_item(){  
         
     $DB2 = $this->load->database('default2', TRUE); 
-    $id = $this->input->post('idProductos'); // Assign posted product_id to $id  
+    $id = $this->input->post('Codigo'); // Assign posted product_id to $id  
     //$cty = $this->input->post('quantity'); // Assign posted quantity to $cty  
   
-    $DB2->where('idProductos', $id); // Select where id matches the posted id  
-    $query = $DB2->get('products', 1); // Select the products where a match is found and limit the query by 1  
+    $DB2->where('Codigo', $id); // Select where id matches the posted id  
+    $query = $DB2->get('Productos', 1); // Select the products where a match is found and limit the query by 1  
   
     // Check if a row has matched our product id  
     if($query->num_rows > 0){  
@@ -31,8 +31,8 @@ class Model_Catalogo extends CI_Model{
             // Create an array with product information  
             $data = array(  
                     'id'      => $id,  
-                    'price'   => $row->price,  
-                    'name'    => $row->name  
+                    'price'   => $row->Precio,  
+                    'name'    => $row->Nombre  
             );  
   
             // Add the data to the cart using the insert function that is available because we loaded the cart library  

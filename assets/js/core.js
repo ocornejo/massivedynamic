@@ -5,7 +5,7 @@ $(document).ready(function() {
 	
 	$("div.products form").submit(function() {
 		// Get the product ID and the quantity 
-		var id = $(this).find('input[name=idProductos]').val();
+		var id = $(this).find('input[name=Codigo]').val();
 		//var qty = $(this).find('input[name=quantity]').val();
                 alert('ID:' + id);
 		
