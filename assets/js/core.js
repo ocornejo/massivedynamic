@@ -3,10 +3,11 @@ $(document).ready(function() {
 	var link = "/index.php/";
 	
 	
-	$("section.products form").submit(function() {
+	$("div.products form").submit(function() {
 		// Get the product ID and the quantity 
 		var id = $(this).find('input[name=idProductos]').val();
 		//var qty = $(this).find('input[name=quantity]').val();
+                alert('ID:' + id);
 		
 		 $.post(link + "controller_catalago/addToCart", { product_id: id, ajax: '1' },
   			function(data){

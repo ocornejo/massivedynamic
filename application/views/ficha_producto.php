@@ -97,8 +97,8 @@
         </div>
     </header>
     
-    <div id="container">
-        <section id="intro" class="products">
+    <div id="container" class="products">
+        <section id="intro" >
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
