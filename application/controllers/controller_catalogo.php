@@ -9,6 +9,7 @@ class Controller_Catalogo extends CI_Controller {
     function Controller_Catalago(){
         parent::__construct();
         $this->load->model('model_catalogo');
+        $this->load->library('cart');
     }
     
     public function index() {

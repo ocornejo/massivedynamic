@@ -15,6 +15,8 @@ class Model_Catalogo extends CI_Model{
     
     function validate_add_cart_item(){  
         
+    $this->load->library("cart");    
+        
     $DB2 = $this->load->database('default2', TRUE); 
     $id = $this->input->post('product_id'); // Assign posted product_id to $id
     
@@ -36,7 +38,6 @@ class Model_Catalogo extends CI_Model{
                     'price'   => $row->Precio,  
                     'name'    => $row->Nombre  
             );  
-            
             // Add the data to the cart using the insert function that is available because we loaded the cart library  
             $this->cart->insert($data);   
   

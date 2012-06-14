@@ -6,11 +6,11 @@ $(document).ready(function() {
 		// Get the product ID and the quantity 
 		var id = $(this).find('input[name=product_id]').val();
 		//var qty = $(this).find('input[name=quantity]').val();
-                alert('ID:' + id);
+                
 		
 		$.post(link + "controller_catalogo/addToCart", { product_id: id, ajax: '1' },
   		function(data){
-  			
+  	             alert('ID:' + id);
                     if(data == 'true'){
     			document.write("la wea");
     		$.get(link + "controller_catalogo/showCart", function(cart){
