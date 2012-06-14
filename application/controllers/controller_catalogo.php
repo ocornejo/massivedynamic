@@ -42,6 +42,9 @@ class Controller_Catalogo extends CI_Controller {
 
         
     }
+    public function updateCart(){
+        
+    }
     public function emptyCart(){
         
     }

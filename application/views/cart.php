@@ -17,14 +17,13 @@
             <div class="cart_list">
                 <h3>Your shopping cart</h3>
                 <div id="cart_content">
-                    <?php echo $this->view('cart/cart.php'); ?>
                     <?php
                     if (!$this->cart->contents()):
                         echo 'You don\'t have any items yet.';
                     else:
                         ?>
 
-                    <?php echo form_open('cart/update_cart'); ?>
+                    <?php echo form_open('cart/updateCart'); ?>
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>

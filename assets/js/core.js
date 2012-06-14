@@ -27,8 +27,8 @@ $(document).ready(function() {
 	});
 	
 	$(".empty").live("click", function(){
-    	$.get(link + "controller_catalago/emptyCart", function(){
-    		$.get(link + "controller_catalago/showCart", function(cart){
+    	$.get(link + "controller_catalogo/emptyCart", function(){
+    		$.get(link + "controller_catalogo/showCart", function(cart){
   				$("#cart_content").html(cart);
 			});
 		});
