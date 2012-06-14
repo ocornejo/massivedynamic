@@ -138,7 +138,6 @@
     </div>
     <div id="wrap">
 
-            <?php $this->view($content); ?>
 
             <div class="cart_list">
                 <h3>Your shopping cart</h3>
