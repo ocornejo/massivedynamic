@@ -3,6 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>CodeIgniter Shopping Cart</title>
+        <?php $this->load->helper('url');
+              $this->load->helper('form');?>
 
 
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.3.2.min.js"></script>
