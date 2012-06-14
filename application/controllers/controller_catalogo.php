@@ -27,6 +27,8 @@ class Controller_Catalogo extends CI_Controller {
         $this->load->view('view_catalogo', $data);
     }
     
+    
+    
     public function addToCart(){
         $this->load->model('model_catalogo');
         
@@ -37,10 +39,9 @@ class Controller_Catalogo extends CI_Controller {
             redirect('controller_producto/producto'); // If javascript is not enabled, reload the page with new data  
         }else{  
             echo 'true'; // If javascript is enabled, return true, so the cart gets updated 
-            
+            redirect('controller_producto/producto');
         }  
         
-
         
     }  
 
