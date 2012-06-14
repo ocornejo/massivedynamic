@@ -17,7 +17,7 @@ class Model_Catalogo extends CI_Model{
         
     $DB2 = $this->load->database('default2', TRUE); 
     $id = $this->input->post('Codigo'); // Assign posted product_id to $id
-    echo "ID: "+$id;  
+    
     //$cty = $this->input->post('quantity'); // Assign posted quantity to $cty  
   
     $DB2->where('Codigo', $id); // Select where id matches the posted id  
@@ -25,7 +25,7 @@ class Model_Catalogo extends CI_Model{
   
     // Check if a row has matched our product id  
     if($query->num_rows > 0){  
-  
+        echo "ID: "+$id;  
     // We have a match!  
         foreach ($query->result() as $row)  
         {  
