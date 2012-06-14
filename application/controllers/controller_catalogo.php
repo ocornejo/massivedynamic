@@ -47,7 +47,7 @@ class Controller_Catalogo extends CI_Controller {
         
     }
     public function updateCart(){
-        $this->mode_catalogo->validate_update_cart();  
+        $this->model_catalogo->validate_update_cart();  
         redirect('cart'); 
     }
     public function emptyCart(){
