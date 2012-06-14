@@ -8,20 +8,20 @@ $(document).ready(function() {
 		//var qty = $(this).find('input[name=quantity]').val();
                 alert('ID:' + id);
 		
-		 $.post(link + "controller_catalogo/addToCart", { product_id: id, ajax: '1' },
-  			function(data){
+		$.post(link + "controller_catalogo/addToCart", { product_id: id, ajax: '1' },
+  		function(data){
   			
-  			if(data == 'true'){
+                    if(data == 'true'){
     			
-    			$.get(link + "controller_catalogo/showCart", function(cart){
+    		$.get(link + "controller_catalogo/showCart", function(cart){
   					$("#cart_content").html(cart);
 				});
 
-    		}else{
+                    }else{
     			alert("Product does not exist");
-    		}	
+                    }   	
     		
- 		 }); 
+ 		}); 
 
 		return false;
 	});
