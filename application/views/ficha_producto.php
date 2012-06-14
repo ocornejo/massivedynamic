@@ -189,7 +189,7 @@
                         </table>
 
                         <p><?php echo form_submit('', 'Update your Cart');
-                            echo anchor('cart/emptyCart', 'Empty Cart', 'class="empty"'); ?></p>
+                            echo anchor('controller_catalogo/emptyCart', 'Empty Cart', 'class="empty"'); ?></p>
                         <p><small>If the quantity is set to zero, the item will be removed from the cart.</small></p>
                       <?php
                      echo form_close();

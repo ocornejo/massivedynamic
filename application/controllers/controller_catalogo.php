@@ -47,13 +47,16 @@ class Controller_Catalogo extends CI_Controller {
         
     }
     public function updateCart(){
-        
+        $this->mode_catalogo->validate_update_cart();  
+        redirect('cart'); 
     }
     public function emptyCart(){
+        $this->cart->destroy(); // Destroy all cart data  
+        redirect('cart'); // Refresh te page  
         
     }
     public function showCart(){
-        
+        $this->load->view('ficha_producto');  
     }
     
     
