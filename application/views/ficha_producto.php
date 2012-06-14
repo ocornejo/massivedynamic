@@ -98,8 +98,8 @@
         </div>
     </header>
     
-    <div id="container" class="ficha_producto">
-        <section id="intro" >
+    <div id="container" >
+        <section id="intro"class="ficha_producto" >
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
