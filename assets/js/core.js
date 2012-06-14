@@ -1,6 +1,6 @@
 $(document).ready(function() { 
 	/*place jQuery actions here*/ 
-	var link = "index.php/";	
+	var link = "/index.php/";	
 	
 	$("section.ficha_producto form").submit(function() {
 		// Get the product ID and the quantity 
