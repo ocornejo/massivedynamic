@@ -1,11 +1,11 @@
 $(document).ready(function() { 
 	/*place jQuery actions here*/ 
 	var link = "index.php/";
-        alert('ID:');
+        
         //document.write("HOLA");
 	
 	
-	$("div.ficha_producto form").submit(function() {
+	$("section.ficha_producto form").submit(function() {
 		// Get the product ID and the quantity 
 		var id = $(this).find('input[name=Codigo]').val();
 		//var qty = $(this).find('input[name=quantity]').val();
