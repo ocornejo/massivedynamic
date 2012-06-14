@@ -12,7 +12,7 @@ $(document).ready(function() {
   		function(data){
   			
                     if(data == 'true'){
-    			
+    			document.write("la wea");
     		$.get(link + "controller_catalogo/showCart", function(cart){
   					$("#cart_content").html(cart);
 				});

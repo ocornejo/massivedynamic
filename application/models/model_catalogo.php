@@ -36,7 +36,7 @@ class Model_Catalogo extends CI_Model{
                     'price'   => $row->Precio,  
                     'name'    => $row->Nombre  
             );  
-            echo "ID: "+$id;
+            
             // Add the data to the cart using the insert function that is available because we loaded the cart library  
             $this->cart->insert($data);   
   
