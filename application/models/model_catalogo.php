@@ -25,17 +25,18 @@ class Model_Catalogo extends CI_Model{
   
     // Check if a row has matched our product id  
     if($query->num_rows > 0){  
-        echo "ID: "+$id;  
+          
     // We have a match!  
         foreach ($query->result() as $row)  
         {  
-            // Create an array with product information  
+            // Create an array with product information
+            
             $data = array(  
                     'id'      => $id,  
                     'price'   => $row->Precio,  
                     'name'    => $row->Nombre  
             );  
-  
+            echo "ID: "+$id;
             // Add the data to the cart using the insert function that is available because we loaded the cart library  
             $this->cart->insert($data);   
   
