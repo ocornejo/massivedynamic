@@ -8,7 +8,7 @@ class Controller_Catalogo extends CI_Controller {
 
     function Controller_Catalago(){
         parent::__construct();
-        $this->load->model('model_catalogo');
+        
         $this->load->library('cart');
     }
     
@@ -47,10 +47,12 @@ class Controller_Catalogo extends CI_Controller {
         
     }
     public function updateCart(){
+        $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();  
         redirect('cart'); 
     }
     public function emptyCart(){
+        $this->load->library('cart');
         $this->cart->destroy(); // Destroy all cart data  
         redirect('cart'); // Refresh te page  
         
