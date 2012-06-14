@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>Massive Dynamic, un universo de software</title>
 <?php $this->load->helper('url');
-      $this->load->helper('form');?>
+      $this->load->helper('form');
+      $this->load->library('cart');?>
 
 <link rel="icon" href="<?php echo base_url()?>images/favicon.gif" type="image/x-icon"/>
 <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon.gif" type="image/x-icon"/> 
