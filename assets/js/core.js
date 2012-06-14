@@ -1,6 +1,7 @@
 $(document).ready(function() { 
 	/*place jQuery actions here*/ 
 	var link = "index.php/";
+        alert('ID:');
         document.write("HOLA");
 	
 	
