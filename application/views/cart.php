@@ -28,6 +28,7 @@
                             <thead>
                                 <tr>
                                     <td>Item Description</td>
+                                    <td>Qty</td> 
                                     <td>Item Price</td>
                                     <td>Sub-Total</td>
                                 </tr>
@@ -41,7 +42,7 @@
             echo 'class="alt"';
         } ?>>
                                         <td>
-        <?php echo form_input(array('name' => 'qty[]', 'maxlength' => '3', 'size' => '5')); ?>
+        <?php echo form_input(array('name' => 'qty[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
                                         </td>
 
                                         <td><?php echo $items['name']; ?></td>

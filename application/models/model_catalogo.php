@@ -34,7 +34,8 @@ class Model_Catalogo extends CI_Model{
             // Create an array with product information
             
             $data = array(  
-                    'id'      => $id,  
+                    'id'      => $id,
+                    'qty'     => 1,
                     'price'   => $row->Precio,  
                     'name'    => $row->Nombre  
             );  
