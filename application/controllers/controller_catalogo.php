@@ -30,7 +30,7 @@ class Controller_Catalogo extends CI_Controller {
         $this->load->model('model_catalogo');
         
         if($this->model_catalogo->validate_add_cart_item() == TRUE){  
-            echo "ALO CONH";
+       
         // Check if user has javascript enabled  
         if($this->input->post('ajax') != '1'){  
             redirect('cart'); // If javascript is not enabled, reload the page with new data  
