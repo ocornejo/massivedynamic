@@ -139,12 +139,11 @@
     </div>
     <div id="wrap">
 
-
             <div class="cart_list">
                 <h3>Your shopping cart</h3>
                 <div id="cart_content">
                     <?php
-                    if (!$this->cart->contents()):
+                    if (!$cart->contents()):
                         echo 'You don\'t have any items yet.';
                     else:
                         ?>
@@ -164,11 +163,11 @@
                                 <?php foreach ($this->cart->contents() as $items): ?>
 
                                     <?php echo form_hidden('rowid[]', $items['rowid']); ?>
-                                    <tr <?php if ($i & 1) {
-            echo 'class="alt"';
-        } ?>>
+                                            <tr <?php if ($i & 1) {
+                                        echo 'class="alt"';
+                     } ?>>
                                         <td>
-        <?php echo form_input(array('name' => 'qty[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
+                        <?php echo form_input(array('name' => 'qty[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
                                         </td>
 
                                         <td><?php echo $items['name']; ?></td>
@@ -190,11 +189,11 @@
                         </table>
 
                         <p><?php echo form_submit('', 'Update your Cart');
-    echo anchor('cart/emptyCart', 'Empty Cart', 'class="empty"'); ?></p>
+                            echo anchor('cart/emptyCart', 'Empty Cart', 'class="empty"'); ?></p>
                         <p><small>If the quantity is set to zero, the item will be removed from the cart.</small></p>
-    <?php
-    echo form_close();
-endif;
+                      <?php
+                     echo form_close();
+                        endif;
 ?>
 
                 </div>

@@ -17,7 +17,7 @@ class Controller_Catalogo extends CI_Controller {
         $this->load->model('model_catalogo');
         $data["resultado"] = $this->model_catalogo->get_productos();
         $this->load->library('session');
-        $data["content"]='ficha_producto';
+        
         if ($this->session->userdata('Username') != null) {
             $data["log"] = $this->session->userdata('Username');
         } else {
@@ -38,6 +38,9 @@ class Controller_Catalogo extends CI_Controller {
         }else{  
             echo 'true'; // If javascript is enabled, return true, so the cart gets updated  
         }  
+        // IN THE CONTROLLER 
+        $this->load->view('ficha_producto' , array( 'cart' => &$this->cart ));
+
         
     }  
 
