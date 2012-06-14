@@ -49,12 +49,12 @@ class Controller_Catalogo extends CI_Controller {
     public function updateCart(){
         $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();  
-        redirect('cart'); 
+        redirect('controller_producto/producto'); 
     }
     public function emptyCart(){
         $this->load->library('cart');
         $this->cart->destroy(); // Destroy all cart data  
-        redirect('cart'); // Refresh te page  
+        redirect('controller_producto/producto'); // Refresh te page  
         
     }
     public function showCart(){
