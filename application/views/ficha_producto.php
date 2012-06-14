@@ -143,12 +143,12 @@
                 <h3>Your shopping cart</h3>
                 <div id="cart_content">
                     <?php
-                    if ($cart_items!=0):
+                    if ($cart_items==0):
                         echo 'You don\'t have any items yet.';
                     else:
                         ?>
 
-                    <?php echo form_open('cart/updateCart'); ?>
+                    <?php echo form_open('controller_catalogo/updateCart'); ?>
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>
