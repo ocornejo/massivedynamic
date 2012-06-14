@@ -8,12 +8,12 @@ $(document).ready(function() {
 		//var qty = $(this).find('input[name=quantity]').val();
                 alert('ID:' + id);
 		
-		 $.post(link + "controller_catalago/addToCart", { product_id: id, ajax: '1' },
+		 $.post(link + "controller_catalogo/addToCart", { product_id: id, ajax: '1' },
   			function(data){
   			
   			if(data == 'true'){
     			
-    			$.get(link + "controller_catalago/showCart", function(cart){
+    			$.get(link + "controller_catalogo/showCart", function(cart){
   					$("#cart_content").html(cart);
 				});
 
