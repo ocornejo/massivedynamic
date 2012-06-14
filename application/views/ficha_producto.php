@@ -126,7 +126,7 @@
             </tr>
             </table>
             
-                <?php form_open('controller_catalogo/addToCart');  
+                <?php  echo form_open('controller_catalogo/addToCart');  
                   echo form_hidden('Codigo', $row->Codigo);  
                   echo form_submit('add', 'Anadir al carro');
                   echo form_close();
