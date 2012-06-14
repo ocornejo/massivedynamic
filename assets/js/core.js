@@ -2,7 +2,7 @@ $(document).ready(function() {
 	/*place jQuery actions here*/ 
 	var link = "index.php/";
         alert('ID:');
-        document.write("HOLA");
+        //document.write("HOLA");
 	
 	
 	$("div.ficha_producto form").submit(function() {
