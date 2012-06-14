@@ -6,8 +6,6 @@ class Controller_producto extends CI_Controller{
         $this->load->model('model_catalogo');
         $data['producto'] = $this->model_catalogo->get_producto($id);
         $this->load->view('ficha_producto', $data);
-        // IN THE CONTROLLER 
-        $this->load->view('ficha_producto' , array('cart' => $this->cart ));
     }
 }
 ?>

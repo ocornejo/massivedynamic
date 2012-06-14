@@ -143,7 +143,7 @@
                 <h3>Your shopping cart</h3>
                 <div id="cart_content">
                     <?php
-                    if (!$cart->contents()):
+                    if (!$this->cart->contents()):
                         echo 'You don\'t have any items yet.';
                     else:
                         ?>
