@@ -20,7 +20,7 @@ class Model_Catalogo extends CI_Model{
     $DB2 = $this->load->database('default2', TRUE); 
     $id = $this->input->post('product_id'); // Assign posted product_id to $id
     
-    //$cty = $this->input->post('quantity'); // Assign posted quantity to $cty  
+    $cty = $this->input->post('quantity'); // Assign posted quantity to $cty  
   
     $DB2->where('Codigo', $id); // Select where id matches the posted id  
     $query = $DB2->get('Productos', 1); // Select the products where a match is found and limit the query by 1  
@@ -35,7 +35,7 @@ class Model_Catalogo extends CI_Model{
             
             $data = array(  
                     'id'      => $id,
-                    'qty'     => 1,
+                    'qty'     => $cty,
                     'price'   => $row->Precio,  
                     'name'    => $row->Nombre  
             );  
