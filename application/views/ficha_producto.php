@@ -97,9 +97,8 @@
         </div>
     </header>
     
-    <div id="container" >
+    <div id="container" class="ficha_producto">
         <section id="intro" >
-            <ul class="ficha_producto">
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
@@ -132,9 +131,6 @@
                   echo form_close();
                 ?>  
             
-            
-            
-            </ul>
             <?php } ?>
         </section>
     </div>

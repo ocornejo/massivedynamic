@@ -1,9 +1,10 @@
 $(document).ready(function() { 
 	/*place jQuery actions here*/ 
 	var link = "/index.php/";
+        document.write("HOLA");
 	
 	
-	$("ul.ficha_producto form").submit(function() {
+	$("div.view_catalogo form").submit(function() {
 		// Get the product ID and the quantity 
 		var id = $(this).find('input[name=Codigo]').val();
 		//var qty = $(this).find('input[name=quantity]').val();
