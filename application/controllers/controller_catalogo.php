@@ -39,6 +39,8 @@ class Controller_Catalogo extends CI_Controller {
             redirect('controller_producto/producto'); // If javascript is not enabled, reload the page with new data  
         }else{  
             echo 'true'; // If javascript is enabled, return true, so the cart gets updated 
+            $this->load->view('ficha_producto');
+            
         }  
         
         
