@@ -27,9 +27,13 @@ $(document).ready(function() {
 		return false;
 	});
         
-        $(".empty").live("click", function(){  
-        $.get(link + "controller_catalogo/emptyCart", function(){  
-            $.get(link + "controller_catalogo/showCart", function(cart){  
+        $(".empty").live("click", function(){
+            
+          
+        $.get(link + "controller_catalogo/emptyCart", function(){
+            location.reload(true);
+            $.get(link + "controller_catalogo/showCart", function(cart){
+                    location.reload(true);
                     $("#cart_content").html(cart);  
             });  
         });  
