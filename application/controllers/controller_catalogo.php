@@ -40,7 +40,6 @@ class Controller_Catalogo extends CI_Controller {
         }else{  
             echo 'true'; // If javascript is enabled, return true, so the cart gets updated 
             
-            
         }  
         
     }  

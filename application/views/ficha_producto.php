@@ -92,7 +92,7 @@
             <h1 class="fontface" id="title">MDS</h1>
             <nav><ul>
                     <li><a href="#">Home</a></li>
-                    <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>CatÃ¡logo</a>"?></li>
+                    <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>"?></li>
                 </ul></nav>
@@ -130,7 +130,7 @@
                 <?php  echo form_open('controller_catalogo/addToCart');  
                   echo form_hidden('product_id', $row->Codigo);
                   echo form_hidden('quantity',1);
-                  echo form_submit('add', 'A&ntilde;adir al carro');
+                  echo form_submit('add', 'Añadir al carro');
                   echo form_close();
                 ?>  
             
@@ -150,7 +150,7 @@
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <td>Descripción</td>
+                                    <td>Descripci&oacute;n</td>
                                     <td>Cantidad</td> 
                                     <td>Precio</td>
                                     <td>Sub-Total</td>
