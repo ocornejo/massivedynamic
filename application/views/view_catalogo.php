@@ -12,8 +12,6 @@
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="<?php echo base_url()?>js/slider.js" charset="utf-8"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.3.2.min.js"></script>  
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/core.js"></script>
 
 <style type="text/css" media="screen">
     @font-face {
