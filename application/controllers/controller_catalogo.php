@@ -42,10 +42,9 @@ class Controller_Catalogo extends CI_Controller {
             
             
         }  
-        
-        
+        redirect($this->uri->uri_string());  
     }  
-    redirect($this->uri->uri_string());
+    
         
     }
     public function updateCart(){
