@@ -135,9 +135,7 @@
                 ?>  
             
             <?php } ?>
-        </section>
-    </div>
-    <div id="wrap">
+            <div id="wrap">
 
             <div class="cart_list">
                 <h3>Your shopping cart</h3>
@@ -199,6 +197,9 @@
                 </div>
             </div>
         </div>
+        </section>
+    </div>
+    
 
     
     <footer>
