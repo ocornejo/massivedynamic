@@ -50,12 +50,12 @@ class Controller_Catalogo extends CI_Controller {
     public function updateCart(){
         $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();  
-        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=$PHP_SELF'>";  
+        redirect('/controller_producto/producto/'+$this->input->post('product_id'), 'refresh');
     }
     public function emptyCart(){
         $this->load->library('cart');
         $this->cart->destroy(); // Destroy all cart data  
-        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=$PHP_SELF'>";   // Refresh te page  
+        redirect('/controller_producto/producto/'+$this->input->post('product_id'), 'refresh');   // Refresh te page  
         
     }
     public function showCart(){
