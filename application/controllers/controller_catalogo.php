@@ -39,7 +39,7 @@ class Controller_Catalogo extends CI_Controller {
             redirect('controller_producto/producto'+$this->input->post('product_id')); // If javascript is not enabled, reload the page with new data  
         }else{  
             echo 'true'; // If javascript is enabled, return true, so the cart gets updated 
-            redirect('ficha_producto');
+            echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=$PHP_SELF'>";  
         }  
         
         
@@ -50,12 +50,12 @@ class Controller_Catalogo extends CI_Controller {
     public function updateCart(){
         $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();  
-        redirect('ficha_producto'); 
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=$PHP_SELF'>";  
     }
     public function emptyCart(){
         $this->load->library('cart');
         $this->cart->destroy(); // Destroy all cart data  
-        redirect('ficha_producto'); // Refresh te page  
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=$PHP_SELF'>";   // Refresh te page  
         
     }
     public function showCart(){
