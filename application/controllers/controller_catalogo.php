@@ -36,10 +36,10 @@ class Controller_Catalogo extends CI_Controller {
        
         // Check if user has javascript enabled  
         if($this->input->post('ajax') != '1'){  
-            redirect('controller_producto/producto'); // If javascript is not enabled, reload the page with new data  
+            redirect('controller_producto/producto'+$this->input->post('product_id')); // If javascript is not enabled, reload the page with new data  
         }else{  
             echo 'true'; // If javascript is enabled, return true, so the cart gets updated 
-            redirect('controller_producto/producto');
+            redirect('controller_producto/producto/'+$this->input->post('product_id'));
         }  
         
         
@@ -50,16 +50,16 @@ class Controller_Catalogo extends CI_Controller {
     public function updateCart(){
         $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();  
-        redirect('controller_producto/producto'); 
+        redirect('controller_producto/producto'+$this->input->post('product_id')); 
     }
     public function emptyCart(){
         $this->load->library('cart');
         $this->cart->destroy(); // Destroy all cart data  
-        redirect('controller_producto/producto'); // Refresh te page  
+        redirect('controller_producto/producto'+$this->input->post('product_id')); // Refresh te page  
         
     }
     public function showCart(){
-        $this->load->view('ficha_producto');  
+        $this->load->view('ficha_producto'+$this->input->post('product_id'));  
     }
     
     
