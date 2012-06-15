@@ -49,7 +49,7 @@ class Controller_Catalogo extends CI_Controller {
     public function updateCart(){
         $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();  
-        
+        redirect('/controller_catalogo/index/');
     }
     public function emptyCart(){
         $this->load->library('cart');
