@@ -10,7 +10,7 @@ $(document).ready(function() {
 		
 		$.post(link + "controller_catalogo/addToCart", { product_id: id,quantity: qty, ajax: '1' },
   		function(data){
-                    window.location.reload();
+                    
                     if(data == 'true'){  
   
                     $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
@@ -21,7 +21,7 @@ $(document).ready(function() {
                     alert("Product does not exist");  
               }  
  		}); 
-
+                window.location.reload();
 		return false;
 	});
         
@@ -31,7 +31,7 @@ $(document).ready(function() {
                     $("#cart_content").html(cart);  
             });  
         });  
-      
+      window.location.reload();
         return false;  
        });  
 
