@@ -170,8 +170,8 @@
 
                                         <td><?php echo $items['name']; ?></td>
 
-                                        <td>&euro;<?php echo $this->cart->format_number($items['price']); ?></td>
-                                        <td>&euro;<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+                                        <td>$<?php echo $this->cart->format_number($items['price']); ?></td>
+                                        <td>$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
                                     </tr>
 
                         <?php $i++; ?>
@@ -181,7 +181,7 @@
                                     <td</td>
                                     <td></td>
                                     <td><strong>Total</strong></td>
-                                    <td>&euro;<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                    <td>$;<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                                 </tr>
                             </tbody>
                         </table>
