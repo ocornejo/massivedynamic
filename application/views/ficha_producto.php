@@ -130,7 +130,7 @@
                 <?php  echo form_open('controller_catalogo/addToCart');  
                   echo form_hidden('product_id', $row->Codigo);
                   echo form_hidden('quantity',1);
-                  echo form_submit('add', 'Anadir al carro');
+                  echo form_submit('add', 'A&ntilde;adir al carro');
                   echo form_close();
                 ?>  
             
@@ -181,14 +181,14 @@
                                     <td</td>
                                     <td></td>
                                     <td><strong>Total</strong></td>
-                                    <td>$;<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                    <td>$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <p><?php echo form_submit('', 'Actualizar');
-                            echo anchor('controller_catalogo/emptyCart', 'Vacía carro', 'class="empty"'); ?></p>
-                        <p><small>Si seteas la cantidad a 0, el item será removido de tu carro.</small></p>
+                                 echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>
+                        <p><small>Si seteas la cantidad a 0, el item ser&aacute; removido de tu carro.</small></p>
                       <?php
                      echo form_close();
                         endif;
