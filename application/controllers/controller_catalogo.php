@@ -36,10 +36,10 @@ class Controller_Catalogo extends CI_Controller {
        
         // Check if user has javascript enabled  
         if($this->input->post('ajax') != '1'){  
-            redirect('controller_producto/producto'+$this->input->post('product_id')); // If javascript is not enabled, reload the page with new data  
+            redirect('controller_producto/producto'); // If javascript is not enabled, reload the page with new data  
         }else{  
             echo 'true'; // If javascript is enabled, return true, so the cart gets updated 
-            echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=$PHP_SELF'>";  
+            redirect('/controller_producto/producto/'+$this->input->post('product_id'), 'refresh');
         }  
         
         
