@@ -18,8 +18,8 @@ $(document).ready(function() {
                  });            
   
                 }else{  
-                    alert("Product does not exist");  
-              }  
+                    //alert("Product does not exist");  
+                }  
  		}); 
                 
 		return false;
