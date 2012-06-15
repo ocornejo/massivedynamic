@@ -138,11 +138,11 @@
             <div id="wrap">
 
             <div class="cart_list">
-                <h3>Your shopping cart</h3>
+                <h3>Tu carro de compras</h3>
                 <div id="cart_content">
                     <?php
                     if ($cart_items==0):
-                        echo 'You don\'t have any items yet.';
+                        echo 'No tienes ning&uacute;n producto todav&iacute;a.';
                     else:
                         ?>
 
@@ -150,9 +150,9 @@
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <td>Item Description</td>
-                                    <td>Qty</td> 
-                                    <td>Item Price</td>
+                                    <td>Descripción</td>
+                                    <td>Cantidad</td> 
+                                    <td>Precio</td>
                                     <td>Sub-Total</td>
                                 </tr>
                             </thead>
@@ -186,9 +186,9 @@
                             </tbody>
                         </table>
 
-                        <p><?php echo form_submit('', 'Update your Cart');
-                            echo anchor('controller_catalogo/emptyCart', 'Empty Cart', 'class="empty"'); ?></p>
-                        <p><small>If the quantity is set to zero, the item will be removed from the cart.</small></p>
+                        <p><?php echo form_submit('', 'Actualizar');
+                            echo anchor('controller_catalogo/emptyCart', 'Vacía carro', 'class="empty"'); ?></p>
+                        <p><small>Si seteas la cantidad a 0, el item será removido de tu carro.</small></p>
                       <?php
                      echo form_close();
                         endif;
