@@ -11,6 +11,8 @@ $(document).ready(function() {
 		$.post(link + "controller_catalogo/addToCart", { product_id: id,quantity: qty, ajax: '1' },
   		function(data){
                     
+                    location.reload(true);
+
                     if(data == 'true'){  
   
                     $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
@@ -18,7 +20,7 @@ $(document).ready(function() {
                  });            
   
                 }else{  
-                    //alert("Product does not exist");  
+                    alert("Product does not exist");  
                 }  
  		}); 
                 

@@ -42,7 +42,7 @@ class Controller_Catalogo extends CI_Controller {
             
             
         }  
-        redirect($this->uri->uri_string(),$this->input->post());  
+        
     }  
     
         
