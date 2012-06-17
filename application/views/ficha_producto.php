@@ -162,10 +162,12 @@
 
                                     <?php echo form_hidden('rowid[]', $items['rowid']); ?>
                                             <tr <?php if ($i & 1) {
-                                        echo 'class="alt"';
-                     } ?>>
+                                                        echo 'class="alt"';
+                                                      } 
+                                                ?>
+                                             >
                                         <td>
-                        <?php echo form_input(array('name' => 'qty[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
+                                    <?php echo form_input(array('name' => 'qty[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
                                         </td>
 
                                         <td><?php echo $items['name']; ?></td>
@@ -200,7 +202,7 @@
             <div>
                 <?php  echo form_open('controller_catalogo/addToCart');  
                   echo form_hidden('product_id', $row->Codigo);
-                  echo form_hidden('quantity',1);
+                  echo form_input('quantity', '1', 'maxlength="2"');
                   echo form_submit('add', 'Añadir al carro');
                   echo form_close();
                 ?> 
