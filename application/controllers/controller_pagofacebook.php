@@ -17,9 +17,9 @@ class Controller_pagofacebook extends CI_Controller {
         
 
         // Definimos códigos de error
-        define (NOT_INSTALLED,      1);
-        define (NO_PUBLISH_STREAM,  2);
-        define (MALFORMED_ARRAY,   90);
+        $NOT_INSTALLED= 1;
+        $NO_PUBLISH_STREAM=2;
+        $MALFORMED_ARRAY=90;
 
         $facebook = new Facebook(array (  
                            'appId'  => $api_key,
@@ -32,7 +32,7 @@ class Controller_pagofacebook extends CI_Controller {
 
           $sesion = $facebook->getUser();
           if (!$sesion)
-            throw new Exception('Aplicación no instalada', NOT_INSTALLED);
+            throw new Exception('Aplicación no instalada', $NOT_INSTALLED);
 
           echo  "Estamos identificados en Facebook<br/>";
           echo  "Usuario: ".$sesion."<br/>";
@@ -40,10 +40,10 @@ class Controller_pagofacebook extends CI_Controller {
           // Obtenemos los permisos del usuario
           $permissions = $facebook->api('/'.$sesion.'/permissions');
           if (!isset ($permissions['data'][0]))
-            throw new Exception('Facebook ha devuelto un array mal formado', MALFORMED_ARRAY);
+            throw new Exception('Facebook ha devuelto un array mal formado', $MALFORMED_ARRAY);
 
           if (!isset ($permissions['data'][0]['publish_stream']))
-            throw new Exception('No tengo permiso publish_stream', NO_PUBLISH_STREAM);
+            throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
 
           $mensaje='Probando la publicación de mensajes en Facebook...';
           print_r ( $facebook->api('/me/feed', 'post', array ('message' => $mensaje)));
@@ -52,18 +52,18 @@ class Controller_pagofacebook extends CI_Controller {
         {
           switch ($e->getCode())
             {
-            case NOT_INSTALLED: 
+            case $NOT_INSTALLED: 
               $login_url = $facebook->getLoginUrl();
               header ('Location: '.$login_url);
               die ();
               break;
-            case NO_PUBLISH_STREAM:
+            case $NO_PUBLISH_STREAM:
               $login_url = $facebook->getLoginUrl(array ('scope'=>'publish_stream'));
               header ('Location: '.$login_url);
               die ();
               break;
 
-            case MALFORMED_ARRAY:
+            case $MALFORMED_ARRAY:
               echo  $e->getMessage();
               break;
 
