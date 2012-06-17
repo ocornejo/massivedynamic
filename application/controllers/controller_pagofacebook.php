@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
 class Controller_pagofacebook extends CI_Controller {
     
@@ -8,7 +8,7 @@ class Controller_pagofacebook extends CI_Controller {
     
     public function pagarconpost()
 	{
-        echo "hola";  
+        echo "hello";  
         echo "*-*";  
         
 	$fb = new Facebook(array(  
