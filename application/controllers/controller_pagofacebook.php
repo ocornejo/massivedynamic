@@ -14,7 +14,7 @@ class Controller_pagofacebook extends CI_Controller {
             'cookie' => true));  
         $this->load->library('facebook', $fb_config);
         $params = array(  
-        'access_token' => 'AAABtZAmL8FSIBAHCLDj7ZAhxNlYuxjp4ZCdBYr18hCZChTAEMd7xLUauX2ZCDHZBrblSFgqcZCpRLDlluKOxrAfALd7Q65pNW9lRVZAPZAyYCKgZDZD&expires_in=5184000&code=AQANkxbtIfTg7o9p_fDoPcYZuATcN5wftNhQkHjHOU0vV84o05-OcBu41hJr7GGNJChGQnKtA-K2ioPdKH_WHM-MIlJjGD3a59OLxTM6W0Xqyy4TTiBiVRbh_UF5Css5dIuQf5eiZeLkrnmpxTVLU9h1lyT2VOYmNqlc',  
+        'access_token' => 'AAABtZAmL8FSIBAHCLDj7ZAhxNlYuxjp4ZCdBYr18hCZChTAEMd7xLUauX2ZCDHZBrblSFgqcZCpRLDlluKOxrAfALd7Q65pNW9lRVZAPZAyYCKgZDZD',  
         'message' => 'Probando post con php, ignore este mensaje');  
         $res = $fb->api('/ID_USUARIO/feed', 'POST', $params);  
         if(!$res)  
