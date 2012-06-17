@@ -46,7 +46,7 @@ class Controller_pagofacebook extends CI_Controller {
             throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
 
           $mensaje='Probando la publicación de mensajes en Facebook...';
-          print_r ( $facebook->api('/me/feed', 'post', array ('message' => $mensaje)));
+          $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
 
         } catch (Exception $e)
         {
