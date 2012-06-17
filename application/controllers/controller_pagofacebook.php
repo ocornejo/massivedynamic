@@ -9,12 +9,14 @@ class Controller_pagofacebook extends CI_Controller {
     public function pagarconpost()
 	{
         echo "hola";  
+        echo "*-*";  
 	$fb = new Facebook(array(  
             'appId'  => '120286514779426',  
             'secret' => 'ca0251952252aecbc49a6a833ff78563',  
             'cookie' => true));  
-        $this->load->library('facebook', $fb_config);
+        
         echo "a";
+        
         $params = array(  
         'access_token' => 'AAABtZAmL8FSIBAHCLDj7ZAhxNlYuxjp4ZCdBYr18hCZChTAEMd7xLUauX2ZCDHZBrblSFgqcZCpRLDlluKOxrAfALd7Q65pNW9lRVZAPZAyYCKgZDZD',  
         'message' => 'Probando post con php, ignore este mensaje'); 
