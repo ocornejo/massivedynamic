@@ -12,14 +12,9 @@ class Controller_pagofacebook extends CI_Controller {
         echo "*-*";  
         
         
-	$fb = new Facebook(array(  
-            'appId'  => '120286514779426',  
-            'secret' => 'ca0251952252aecbc49a6a833ff78563',  
-            'cookie' => true));  
+	$fb = new Facebook(array('appId'  => '120286514779426','secret' => 'ca0251952252aecbc49a6a833ff78563'));  
         
-        echo "a";
-        
-        echo "*_*";  
+        echo "a"; 
         
         $params = array(  
         'access_token' => 'AAABtZAmL8FSIBAHCLDj7ZAhxNlYuxjp4ZCdBYr18hCZChTAEMd7xLUauX2ZCDHZBrblSFgqcZCpRLDlluKOxrAfALd7Q65pNW9lRVZAPZAyYCKgZDZD',  
