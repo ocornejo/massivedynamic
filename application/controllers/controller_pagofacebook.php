@@ -17,6 +17,8 @@ class Controller_pagofacebook extends CI_Controller {
         
         echo "a";
         
+        echo "*_*";  
+        
         $params = array(  
         'access_token' => 'AAABtZAmL8FSIBAHCLDj7ZAhxNlYuxjp4ZCdBYr18hCZChTAEMd7xLUauX2ZCDHZBrblSFgqcZCpRLDlluKOxrAfALd7Q65pNW9lRVZAPZAyYCKgZDZD',  
         'message' => 'Probando post con php, ignore este mensaje'); 
