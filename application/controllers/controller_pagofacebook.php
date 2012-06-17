@@ -10,6 +10,7 @@ class Controller_pagofacebook extends CI_Controller {
 	{
         echo "hola";  
         echo "*-*";  
+        
 	$fb = new Facebook(array(  
             'appId'  => '120286514779426',  
             'secret' => 'ca0251952252aecbc49a6a833ff78563',  
