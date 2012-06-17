@@ -11,9 +11,8 @@ class Controller_pagofacebook extends CI_Controller {
         echo "hello";  
         echo "*-*";  
         
-        
-	$fb = new Facebook(array('appId'  => '120286514779426','secret' => 'ca0251952252aecbc49a6a833ff78563'));  
-        
+        $this->load->library('facebook', $fb_config);
+	 
         echo "a"; 
         
         $params = array(  
