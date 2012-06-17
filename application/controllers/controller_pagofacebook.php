@@ -21,9 +21,9 @@ class Controller_pagofacebook extends CI_Controller {
         
         $params = array(  
         'access_token' => 'AAABtZAmL8FSIBAHCLDj7ZAhxNlYuxjp4ZCdBYr18hCZChTAEMd7xLUauX2ZCDHZBrblSFgqcZCpRLDlluKOxrAfALd7Q65pNW9lRVZAPZAyYCKgZDZD',  
-        'message' => 'Tengo esa nostalgia de domingo por llover, de guitarra rota de oxidado carrusel'); 
+        'message' => '"Tengo esa nostalgia de domingo por llover, de guitarra rota de oxidado" (Victor Heredia) '); 
         echo "b";
-        $res = $fb->api('/ID_USUARIO/feed', 'POST', $fb_config);  
+        $res = $fb_config->api('/ID_USUARIO/feed', 'POST', $params);  
         echo "c";
         if(!$res)  
             echo 'Ha ocurrido un error indeterminado';  
