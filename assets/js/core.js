@@ -31,9 +31,9 @@ $(document).ready(function() {
             
           
         $.get(link + "controller_catalogo/emptyCart", function(){
-            location.reload(true);
+            
             $.get(link + "controller_catalogo/showCart", function(cart){
-                    location.reload(true);
+                
                     $("#cart_content").html(cart);  
             });  
         });  
