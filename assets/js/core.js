@@ -10,7 +10,7 @@ $(document).ready(function() {
 		
 		$.post(link + "controller_catalogo/addToCart", { product_id: id,quantity: qty, ajax: '1' },
   		function(data){
-                    document.write(data);
+                    alert(data);
                     if(data == 'true'){  
                        //location.reload(true);
                     $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
