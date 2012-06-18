@@ -115,18 +115,12 @@
                     <td><p><strong>Plataforma:</strong></p></td>
                     <td><p><?php echo $row->Plataforma;?></p></td>
                     <td><center>
-                        Cantidad: <select size='1' name='cant'>
-                            <option selected value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
+                        Cantidad: <?php $options = array(
+                            '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
+                            '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
+                            );
+                        echo form_dropdown('cantidad', $options, '1');
+                        ?>
                         </center>
                     </td>
                 </tr>
@@ -134,10 +128,10 @@
                     <td><p><strong>Precio:</strong></p></td>
                     <td><p><?php echo "$".$row->Precio;?></p></td>
                     <td><div class="ficha_producto">
-                        <center><?php $cantidad = 3; 
+                        <center><?php //$cantidad = 3; 
                               echo form_open('controller_catalogo/addToCart');  
                               echo form_hidden('product_id', $row->Codigo);
-                              echo form_hidden('quantity', $cantidad);
+                              //echo form_hidden('quantity', cantidad);
                               echo form_submit('add', 'Agregar');
                               echo form_close();?></center>
                         </div></td>
