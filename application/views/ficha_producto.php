@@ -165,7 +165,7 @@
                                                         echo 'class="alt"';
                                                       } 
                                                 ?>
-                                             >
+                                            >
                                         <td>
                                     <?php echo form_input(array('name' => 'qty[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
                                         </td>
@@ -193,20 +193,12 @@
                         <p><small>Si seteas la cantidad a 0, el item ser&aacute; removido de tu carro.</small></p>
                       <?php
                      echo form_close();
-                        endif;
+                     endif;
 ?>
 
                 </div>
             </div>
         </div>
-            <div>
-                <?php  echo form_open('controller_catalogo/addToCart');  
-                  echo form_hidden('product_id', $row->Codigo);
-                  echo form_input('quantity', '1', 'maxlength="2"');
-                  echo form_submit('add', 'Añadir al carro');
-                  echo form_close();
-                ?> 
-            </div>
         </section>
     </div>
     
