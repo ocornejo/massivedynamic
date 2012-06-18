@@ -196,7 +196,7 @@
                      echo form_close();
                      endif;
 ?>
-
+                    </div>
                 </div>
             </div>
         </div>
