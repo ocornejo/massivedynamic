@@ -15,9 +15,9 @@ $(document).ready(function() {
         },
         function(data){
             
-            document.write(data);
+            alert(data['return']);
             
-            if(data=="true"){
+            if(data['return']){
                 document.write("WELCOME");
                 //location.reload(true);
 //                $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
@@ -31,7 +31,7 @@ $(document).ready(function() {
         }); 
                 
         return false;
-    });
+    },'json');
         
     $(".empty").live("click", function(){
             
