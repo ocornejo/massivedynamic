@@ -35,16 +35,26 @@ $(document).ready(function() {
             
           
         $.get(link + "controller_catalogo/emptyCart", function(){
-            
-            $.get(link + "controller_catalogo/showCart", function(cart){
-                
-                $("#cart_content").html(cart);  
-            });  
+            location.reload(true);
+//            $.get(link + "controller_catalogo/showCart", function(cart){
+//                
+//                $("#cart_content").html(cart);  
+//            });  
         });  
         
         return false;  
     });  
 
+$(".update").live("click", function(){
+            
+          
+        $.get(link + "controller_catalogo/updateCart", function(){
+            location.reload(true);
+
+        });  
+        
+        return false;  
+    });
 
 
 	

@@ -146,7 +146,7 @@
                     else:
                         ?>
 
-                    <?php echo form_open('controller_catalogo/updateCart'); ?>
+                    <?php echo form_open('controller_catalogo/updateCart','class="update"'); ?>
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>
