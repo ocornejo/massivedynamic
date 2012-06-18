@@ -30,8 +30,8 @@ class Controller_Catalogo extends CI_Controller {
     
     
     public function addToCart(){
-        $cant = $_POST("cant");
-        $this->load->model('model_catalogo/cant');
+        $this->load->model('model_catalogo');
+        
         if($this->model_catalogo->validate_add_cart_item() == TRUE){  
        
         // Check if user has javascript enabled  
