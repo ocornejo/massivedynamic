@@ -129,11 +129,13 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select><br/>
+                        <div class="ficha_producto">
                         <?php echo form_open('controller_catalogo/addToCart');  
                               echo form_hidden('product_id', $row->Codigo);
                               echo form_hidden('quantity', 1);
                               echo form_submit('add', 'Agregar');
                               echo form_close();?>
+                        </div>
                         </center>
                     </td>
                 </tr>
