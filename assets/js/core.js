@@ -15,7 +15,7 @@ $(document).ready(function() {
         },
         function(data){
             
-            docuemnt.write(data);
+            document.write(data);
             
             if(data=="true"){
                 document.write("WELCOME");
