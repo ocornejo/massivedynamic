@@ -119,25 +119,23 @@
                                 '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
                                 '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
                                 );?>
+                                <td><div>
+                        <center>
                             <div class="ficha_producto">
                             <?php
                             echo form_open('controller_catalogo/addToCart');
                             echo form_dropdown('quantity', $options, '1');
                             echo form_hidden('product_id', $row->Codigo);
+                            echo form_submit('add', 'Agregar');
+                            echo form_close();
                             ?>
-                        </center></div>
+                        </center></div></td>
                     </td>
                 </tr>
                 <tr>
                     <td><p><strong>Precio:</strong></p></td>
                     <td><p><?php echo "$".$row->Precio;?></p></td>
-                    <td><div>
-                        <center><?php
-                            
-                            
-                            echo form_submit('add', 'Agregar');
-                            echo form_close();?></div></center>
-                        </div></td>
+                  
                 </tr>
                 <tr>
                     <td valign="top" width="100"><p><b>Descripci&oacute;n:</b></p></td>
