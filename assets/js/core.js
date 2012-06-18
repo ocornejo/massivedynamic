@@ -45,7 +45,7 @@ $(document).ready(function() {
         return false;  
     });  
 
-    $(".update").submit(function(){
+    $("div.update form").submit(function(){
             
           
         $.get(link + "controller_catalogo/updateCart", function(){
