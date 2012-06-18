@@ -121,14 +121,14 @@
                                 );?></td>
                                 <td><div>
                         <center>
-                            <div class="ficha_producto">
+                            <fieldset class="ficha_producto">
                             <?php
                             echo form_open('controller_catalogo/addToCart');
                             echo form_dropdown('quantity', $options, '1');
                             echo form_hidden('product_id', $row->Codigo);
                             echo form_submit('add', 'Agregar');
                             echo form_close();
-                            ?></div>
+                            ?></fieldset>
                         </center></div></td>
                             
                 </tr>
