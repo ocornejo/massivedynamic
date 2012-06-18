@@ -128,7 +128,7 @@
                             echo form_hidden('product_id', $row->Codigo);
                             echo form_submit('add', 'Agregar');
                             echo form_close();
-                            ?>
+                            ?></div>
                         </center></div></td>
                     </td>
                 </tr>
