@@ -14,10 +14,10 @@ $(document).ready(function() {
             ajax: '1'
         },
         function(data){
-            var json = $.parseJSON(data);
-            alert(json.message);
             
-            if(data.valueOf()=="true"){
+            docuemnt.write(data);
+            
+            if(data=="true"){
                 document.write("WELCOME");
                 //location.reload(true);
 //                $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
