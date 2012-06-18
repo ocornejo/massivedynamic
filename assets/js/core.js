@@ -11,10 +11,10 @@ $(document).ready(function() {
 		$.post(link + "controller_catalogo/addToCart", { product_id: id,quantity: qty, ajax: '1' },
   		function(data){
                     
-                    location.reload(true);
+                    
 
                     if(data == 'true'){  
-  
+                       location.reload(true);
                     $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
                     $("#cart_content").html(cart); // Replace the information in the div #cart_content with the retrieved data  
                  });            
