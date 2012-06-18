@@ -104,37 +104,50 @@
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
-            <table cellspacing="5">
-            <tr>
-            <td rowspan="4" width="300"><?php echo "<img src='data:image/png;base64,".$row->Img."'>";?></td>
-            <td><p><b>C&oacute;digo:</b></p></td>
-            <td><p><?php echo $row->Codigo;?></p></td>
-            <td></td>
-            </tr>
-            <tr>
-            <td><p><b>Plataforma:</b></p></td>
-            <td><p><?php echo $row->Plataforma;?></p></td>
-            <td></td>
-            </tr>
-            <tr>
-            <td><p><b>Precio:</b></p></td>
-            <td><p><?php echo "$".$row->Precio;?></p></td>
-            <td></td>
-            </tr>
-            <td valign="top" width="100"><p><b>Descripci&oacute;n:</b></p></td>
-            <td><p><?php echo utf8_decode($row->Descripcion);?></p></td>
-            <td></td>
-            </tr>
+            <table id="producto">
+                <tr>
+                    <td rowspan="3" colspan="2" width="250"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' height='110px' src='data:image/png;base64,".$row->Img."'>";?></td>
+                    <td width="90"><p><strong>C&oacute;digo:</strong></p></td>
+                    <td><p><?php echo $row->Codigo;?></p></td>
+                    <td width="250"></td>
+                    <td valign="right"><b>Agregar al carrito de compras:</b></td>
+                </tr>
+                <tr>
+                    <td><p><strong>Plataforma:</strong></p></td>
+                    <td><p><?php echo $row->Plataforma;?></p></td>
+                    <td></td>
+                    <td><center>Cantidad:
+                        <select size="1" name="cantidad">
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select><br/>
+                        <?php echo form_open('controller_catalogo/addToCart');  
+                              echo form_hidden('product_id', $row->Codigo);
+                              echo form_hidden('quantity', 1);
+                              echo form_submit('add', 'Agregar');
+                              echo form_close();?>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p><strong>Precio:</strong></p></td>
+                    <td><p><?php echo "$".$row->Precio;?></p></td>
+                </tr>
             </table>
-            <div class="ficha_producto">
-                <?php  echo form_open('controller_catalogo/addToCart');  
-                  echo form_hidden('product_id', $row->Codigo);
-                  echo form_hidden('quantity',1);
-                  echo form_submit('add', 'Añadir al carro');
-                  echo form_close();
-                ?>  
-            </div>
-            
+            <table id="producto">
+                <tr>
+                    <td valign="top" width="110"><p><b>Descripci&oacute;n:</b></p></td>
+                    <td><p style="text-align:justify"><?php echo utf8_decode($row->Descripcion);?></p></td>
+                </tr>
+            </table>
             <?php } ?>
             <div id="wrap">
 
