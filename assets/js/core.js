@@ -15,7 +15,7 @@ $(document).ready(function() {
         },
         function(data){
             
-            alert(data['return']);
+            alert(data['return'].toString());
             
             if(data['return']){
                 document.write("WELCOME");
@@ -31,7 +31,7 @@ $(document).ready(function() {
         }); 
                 
         return false;
-    },'json');
+    });
         
     $(".empty").live("click", function(){
             
