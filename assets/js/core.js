@@ -14,7 +14,7 @@ $(document).ready(function() {
             ajax: '1'
         },
         function(data){
-            var json = $.parseJSON(date);
+            var json = $.parseJSON(data);
             alert(json.message);
             
             if(data.valueOf()=="true"){
