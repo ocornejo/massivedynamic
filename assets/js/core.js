@@ -47,7 +47,11 @@ $(document).ready(function() {
 
 $(".update").submit(function(){
             
-        location.reload(true); 
+          
+        $.get(link + "controller_catalogo/updateCart", function(){
+            location.reload(true);
+
+        });  
         
         return false;  
     });
