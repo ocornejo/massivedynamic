@@ -104,18 +104,16 @@
             <?php
             foreach ($producto->result() as $row){?>
             <h1><p><?php echo $row->Nombre;?></p></h1>
-            <table id="producto">
+            <table border="0" id="producto">
                 <tr>
-                    <td rowspan="3" colspan="2" width="250"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' height='110px' src='data:image/png;base64,".$row->Img."'>";?></td>
+                    <td valign="top" rowspan="4" width="300"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' src='data:image/png;base64,".$row->Img."'>";?></td>
                     <td width="90"><p><strong>C&oacute;digo:</strong></p></td>
                     <td><p><?php echo $row->Codigo;?></p></td>
-                    <td width="250"></td>
-                    <td valign="right"><b>Agregar al carrito de compras:</b></td>
+                    <td valign="right" width="200"><center><b>Agregar al carrito:</b></center></td>
                 </tr>
                 <tr>
                     <td><p><strong>Plataforma:</strong></p></td>
                     <td><p><?php echo $row->Plataforma;?></p></td>
-                    <td></td>
                     <td><center>Cantidad:
                         <select size="1" name="cantidad">
                             <option selected value="1">1</option>
@@ -128,33 +126,31 @@
                             <option value="8">8</option>
                             <option value="9">9</option>
                             <option value="10">10</option>
-                        </select><br/>
-                        <div class="ficha_producto">
-                        <?php echo form_open('controller_catalogo/addToCart');  
-                              echo form_hidden('product_id', $row->Codigo);
-                              echo form_hidden('quantity', 1);
-                              echo form_submit('add', 'Agregar');
-                              echo form_close();?>
-                        </div>
-                        </center>
+                        </select></center>
                     </td>
                 </tr>
                 <tr>
                     <td><p><strong>Precio:</strong></p></td>
                     <td><p><?php echo "$".$row->Precio;?></p></td>
+                    <td><div class="ficha_producto">
+                        <center><?php echo form_open('controller_catalogo/addToCart');  
+                              echo form_hidden('product_id', $row->Codigo);
+                              echo form_hidden('quantity', 1);
+                              echo form_submit('add', 'Agregar');
+                              echo form_close();?></center>
+                        </div></td>
                 </tr>
-            </table>
-            <table id="producto">
                 <tr>
-                    <td valign="top" width="110"><p><b>Descripci&oacute;n:</b></p></td>
+                    <td valign="top" width="100"><p><b>Descripci&oacute;n:</b></p></td>
                     <td><p style="text-align:justify"><?php echo utf8_decode($row->Descripcion);?></p></td>
+                    <td></td>
                 </tr>
             </table>
             <?php } ?>
             <div id="wrap">
 
             <div class="cart_list">
-                <h3>Tu carro de compras</h3>
+                <br/><br/><h3>Tu carro de compras</h3>
                 <div id="cart_content">
                     <?php
                     if ($cart_items==0):
@@ -163,13 +159,14 @@
                         ?>
                     <div class="update">
                     <?php echo form_open('controller_catalogo/updateCart'); ?>
-                        <table width="100%" cellpadding="0" cellspacing="0">
+                        <table border="1" width="100%" cellpadding="0" cellspacing="0">
                             <thead>
-                                <tr>
-                                    <td>Descripci&oacute;n</td>
-                                    <td>Cantidad</td> 
-                                    <td>Precio</td>
-                                    <td>Sub-Total</td>
+                                <tr width="700px">
+                                    <td><strong>Descripci&oacute;n</strong></td>
+                                    <td width="100px"><strong><center>Cantidad</center></strong></td> 
+                                    <td><strong>Precio</strong></td>
+                                    <td><strong>Sub-Total</strong></td>
+                                    <td width="100px"><strong><center>Eliminar</center></strong></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -182,31 +179,27 @@
                                                       } 
                                                 ?>
                                             >
-                                        <td>
-                                    <?php echo form_input(array('name' => 'qty[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
-                                        </td>
-
                                         <td><?php echo $items['name']; ?></td>
-
+                                        <td><center><?php echo $items['qty']; ?></center></td>
                                         <td>$<?php echo $this->cart->format_number($items['price']); ?></td>
                                         <td>$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+                                        <td><center><img src="<?php echo base_url()?>images/delete.png" /></center></td>
                                     </tr>
 
                         <?php $i++; ?>
                         <?php endforeach; ?>
 
                                 <tr>
-                                    <td</td>
+                                    <td></td>
                                     <td></td>
                                     <td><strong>Total</strong></td>
                                     <td>$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                    <td></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br/>
 
-                        <p><?php echo form_submit('', 'Actualizar');
-                                 echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>
-                        <p><small>Si seteas la cantidad a 0, el item ser&aacute; removido de tu carro.</small></p>
+                        <p><?php echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>
                       <?php
                      echo form_close();
                      endif;
