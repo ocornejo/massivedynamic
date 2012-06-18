@@ -121,6 +121,7 @@
                                 );
                             echo form_open('controller_catalogo/addToCart');
                             echo form_dropdown('cantidad', $options, '1');
+                            echo form_hidden('product_id', $row->Codigo);
                             ?>
                         </center></div>
                     </td>
@@ -130,8 +131,7 @@
                     <td><p><?php echo "$".$row->Precio;?></p></td>
                     <td><div class="ficha_producto">
                         <center><?php
-                            echo form_open('controller_catalogo/addToCart');  
-                            echo form_hidden('product_id', $row->Codigo);
+                            echo form_open('controller_catalogo/addToCart');
                             echo form_submit('add', 'Agregar');
                             echo form_close();?></center>
                         </div></td>
