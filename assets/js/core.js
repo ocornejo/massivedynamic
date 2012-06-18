@@ -6,7 +6,7 @@ $(document).ready(function() {
         // Get the product ID and the quantity 
         var id = $(this).find('input[name=product_id]').val();
         var qty = $(this).find('input[name=quantity]').val();
-        alert(data);        
+             
 		
         $.post(link + "controller_catalogo/addToCart", {
             product_id: id,
