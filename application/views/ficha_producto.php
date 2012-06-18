@@ -146,8 +146,8 @@
                         echo 'No tienes ning&uacute;n producto todav&iacute;a.';
                     else:
                         ?>
-
-                    <?php echo form_open('controller_catalogo/updateCart','class="update"'); ?>
+                    <div class="update">
+                    <?php echo form_open('controller_catalogo/updateCart'); ?>
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>
