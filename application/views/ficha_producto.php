@@ -114,11 +114,13 @@
                 <tr>
                     <td><p><strong>Plataforma:</strong></p></td>
                     <td><p><?php echo $row->Plataforma;?></p></td>
-                    <td><div><center class="ficha_producto">Cantidad: <?php
+                    <td><div><center>Cantidad: <?php
                             $options = array(
                                 '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
                                 '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
-                                );
+                                );?>
+                            <div class="ficha_producto">
+                            <?php
                             echo form_open('controller_catalogo/addToCart');
                             echo form_dropdown('quantity', $options, '1');
                             ?>
@@ -134,7 +136,7 @@
                             echo form_hidden('product_id', $row->Codigo);
                             
                             echo form_submit('add', 'Agregar');
-                            echo form_close();?></center>
+                            echo form_close();?></div></center>
                         </div></td>
                 </tr>
                 <tr>
