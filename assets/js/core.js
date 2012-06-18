@@ -14,8 +14,9 @@ $(document).ready(function() {
             ajax: '1'
         },
         function(data){
-            alert(data);
-            if(data.toString()=="true"){
+            alert(data.toString());
+            alert(data.valueOf());
+            if(data.valueOf()=="true"){
                 document.write("WELCOME");
                 //location.reload(true);
 //                $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
