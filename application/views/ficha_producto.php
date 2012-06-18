@@ -130,7 +130,7 @@
                     <td><p><?php echo "$".$row->Precio;?></p></td>
                     <td><div class="ficha_producto">
                         <center><?php //$cantidad = 3; 
-                              echo form_open('controller_catalogo/addToCart');  
+                              //echo form_open('controller_catalogo/addToCart');  
                               echo form_hidden('product_id', $row->Codigo);
                               //echo form_hidden('quantity', cantidad);
                               echo form_submit('add', 'Agregar');
