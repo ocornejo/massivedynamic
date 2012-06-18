@@ -118,7 +118,7 @@
                             $options = array(
                                 '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
                                 '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
-                                );?>
+                                );?></td>
                                 <td><div>
                         <center>
                             <div class="ficha_producto">
@@ -130,7 +130,7 @@
                             echo form_close();
                             ?></div>
                         </center></div></td>
-                    </td>
+                            
                 </tr>
                 <tr>
                     <td><p><strong>Precio:</strong></p></td>
