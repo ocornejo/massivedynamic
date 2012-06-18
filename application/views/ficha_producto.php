@@ -115,7 +115,7 @@
                     <td><p><strong>Plataforma:</strong></p></td>
                     <td><p><?php echo $row->Plataforma;?></p></td>
                     <td><center>
-                        <form method="get" action="controller_catalogo/addToCart">
+                        <?php echo form_open('controller_catalogo/addToCart'); ?>
                         Cantidad: <select size='1' name='cant'>
                             <option selected value="1">1</option>
                             <option value="2">2</option>
@@ -128,6 +128,7 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select></form>
+                        
                         </center>
                     </td>
                 </tr>
@@ -135,9 +136,10 @@
                     <td><p><strong>Precio:</strong></p></td>
                     <td><p><?php echo "$".$row->Precio;?></p></td>
                     <td><div class="ficha_producto">
-                        <center><?php echo form_open('controller_catalogo/addToCart');  
+                        <center><?php //echo form_open('controller_catalogo/addToCart');  
                               echo form_hidden('product_id', $row->Codigo);
-                              echo form_hidden('quantity', 3);
+                              
+                              //echo form_hidden('quantity', 3);
                               echo form_submit('add', 'Agregar');
                               echo form_close();?></center>
                         </div></td>
