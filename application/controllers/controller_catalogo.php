@@ -36,7 +36,8 @@ class Controller_Catalogo extends CI_Controller {
        
         // Check if user has javascript enabled  
         if($this->input->post('ajax') != '1'){  
-            redirect('controller_producto/producto/'); // If javascript is not enabled, reload the page with new data  
+            //redirect('controller_producto/producto/');
+            echo json_encode(array('retorno'=>0));// If javascript is not enabled, reload the page with new data  
         }else{  
             echo json_encode(array('retorno'=>1)); // If javascript is enabled, return true, so the cart gets updated 
             
