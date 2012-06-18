@@ -135,7 +135,7 @@
                     <td><div class="ficha_producto">
                         <center><?php echo form_open('controller_catalogo/addToCart');  
                               echo form_hidden('product_id', $row->Codigo);
-                              echo form_hidden('quantity', 1);
+                              echo form_hidden('quantity', $_POST["cantidad"]);
                               echo form_submit('add', 'Agregar');
                               echo form_close();?></center>
                         </div></td>
