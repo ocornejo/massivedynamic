@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class PdtTest extends CI_Controller {
+class Controller_Paypal extends CI_Controller {
 
     public function ppp() {
         $desc = "Compra en Massive Dynamic's Store";//set to the order description to be appear on the PayPal website;
