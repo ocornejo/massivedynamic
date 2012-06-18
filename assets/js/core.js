@@ -14,8 +14,9 @@ $(document).ready(function() {
             ajax: '1'
         },
         function(data){
-            alert(data.toString());
-            alert(data.valueOf());
+            var json = $.parseJSON(date);
+            alert(json.message);
+            
             if(data.valueOf()=="true"){
                 document.write("WELCOME");
                 //location.reload(true);
