@@ -2,18 +2,20 @@ $(document).ready(function() {
     /*place jQuery actions here*/ 
     var link = "/index.php/";	
 	
-    $("div.ficha_producto form").submit(function() {
+    $("center.ficha_producto form").submit(function() {
         // Get the product ID and the quantity 
         var id = $(this).find('input[name=product_id]').val();
         var qty = $(this).find('input[name=quantity]').val();
              
-		
+	alert(id+","+qty);	
         $.post(link + "controller_catalogo/addToCart", {
             product_id: id,
             quantity: qty, 
             ajax: '1'
         },
         function(data){
+            
+            
             var json = $.parseJSON(data);
             
             if(json.retorno==1){
