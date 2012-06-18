@@ -18,7 +18,7 @@ class Controller_Paypal extends CI_Controller {
         //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
         $ppAcc = "oc77_1338396747_biz@gmail.com"; //PayPal account email
         $cancelURL = "http://massivedynamic.inf.utfsm.cl";
-        $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/pdttest/index";
+        $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index";
 
         $buffer =
                 "<form action='$url' method='post' name='frmPayPal'>\n" .
