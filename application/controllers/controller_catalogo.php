@@ -50,7 +50,6 @@ class Controller_Catalogo extends CI_Controller {
         $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();
         
-        redirect('');
     }
     public function emptyCart(){
         $this->load->library('cart');
