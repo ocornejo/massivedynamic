@@ -147,7 +147,7 @@
                     else:
                         ?>
 
-                    <?php echo form_open('controller_catalogo/updateCart'); ?>
+                    <?php echo form_open('controller_catalogo/updateCart','class="update"'); ?>
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>
@@ -189,7 +189,7 @@
                             </tbody>
                         </table>
 
-                        <p><?php echo form_submit('', 'Actualizar','class="update"');
+                        <p><?php echo form_submit('', 'Actualizar');
                                  echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>
                         <p><small>Si seteas la cantidad a 0, el item ser&aacute; removido de tu carro.</small></p>
                       <?php
