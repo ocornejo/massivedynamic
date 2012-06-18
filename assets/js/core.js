@@ -47,10 +47,10 @@ $(document).ready(function() {
 
     $("div.update form").submit(function(){
             
-          alert("HOLA");
+          
         $.get(link + "controller_catalogo/updateCart", function(){
             
-            //location.reload(true);
+            location.reload(true);
 
         });  
         
