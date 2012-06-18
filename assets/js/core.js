@@ -15,19 +15,16 @@ $(document).ready(function() {
         },
         function(data){
             var json = $.parseJSON(data);
-            alert(json.retorno);
-            
             
             if(json.retorno==1){
-                document.write("WELCOME");
+               
                 //location.reload(true);
                 $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
                     $("#cart_content").html(cart); // Replace the information in the div #cart_content with the retrieved data  
                 });            
   
             }else{  
-                document.write("NON MI PIACI");
-                //alert("Product does not exist");  
+                alert("El producto no existe");  
             }  
         }); 
                 
