@@ -122,7 +122,7 @@
                             echo form_open('controller_catalogo/addToCart');
                             echo form_dropdown('cantidad', $options, '1');
                             echo form_hidden('product_id', $row->Codigo);
-                            echo form_close();?>
+                            //echo form_close();?>
                             ?>
                         </center></div>
                     </td>
@@ -134,7 +134,7 @@
                         <center><?php
                             //echo form_open('controller_catalogo/addToCart');
                             echo form_submit('add', 'Agregar');
-                            //echo form_close();?></center>
+                            echo form_close();?></center>
                         </div></td>
                 </tr>
                 <tr>
