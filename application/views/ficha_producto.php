@@ -114,7 +114,7 @@
                 <tr>
                     <td><p><strong>Plataforma:</strong></p></td>
                     <td><p><?php echo $row->Plataforma;?></p></td>
-                    <td><center>
+                    <td><div class="ficha_producto"><center>
                         Cantidad: <?php
                         echo form_open('controller_catalogo/addToCart');
                         $options = array(
@@ -122,9 +122,8 @@
                             '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
                             );
                         echo form_dropdown('cantidad', $options, '1');
-                        echo form_close();?>
                         ?>
-                        </center>
+                        </center></div>
                     </td>
                 </tr>
                 <tr>
