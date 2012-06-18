@@ -45,11 +45,11 @@ $(document).ready(function() {
         return false;  
     });  
 
-$(".update").submit("click", function(){
+$(".update").submit(function(){
             
           
         $.get(link + "controller_catalogo/updateCart", function(){
-            location.reload(true);
+            //location.reload(true);
 
         });  
         
