@@ -49,7 +49,7 @@ class Controller_Catalogo extends CI_Controller {
     public function updateCart(){
         $this->load->model('model_catalogo');
         $this->model_catalogo->validate_update_cart();
-        echo "true2";
+        
         redirect('ficha_producto');
     }
     public function emptyCart(){
@@ -59,7 +59,8 @@ class Controller_Catalogo extends CI_Controller {
         
     }
     public function showCart(){
-        $this->load->view('ficha_producto');  
+        //$this->load->view('ficha_producto');
+        redirect('controller_producto/producto/'+$this->input->post('product_id'));
     }
     
     
