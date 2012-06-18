@@ -6,7 +6,7 @@ $(document).ready(function() {
         // Get the product ID and the quantity 
         var id = $(this).find('input[name=product_id]').val();
         var qty = $(this).find('input[name=quantity]').val();
-                
+        alert(data);        
 		
         $.post(link + "controller_catalogo/addToCart", {
             product_id: id,
@@ -15,19 +15,19 @@ $(document).ready(function() {
         },
         function(data){
             
-            alert(data['return'].toString());
-            
-            if(data['return']){
-                document.write("WELCOME");
+//            alert(data['return'].toString());
+//            
+//            if(data['return']){
+//                document.write("WELCOME");
                 //location.reload(true);
 //                $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
 //                    $("#cart_content").html(cart); // Replace the information in the div #cart_content with the retrieved data  
 //                });            
   
-            }else{  
-                document.write("NON MI PIACI");
-                //alert("Product does not exist");  
-            }  
+//            }else{  
+//                document.write("NON MI PIACI");
+//                //alert("Product does not exist");  
+//            }  
         }); 
                 
         return false;
