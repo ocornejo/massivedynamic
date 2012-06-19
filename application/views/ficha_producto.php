@@ -107,7 +107,7 @@
                     <h1><p><?php echo $row->Nombre; ?></p></h1>
                     <table border="0" id="producto">
                         <tr>
-                            <td valign="top" rowspan="4" width="300"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' src='data:image/png;base64," . $row->Img . "'>"; ?></td>
+                            <td valign="top" rowspan="4" width="300"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' src='data:image/png;base64,".$row->Img."'>"; ?></td>
                             <td width="90"><p><strong>C&oacute;digo:</strong></p></td>
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>Agregar al carrito:</b></center></td>
@@ -157,7 +157,7 @@
                                                 else:
                                                     ?>
                                                     <div class="update">
-    <?php echo form_open('controller_catalogo/updateCart'); ?>
+                                                    <?php echo form_open('controller_catalogo/updateCart'); ?>
                                                         <table border="1" width="100%" cellpadding="0" cellspacing="0">
                                                             <thead>
                                                                 <tr width="700px">
@@ -220,7 +220,12 @@
                                                     ?>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br/>
+                                        <strong>Listo? Ahora teni que pagar po barsa ql! Crei que la wea es gratis:</strong><br/><br/>
+                                        <?php
+                                        echo "<a href='".site_url('controller_paypal/ppp/')."'><img src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' /></a>" ?>
+                                        <img src="http://www.2012-granhermano.com.ar/facebook.png" width="100px" />
+                                        
                                     </div>
                                     </section>
                             </div>
