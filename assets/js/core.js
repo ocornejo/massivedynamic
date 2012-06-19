@@ -15,7 +15,6 @@ $(document).ready(function() {
         },
         function(data){
             
-            
             var json = $.parseJSON(data);
             
             if(json.retorno==1){
@@ -47,7 +46,7 @@ $(document).ready(function() {
         return false;  
     });  
 
-    $("center.update form").live(function(){
+    $(".update").live(function(){
             
           alert("Ooasd");
         $.get(link + "controller_catalogo/updateCart", function(){
