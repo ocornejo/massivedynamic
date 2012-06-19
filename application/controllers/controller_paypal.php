@@ -13,7 +13,8 @@ class Controller_Paypal extends CI_Controller {
         $orderno = 1; //set to unique order number;
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
-        $nettotal = (int)($items['price'] / $data);
+        //$nettotal = (int)($items['price'] / $data);
+        $nettotal = $items['price'];
 //Save order information to database using the unique order number with status set as Pending...
 
 
@@ -30,8 +31,9 @@ class Controller_Paypal extends CI_Controller {
                 "<input type='hidden' name='item_name' value='$desc'>\n" .
                 "<input type='hidden' name='item_number' value='$orderno'>\n" .
                 "<input type='hidden' name='amount' value='$nettotal'>\n" .
-                "<input type='hidden' name='no_shipping' value='3'>\n" .
-                "<input type='hidden' name='currency_code' value='USD'>\n" .
+                "<input type='hidden' name='quantity' value='3'>\n" .
+                "<input type='hidden' name='no_shipping' value='1'>\n" .
+                "<input type='hidden' name='currency_code' value='CLP'>\n" .
                 "<input type='hidden' name='handling' value='0'>\n" .
                 "<input type='hidden' name='cancel_return' value='$cancelURL'>\n" .
                 "<input type='hidden' name='return' value='$returnURL'>\n" .
