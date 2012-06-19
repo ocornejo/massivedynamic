@@ -47,7 +47,7 @@ $(document).ready(function() {
         return false;  
     });  
 
-    $("center.update form").submit(function(){
+    $("center.update form").live(function(){
             
           alert("Ooasd");
         $.get(link + "controller_catalogo/updateCart", function(){
