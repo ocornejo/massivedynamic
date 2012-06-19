@@ -19,10 +19,10 @@ $(document).ready(function() {
             
             if(json.retorno==1){
                
-                location.reload(true);
-                //$.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
-                //    $("#cart_content").html(cart); // Replace the information in the div #cart_content with the retrieved data  
-                //});            
+                //location.reload(true);
+                $.get(link + "controller_catalogo/showCart", function(cart){ // Get the contents of the url cart/show_cart  
+                    $("#cart_content").html(cart); // Replace the information in the div #cart_content with the retrieved data  
+                });            
   
             }else{  
                 alert("El producto no existe");  
@@ -46,17 +46,7 @@ $(document).ready(function() {
         return false;  
     });  
 
-    $(".update").live(function(){
-            
-          alert("Ooasd");
-        $.get(link + "controller_catalogo/updateCart", function(){
-            
-            location.reload(true);
-
-        });  
-        
-        return false;  
-    });
+  
 
 
 	
