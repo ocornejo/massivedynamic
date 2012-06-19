@@ -7,7 +7,7 @@ $(document).ready(function() {
         var id = $(this).find('input[name=product_id]').val();
         var qty = $(this).find('input[name=quantity]').val();
              
-	alert(id+","+qty);	
+	
         $.post(link + "controller_catalogo/addToCart", {
             product_id: id,
             quantity: qty, 
@@ -47,9 +47,9 @@ $(document).ready(function() {
         return false;  
     });  
 
-    $("div.update form").submit(function(){
+    $("center.update form").submit(function(){
             
-          
+          alert("Ooasd");
         $.get(link + "controller_catalogo/updateCart", function(){
             
             location.reload(true);
