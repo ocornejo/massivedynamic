@@ -183,7 +183,21 @@
                                                                         <td><center><?php echo $items['qty']; ?></center></td>
                                                                 <td>$<?php echo $this->cart->format_number($items['price']); ?></td>
                                                                 <td>$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
-                                                                <td><center><img src="<?php echo base_url() ?>images/delete.png" /></center></td>
+                                                                <td><center class="update"><?php
+                                                                    echo form_open("controller_catalogo/updateCart");
+
+                                                                $btn_search = array(
+                                                                    'type'      => 'image',
+                                                                    'src'        => base_url().'images/delete.png',
+                                                                    'name'        => 'image',
+                                                                    'value'        => ''
+
+                                                                );
+
+                                                                echo form_input($btn_search);
+                                                                echo form_close();
+                                                                ?></center></td>
+                                                                
                                                                 </tr>
 
         <?php $i++; ?>
