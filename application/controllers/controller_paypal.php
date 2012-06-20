@@ -7,18 +7,22 @@ class Controller_Paypal extends CI_Controller {
 
     public function ppp() {
         $descripcion = '';
+        $precio = '';
+        $cantidad = '';
         $this->load->library('cart');
+        $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
+        $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
         foreach ($this->cart->contents() as $items){
             $descripcion = $descripcion."&".$items['name'];
+            $precio = $precio."&".(int)($items['price'] / $data);
+            $cantidad = $cantidad."&".$items['qty'];
         }
         //$item = 1;
         $desc = $descripcion;
         //$desc = "Compra en Massive Dynamic's Store";//set to the order description to be appear on the PayPal website;
         $orderno = 1; //set to unique order number;
-        $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
-        $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
-        $nettotal = (int)($items['price'] / $data);
-        $qty = $items['qty'];
+        $nettotal = $precio;
+        $qty = $cantidad;
 //Save order information to database using the unique order number with status set as Pending...
 
 
