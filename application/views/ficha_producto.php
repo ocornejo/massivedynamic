@@ -125,14 +125,14 @@
                             <td valign="right" width="200"><center><b>
                                 <?php 
                                 
-                              //  if($compra){
+                                if($compra){
                                     echo "Usted ya compró este producto";
                                     
-                                    //}
-                                //    else{
+                                    }
+                                    else{
                                         echo "Agregar al carrito:";
-                                  //  }
-                                //}
+                                    }
+                                }
                                
                                 ?>
                             </b></center></td>
