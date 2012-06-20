@@ -124,7 +124,8 @@
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
                                 <?php 
-                                echo $compra;
+                                 $this->load->library('session');
+                                echo $compra.$this->session->userdata('idUsuario');
                                
                                 ?>
                             </b></center></td>
