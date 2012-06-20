@@ -129,7 +129,12 @@
                                     echo "Usted ya ha comprado este producto</br>Puede volver a descargarlo gratuitamente";
                                     }
                                     else{
+                                        if($this->session->userdata('Username')!=null){
                                         echo "Agregar al carrito:";
+                                        }
+                                        else{
+                                            echo "Necesita loguearse para comprar";
+                                        }
                                     }
                                 
                                
@@ -151,12 +156,13 @@
                                                     <?php
                                                    
                                                     if($fuecomprado=="no"){
-                                                            
+                                                            if($this->session->userdata('Username')!=null){
                                                             echo form_open('controller_catalogo/addToCart');
                                                             echo form_input('quantity', '1', 'maxlength="2"');
                                                             echo form_hidden('product_id', $row->Codigo);
                                                             echo form_submit('add', 'Agregar');
                                                             echo form_close();
+                                                            }
                                                         }
                                                     
                                                     ?>
