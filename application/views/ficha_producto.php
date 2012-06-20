@@ -124,8 +124,13 @@
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
                                 <?php 
-                                 $this->load->library('session');
-                                echo $compra.$this->session->userdata('idUsuarios');
+                                if($compra){
+                                    echo "Usted ya ha comprado este producto</br>Puede volver a descargarlo gratuitamente";
+                                    }
+                                    else{
+                                        echo "Agregar al carrito:";
+                                    }
+                                }
                                
                                 ?>
                             </b></center></td>
