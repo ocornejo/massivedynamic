@@ -9,7 +9,7 @@ class Controller_producto extends CI_Controller{
         $this->load->library('session');
         $data['compra'] ="null";
         $comprado=$this->model_producto->get_compra($this->session->userdata('idUsuario'),$id);
-        if($comprado!=false){
+        if($comprado){
             $data['compra'] ="comprado";
             }
         else{
