@@ -113,12 +113,8 @@
             <div id="slider-three">
             <?php
                 foreach($resultado->result() as $row){
-                    echo "<div>";
-                    echo $row->idProducto;
-                    echo $row->idProductos;
-                    echo $row->idproducto;
-                    echo $row->idproductos;
-                    echo "<a href='".site_url('controller_producto/producto/'.$row->idProducto.'')."'>
+                    echo "<div>"; 
+                    echo "<a href='".site_url('controller_producto/producto/'.$row->Codigo.'')."'>
                         <img style='border-radius:10px;' src='data:image/png;base64,".$row->Img."'>
                             </a><br /><br /><br />";
                     echo "<p>".$row->Nombre."</p>";
