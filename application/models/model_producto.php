@@ -1,7 +1,7 @@
 <?php
-class Model_Catalogo extends CI_Model{
+class Model_Producto extends CI_Model{
     
-    function get_productos($usuario,$producto  ){
+    function get_compra($usuario,$producto  ){
         //La consulta se efectúa mediante Active Record. Una manera alternativa, y en lenguaje más sencillo, de generar las consultas Sql.
         $DB1=$this->load->database('default',TRUE);
         $query = $DB1->where('idUsuarios',$usuario);
