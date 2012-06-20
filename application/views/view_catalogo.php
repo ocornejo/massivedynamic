@@ -92,6 +92,12 @@
                     <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>"?></li>
                 </ul></nav>
+            <?php
+            $this->load->library('session');
+              if($this->session->userdata('Username')!=null){
+                  echo "<h4> Bienvenido ".$this->session->userdata('Username')."</h4>";
+              }
+              ?>
         </div>
     </header>
     
