@@ -124,15 +124,19 @@
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
                                 <?php 
-                                
-                              //  if($compra){
-                                    echo "Usted ya compró este producto";
-                                    
-                                    //}
-                                //    else{
+                               $fuecomprado=$compra;
+                                if($fuecomprado=="si"){
+                                    echo "Usted ya ha comprado este producto</br>Puede volver a descargarlo gratuitamente";
+                                    }
+                                    else{
+                                        if($this->session->userdata('Username')!=null){
                                         echo "Agregar al carrito:";
-                                  //  }
-                                //}
+                                        }
+                                        else{
+                                            echo "Necesita loguearse para comprar";
+                                        }
+                                    }
+                                
                                
                                 ?>
                             </b></center></td>
@@ -140,7 +144,21 @@
                         <tr>
                             <td><p><strong>Plataforma:</strong></p></td>
                             <td><p><?php echo $row->Plataforma; ?></p></td>
-                            <td><div><center>Cantidad: <?php
+                            <td><div><center> 
+                                    <?php if($fuecomprado=="no"){
+                                        if($this->session->userdata('Username')!=null){
+                                            echo "Cantidad:";
+                                        }
+                                            else{
+                                               echo "<a href='".site_url('controller_login/login/')."'>Login</a>"; 
+                                            }
+                                            }
+                                            
+                                            else{
+                                                echo "<center><h4>Descargar</h4></center>";
+                                                
+                                                }
+                                    
     $options = array(
         '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
         '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
@@ -150,11 +168,17 @@
                                                 <center class="ficha_producto">
 
                                                     <?php
-                                                    echo form_open('controller_catalogo/addToCart');
-                                                    echo form_input('quantity', '1', 'maxlength="2"');
-                                                    echo form_hidden('product_id', $row->Codigo);
-                                                    echo form_submit('add', 'Agregar');
-                                                    echo form_close();
+                                                   
+                                                    if($fuecomprado=="no"){
+                                                            if($this->session->userdata('Username')!=null){
+                                                            echo form_open('controller_catalogo/addToCart');
+                                                            echo form_input('quantity', '1', 'maxlength="2"');
+                                                            echo form_hidden('product_id', $row->Codigo);
+                                                            echo form_submit('add', 'Agregar');
+                                                            echo form_close();
+                                                            }
+                                                        }
+                                                    
                                                     ?>
                                                 </center></div></td>
 
