@@ -72,12 +72,24 @@
             <h1 class="fontface" id="title">MDS</h1>
             <nav><ul>
                     <li><a href="#">Home</a></li>
-                    <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Catálogo</a>"?></li>
+                    <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
-                    <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>"?></li>
-                </ul></nav>
+                
+            <?php
+            $this->load->library('session');
+              if($this->session->userdata('Username')!=null){
+                  echo "<li><a href='".site_url('controller_login/logout/')."'>Logout</a></li>";
+                  echo "</ul></nav>";
+                  echo " Bienvenido ".$this->session->userdata('Username');
+              }
+              else{
+                  echo "<li><a href='".site_url('controller_login/login/')."'>Login</a></li>";
+                  echo "</ul></nav>";
+              }
+              ?>
         </div>
     </header>
+    
     
     <div id="container">
         <section id="intro">
