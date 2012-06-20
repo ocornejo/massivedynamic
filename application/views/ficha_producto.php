@@ -144,7 +144,21 @@
                         <tr>
                             <td><p><strong>Plataforma:</strong></p></td>
                             <td><p><?php echo $row->Plataforma; ?></p></td>
-                            <td><div><center>  <?php if($fuecomprado=="no"){echo "Cantidad:";}else{echo "<center><h4>Descargar</h4></center>";}
+                            <td><div><center> 
+                                    <?php if($fuecomprado=="no"){
+                                        if($this->session->userdata('Username')!=null){
+                                            echo "Cantidad:";
+                                        }
+                                            else{
+                                               echo "<a href='".site_url('controller_login/login/')."'>Login</a>"; 
+                                            }
+                                            }
+                                            
+                                            else{
+                                                echo "<center><h4>Descargar</h4></center>";
+                                                
+                                                }
+                                    
     $options = array(
         '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
         '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
