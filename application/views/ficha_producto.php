@@ -139,7 +139,7 @@
                         <tr>
                             <td><p><strong>Plataforma:</strong></p></td>
                             <td><p><?php echo $row->Plataforma; ?></p></td>
-                            <td><div><center>  <?php if($fuecomprado=="no"){echo "Cantidad:";}else{echo "<h4>Descargar</h4>";}
+                            <td><div><center>  <?php if($fuecomprado=="no"){echo "Cantidad:";}else{echo "<center><h4>Descargar</h4></center>";}
     $options = array(
         '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
         '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
