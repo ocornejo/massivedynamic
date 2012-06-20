@@ -8,6 +8,7 @@ class Model_Producto extends CI_Model{
         $query = $DB1->where('idProducto',$producto);
         $query = $DB1->get('Compra');
         
+        
         //Devolvemos al controlador la fila que coincide con la búsqueda. (FALSE en caso que no existir coincidencias)
         return $query->row();
     }
