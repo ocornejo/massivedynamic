@@ -9,7 +9,7 @@ class Model_Catalogo extends CI_Model{
     
     function get_producto($id){
         $DB2 = $this->load->database('default2', TRUE); 
-        $query = $DB2->query('SELECT * FROM Productos WHERE Codigo='.$id);
+        $query = $DB2->query('SELECT * FROM Productos WHERE idProductos='.$id);
         return $query;
     }
     
