@@ -125,7 +125,7 @@
                             <td valign="right" width="200"><center><b>
                                 <?php 
                                 
-                                if($compra){
+                                if($compra!=null){
                                     echo "Usted ya compró este producto";
                                     
                                     }
