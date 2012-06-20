@@ -125,7 +125,7 @@
                             <td valign="right" width="200"><center><b>
                                 <?php 
                                  $this->load->library('session');
-                                echo $compra.$this->session->userdata('idUsuario');
+                                echo $compra.$this->session->userdata('idUsuarios');
                                
                                 ?>
                             </b></center></td>
