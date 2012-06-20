@@ -95,7 +95,13 @@
             <?php
             $this->load->library('session');
               if($this->session->userdata('Username')!=null){
-                  echo "<h4> Bienvenido ".$this->session->userdata('Username')."</h4>";
+                  echo "<a href='".site_url('controller_login/logout/')."'>Cerrar Sesión</a>";
+                  echo "</ul></nav>";
+                  echo " Bienvenido ".$this->session->userdata('Username');
+              }
+              else{
+                  echo "<a href='".site_url('controller_login/login/')."'>Login</a>";
+                  echo "</ul></nav>";
               }
               ?>
         </div>
