@@ -13,7 +13,7 @@ class Controller_producto extends CI_Controller{
             $data['compra'] ="comprado";
             }
         else{
-            $data['compra'] = $comprado[0];
+            $data['compra'] = "nocomprado";
             }
         $data['producto'] = $this->model_catalogo->get_producto($id);
         $data['cart_items'] = $this->cart->contents();
