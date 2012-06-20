@@ -124,11 +124,11 @@
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
                                 <?php 
-                                foreach ($producto->result() as $comprado){
-                                if($comprado->Fecha==null){
-                                    echo "Agregar al carrito:";}
+                                
+                                if($comprado){
+                                    echo "Usted ya compró este producto";}
                                     else{
-                                        echo "Usted ya compró este producto";
+                                        echo "Agregar al carrito:";
                                     }
                                 }
                                
