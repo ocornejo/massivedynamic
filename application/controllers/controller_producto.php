@@ -10,10 +10,10 @@ class Controller_producto extends CI_Controller{
         $data['compra'] ="null";
         $comprado=$this->model_producto->get_compra($this->session->userdata('idUsuarios'),$id);
         if($comprado){
-            $data['compra'] ="comprado";
+            $data['compra'] ="Usted ya ha comprado este producto, lo puede descargar gratuitamente";
             }
         else{
-            $data['compra'] = "nocomprado";
+            $data['compra'] = "Agregar al carrito";
             }
         $data['producto'] = $this->model_catalogo->get_producto($id);
         $data['cart_items'] = $this->cart->contents();
