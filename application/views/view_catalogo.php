@@ -114,7 +114,10 @@
             <?php
                 foreach($resultado->result() as $row){
                     echo "<div>";
-                    echo $row;
+                    echo $row->idProducto;
+                    echo $row->idProductos;
+                    echo $row->idproducto;
+                    echo $row[1];
                     echo "<a href='".site_url('controller_producto/producto/'.$row->idProducto.'')."'>
                         <img style='border-radius:10px;' src='data:image/png;base64,".$row->Img."'>
                             </a><br /><br /><br />";
