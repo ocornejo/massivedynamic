@@ -10,7 +10,7 @@ class Controller_producto extends CI_Controller{
         $data['compra'] ="null";
         $comprado=$this->model_producto->get_compra($this->session->userdata('idUsuario'),$id);
         if($comprado){$data['compra'] ="comprado";}
-        else{$data['compra'] = "null";}
+        else{$data['compra'] = "nocomprado";}
         $data['producto'] = $this->model_catalogo->get_producto($id);
         $data['cart_items'] = $this->cart->contents();
         $data['total'] = $this->cart->total();

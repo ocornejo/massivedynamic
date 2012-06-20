@@ -122,12 +122,18 @@
                             <td valign="top" rowspan="4" width="300"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' src='data:image/png;base64,".$row->Img."'>"; ?></td>
                             <td width="90"><p><strong>C&oacute;digo:</strong></p></td>
                             <td><p><?php echo $row->Codigo; ?></p></td>
-                            <td valign="right" width="200"><center><b>popo
+                            <td valign="right" width="200"><center><b>
                                 <?php 
-                               echo $compra;
+                                if($compra=="comprado"){
+                                    echo "Usted ya compró este producto";
+                                    }
+                                    else{
+                                        echo "Agregar al carrito:";
+                                    }
+                                }
                                
                                 ?>
-                            lala</b></center></td>
+                            </b></center></td>
                         </tr>
                         <tr>
                             <td><p><strong>Plataforma:</strong></p></td>
