@@ -13,9 +13,9 @@ class Controller_Paypal extends CI_Controller {
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
         foreach ($this->cart->contents() as $items){
-            $descripcion = $descripcion."&".$items['name'];
-            $precio = $precio."&".(int)($items['price'] / $data);
-            $cantidad = $cantidad."&".$items['qty'];
+            $descripcion = $descripcion.$items['name']."&";
+            $precio = $precio.(int)($items['price'] / $data)."&";
+            $cantidad = $cantidad.$items['qty']."&";
         }
         //$item = 1;
         $desc = $descripcion;
