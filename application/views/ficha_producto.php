@@ -124,14 +124,14 @@
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
                                 <?php 
-                               $fuecomprado=$compra
+                               $fuecomprado=$compra;
                                 if($fuecomprado=="si"){
                                     echo "Usted ya ha comprado este producto</br>Puede volver a descargarlo gratuitamente";
                                     }
                                     else{
                                         echo "Agregar al carrito:";
                                     }
-                                }
+                                
                                
                                 ?>
                             </b></center></td>
@@ -160,9 +160,6 @@
                                                             echo form_submit('add', 'Agregar');
                                                             echo form_close();
                                                         }
-                                                    }
-                               
-                                
                                                     
                                                     ?>
                                                 </center></div></td>
