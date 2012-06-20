@@ -41,7 +41,7 @@ class Controller_login extends CI_Controller {
                       enviándole como dato el usuario
                     */
                     $this->session->set_userdata('Username',$_POST['username']);
-                    $this->session->set_userdata('idUsuarios',$_POST['idUsuarios']);
+                    $this->session->set_userdata('idUsuarios',$ExisteUsuarioyPassoword->idUsuarios);
                     $data['log']=$this->session->userdata('Username');
                     $this->load->model('model_catalogo'); // carga los productos
                     $data["resultado"]=  $this->model_catalogo->get_productos();
