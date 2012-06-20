@@ -125,7 +125,7 @@
                             <td valign="right" width="200"><center><b>
                                 <?php 
                                 
-                                if($comprado){
+                                if(true){
                                     echo "Usted ya compró este producto";}
                                     else{
                                         echo "Agregar al carrito:";
