@@ -139,7 +139,7 @@
                         <tr>
                             <td><p><strong>Plataforma:</strong></p></td>
                             <td><p><?php echo $row->Plataforma; ?></p></td>
-                            <td><div><center>Cantidad: <?php
+                            <td><div><center>  <?php if($fuecomprado=="no"){echo "Cantidad:";}
     $options = array(
         '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5',
         '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10',
@@ -154,6 +154,7 @@
                                                         echo "<h4>Descargar</h4>";
                                                         }
                                                         else{
+                                                            
                                                             echo form_open('controller_catalogo/addToCart');
                                                             echo form_input('quantity', '1', 'maxlength="2"');
                                                             echo form_hidden('product_id', $row->Codigo);
