@@ -90,16 +90,16 @@
                     <li><a href="#">Home</a></li>
                     <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
-                </ul></nav>
+                
             <?php
             $this->load->library('session');
               if($this->session->userdata('Username')!=null){
-                  echo "<a href='".site_url('controller_login/logout/')."'>Cerrar Sesión</a>";
+                  echo "<li><a href='".site_url('controller_login/logout/')."'>Cerrar Sesión</a></li>";
                   echo "</ul></nav>";
                   echo " Bienvenido ".$this->session->userdata('Username');
               }
               else{
-                  echo "<a href='".site_url('controller_login/login/')."'>Login</a>";
+                  echo "<li><a href='".site_url('controller_login/login/')."'>Login</a></li>";
                   echo "</ul></nav>";
               }
               ?>
