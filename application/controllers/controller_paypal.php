@@ -6,12 +6,15 @@ if (!defined('BASEPATH'))
 class Controller_Paypal extends CI_Controller {
 
     public function ppp() {
+        $descripcion = '';
         $this->load->library('cart');
-        $item = 1;
         foreach ($this->cart->contents() as $items){
-        $desc = $items['name'];
+            $descripcion = $descripcion."&".$item['name'];
+        }
+        //$item = 1;
+        $desc = $descripcion;
         //$desc = "Compra en Massive Dynamic's Store";//set to the order description to be appear on the PayPal website;
-        $orderno = $item; //set to unique order number;
+        $orderno = 1; //set to unique order number;
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
         $nettotal = (int)($items['price'] / $data);
@@ -42,10 +45,7 @@ class Controller_Paypal extends CI_Controller {
                 "</form>\n" .
                 "<script language='javascript'>document.frmPayPal.submit();'</script>\n'";
 
-        echo($buffer);
-        $item++;
-        }
-        
+        echo($buffer);        
     }
 
     public function index() {
