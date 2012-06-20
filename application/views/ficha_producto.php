@@ -127,7 +127,6 @@
                                 
                                 if($compra!=null){
                                     echo "Usted ya compró este producto";
-                                    
                                     }
                                     else{
                                         echo "Agregar al carrito:";
