@@ -123,7 +123,7 @@
                             <td width="90"><p><strong>C&oacute;digo:</strong></p></td>
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
-                                <?php if($compra->result()!=null){
+                                <?php if($compra!=null){
                                     echo "Agregar al carrito:";}
                                     else{
                                         echo "Usted ya compró este producto";
