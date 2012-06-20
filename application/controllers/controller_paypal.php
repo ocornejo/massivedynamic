@@ -9,7 +9,7 @@ class Controller_Paypal extends CI_Controller {
         $descripcion = '';
         $this->load->library('cart');
         foreach ($this->cart->contents() as $items){
-            $descripcion = $descripcion."&".$item['name'];
+            $descripcion = $descripcion."&".$items['name'];
         }
         //$item = 1;
         $desc = $descripcion;
