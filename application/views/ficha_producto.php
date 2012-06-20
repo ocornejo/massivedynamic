@@ -124,13 +124,7 @@
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
                                 <?php 
-                                if($compra=="comprado"){
-                                    echo "Usted ya compró este producto";
-                                    }
-                                    else{
-                                        echo "Agregar al carrito:";
-                                    }
-                                }
+                                echo compra;
                                
                                 ?>
                             </b></center></td>
