@@ -124,7 +124,7 @@
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
                                 <?php 
-                                echo compra;
+                                echo $compra;
                                
                                 ?>
                             </b></center></td>
