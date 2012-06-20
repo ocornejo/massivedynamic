@@ -91,6 +91,7 @@
                     <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
                 
+                    
             <?php
             $this->load->library('session');
               if($this->session->userdata('Username')!=null){
