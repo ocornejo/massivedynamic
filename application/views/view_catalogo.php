@@ -90,7 +90,6 @@
                     <li><a href="#">Home</a></li>
                     <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
-                    <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>"?></li>
                 </ul></nav>
             <?php
             $this->load->library('session');
