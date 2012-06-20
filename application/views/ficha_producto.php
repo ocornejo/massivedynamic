@@ -123,11 +123,14 @@
                             <td width="90"><p><strong>C&oacute;digo:</strong></p></td>
                             <td><p><?php echo $row->Codigo; ?></p></td>
                             <td valign="right" width="200"><center><b>
-                                <?php if($compra!=null){
+                                <?php 
+                                foreach ($producto->result() as $comprado){
+                                if($comprado!=null){
                                     echo "Agregar al carrito:";}
                                     else{
                                         echo "Usted ya compró este producto";
                                     }
+                                }
                                
                                 ?>
                             </b></center></td>
