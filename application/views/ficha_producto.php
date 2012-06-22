@@ -222,7 +222,7 @@
                                                                 <?php foreach ($this->cart->contents() as $items): ?>
 
                                                                     <?php echo form_hidden('rowid[]', $items['rowid']);
-                                                                    echo form_hidden('qty[]', $items['qty'])?>
+                                                                    echo form_hidden('qty[]', 0)?>
                                                                 
                                                                     <tr <?php
                                                             if ($i & 1) {
