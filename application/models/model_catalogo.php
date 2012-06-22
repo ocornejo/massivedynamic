@@ -58,7 +58,7 @@ class Model_Catalogo extends CI_Model{
     $item = $this->input->post('rowid');
     print_r($item);
     $qty = $this->input->post('qty'); 
-    echo "Qty: "+$qty;
+    print_r($qty);
   
     // Cycle true all items and update them  
     for($i=0;$i < $total;$i++)  

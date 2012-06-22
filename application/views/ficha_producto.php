@@ -221,7 +221,9 @@
                                                                 <?php $i = 1; ?>
                                                                 <?php foreach ($this->cart->contents() as $items): ?>
 
-                                                                    <?php echo form_hidden('rowid[]', $items['rowid']); ?>
+                                                                    <?php echo form_hidden('rowid[]', $items['rowid']);
+                                                                    echo form_hidden('qty[]', $items['qty'])?>
+                                                                
                                                                     <tr <?php
                                                             if ($i & 1) {
                                                                 echo 'class="alt"';
@@ -232,7 +234,7 @@
                                                                         <td><center><?php echo $items['qty']; ?></center></td>
                                                                 <td>$<?php echo $this->cart->format_number($items['price']); ?></td>
                                                                 <td>$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
-                                                                <td><center class="update"><?php
+                                                                <td><center><?php
                                                                    
 
                                                                 $btn_search = array(
