@@ -53,10 +53,12 @@ class Model_Catalogo extends CI_Model{
   $this->load->library("cart");
     // Get the total number of items in cart  
     $total = $this->cart->total_items();  
-  
+    echo "Total: "+$total;
     // Retrieve the posted information  
-    $item = $this->input->post('rowid');  
-    $qty = $this->input->post('qty');  
+    $item = $this->input->post('rowid'); 
+    echo "Item: "+$total;
+    $qty = $this->input->post('qty'); 
+    echo "Qty: "+$total;
   
     // Cycle true all items and update them  
     for($i=0;$i < $total;$i++)  
