@@ -55,8 +55,8 @@ class Model_Catalogo extends CI_Model{
     $total = $this->cart->total_items();  
     echo "Total: "+$total;
     // Retrieve the posted information  
-    $item = $this->input->post('rowid'); 
-    echo "Item: "+$item;
+    $item = $this->input->post('rowid');
+    print_r($item);
     $qty = $this->input->post('qty'); 
     echo "Qty: "+$qty;
   
