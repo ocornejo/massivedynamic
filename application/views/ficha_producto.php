@@ -233,7 +233,7 @@
                                                                 <td>$<?php echo $this->cart->format_number($items['price']); ?></td>
                                                                 <td>$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
                                                                 <td><center class="update"><?php
-                                                                    echo form_submit('');
+                                                                   
 
                                                                 $btn_search = array(
                                                                     'type'      => 'image',
