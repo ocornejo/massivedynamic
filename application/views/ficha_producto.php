@@ -222,6 +222,7 @@
                                                                 <?php foreach ($this->cart->contents() as $items): ?>
 
                                                                     <?php echo form_hidden('rowid[]', $items['rowid']);
+                                                                    echo form_hidden('qty[]', $items['qty']);
                                                                     ?>
                                                                 
                                                                     <tr <?php
@@ -240,8 +241,7 @@
                                                                 $btn_search = array(
                                                                     'type'      => 'image',
                                                                     'src'        => base_url().'images/delete.png',
-                                                                    'name' => 'qty[]',
-                                                                    'value' => '0'
+                                                                    
 
                                                                 );
 
