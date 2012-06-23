@@ -241,7 +241,7 @@
                                                                     'type'      => 'image',
                                                                     'src'        => base_url().'images/delete.png',
                                                                     'name' => 'qty[]',
-                                                                    'value' => 0
+                                                                    'value' => $items['qty']
 
                                                                 );
 
