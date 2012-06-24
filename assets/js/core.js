@@ -46,7 +46,7 @@ $(document).ready(function() {
         return false;  
     });  
     
-        $(".update").live("click", function(){
+        $(".update").submit("click", function(){
             
           
         $.get(link + "controller_catalogo/updateCart", function(){
