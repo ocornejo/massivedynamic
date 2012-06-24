@@ -187,13 +187,13 @@
                                 <?php } ?>
                                                     <div id="wrap">
 
-                                                        <div class="cart_list">
+                                                        <div class="update">
                                                             
                                                                                                                 
                                                             
                                                         <?php echo form_open('controller_catalogo/updateCart'); ?>
                                                             <table cellpadding="0" cellspacing="0" style="100%" border="1">
-                                                                <tr>
+                                                                <tr width="700px">
                                                                     <th>Cantidad</th>
                                                                     <th>Descripci&oacute;n</th>
                                                                     <th style="text-align:right">Precio unitario</th>
@@ -232,7 +232,9 @@
                                                                     <td >$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                                                                 </tr>
                                                             </table>
-                                                            <p><?php echo form_submit('', 'Actualizar'); ?></p>
+                                                            <p><?php echo form_submit('', 'Actualizar','class="update"'); ?></p>
+                                                            <p><?php echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>
+                                                            
 
 
                                                         </div>

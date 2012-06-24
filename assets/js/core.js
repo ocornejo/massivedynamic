@@ -45,6 +45,20 @@ $(document).ready(function() {
         
         return false;  
     });  
+    
+        $(".update").live("click", function(){
+            
+          
+        $.get(link + "controller_catalogo/updateCart", function(){
+            location.reload(true);
+//            $.get(link + "controller_catalogo/showCart", function(cart){
+//                
+//                $("#cart_content").html(cart);  
+//            });  
+        });  
+        
+        return false;  
+    }); 
 
   
 
