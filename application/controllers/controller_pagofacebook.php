@@ -44,9 +44,9 @@ class Controller_pagofacebook extends CI_Controller {
 
           if (!isset ($permissions['data'][0]['publish_stream']))
             throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
-          $nombres=substr($nombres, 1,-1);
-          $soft=str_replace("%20",", ",$nombres);
-          $mensaje='He comprado'.$nombre.' con pago social en Massive Dynamic, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
+          $nombre=substr($nombre, 1,-1);
+          $soft=str_replace("%20",", ",$nombre);
+          $mensaje='He comprado'.$soft.' con pago social en Massive Dynamic, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
 
         } catch (Exception $e)
