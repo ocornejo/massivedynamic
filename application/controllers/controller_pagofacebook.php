@@ -48,17 +48,18 @@ class Controller_pagofacebook extends CI_Controller {
           $num=0;
           $nombres=" ";
           while(isset ($_POST['nombre'.$num])){
-              $nombres=$nombres.$_POST['nombre'.$num].", ";
+              $nombres=$nombres.$_POST['nombre'.$num]."; ";
               $num=$num+1;
           }
           
-          $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'. Prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
-          $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
+          $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
+          //$facebook->api('/me/feed', 'post', array ('message' => $mensaje));
           
           $this->load->model('model_compra');
+          echo "hola1";
           $this->load->library('session');
           $num=0;
-          echo "hola";
+          echo "hola2";
           while(isset ($_POST['codigo'.$num])){
               echo "chao";
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
