@@ -244,9 +244,12 @@
                                                         </div>
                                                     </div><br/>
                                                    <br/><br/>
+                                                   <table>
+                                                       <tr>
+                                                       <td>
                                                         <?php echo "<a href='" . site_url('controller_paypal/ppp/') . "'><img src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' /></a>" ?>
-                                                        
-                                                        
+                                                        </td>
+                                                        <td>
                                                      <?php
                                                      echo form_open('controller_pagofacebook/pagarconpost');
                                                      $num=0;
@@ -258,7 +261,9 @@
                                                       echo "</form>"        
                                                      
                                                      ?>
-                                                   
+                                                        </td>
+                                                       </tr>
+                                                   </table>
                                      
 
                                             </div>
