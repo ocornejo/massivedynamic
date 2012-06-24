@@ -243,8 +243,14 @@
                                                     </div><br/>
                                                     <strong>Listo? Ahora teni que pagar po barsa ql! Crei que la wea es gratis:</strong><br/><br/>
                                                         <?php echo "<a href='" . site_url('controller_paypal/ppp/') . "'><img src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' /></a>" ?>
-                                                    
-                                                    <img src="http://www.2012-granhermano.com.ar/facebook.png" width="100px" />
+                                                    <?php
+                                                    $nombres;
+                                                    foreach ($this->cart->contents() as $items):
+                                                        $nombres." ".$items['name'];
+                                                    endforeach;
+                                                    echo "<a href='" . site_url('controller_pagofacebook/pagarconpost/').$nombres."'><img src='http://www.2012-granhermano.com.ar/facebook.png' width='100px' /></a>"
+                                                            ?>
+                                     
 
                                             </div>
                                             </section>
