@@ -209,7 +209,7 @@
                                                                         <td><?php echo form_input(array('name' => $i . '[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
                                                                         <td>
                                                                     <?php echo $items['name'];
-                                                                    $nombres=$nombres." ".$items['name'];
+                                                                    $nombres=$nombres.", ".$items['name'];
                                                                     ?>
 
                                                                     <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
