@@ -198,78 +198,50 @@
                                     <div id="wrap">
 
                                         <div class="cart_list">
-                                            <br/><br/><h3>Tu carro de compras</h3>
-                                            <div id="cart_content">
-                                                <?php
-                                                if ($cart_items == 0):
-                                                    echo 'No tienes ning&uacute;n producto todav&iacute;a.';
-                                                else:
-                                                    ?>
-                                                    <div class="update">
-                                                    <?php echo form_open('controller_catalogo/updateCart'); ?>
-                                                        <table border="1" width="100%" cellpadding="0" cellspacing="0">
-                                                            <thead>
-                                                                <tr width="700px">
-                                                                    <td><strong>Descripci&oacute;n</strong></td>
-                                                                    <td width="100px"><strong><center>Cantidad</center></strong></td> 
-                                                                    <td><strong>Precio</strong></td>
-                                                                    <td><strong>Sub-Total</strong></td>
-                                                                    <td width="100px"><strong><center>Eliminar</center></strong></td>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php $i = 1; ?>
-                                                                <?php foreach ($this->cart->contents() as $items): ?>
+                                            <?php echo form_open('controller_catalogo/updateCart'); ?>
+<table cellpadding="6" cellspacing="1" style="width:100%" border="1">
+<tr>
+  <th>QTY</th>
+  <th>Item Description</th>
+  <th style="text-align:right">Item Price</th>
+  <th style="text-align:right">Sub-Total</th>
+  </tr>
+<?php $i = 1; ?>
+<?php foreach($this->cart->contents() as $items): ?>
+ <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
 
-                                                                    <?php echo form_hidden('rowid[]', $items['rowid']);
-                                                                    echo form_hidden('qty[]', $items['qty']);
-                                                                    ?>
-                                                                
-                                                                    <tr <?php
-                                                            if ($i & 1) {
-                                                                echo 'class="alt"';
-                                                            }
-                                                            ?>
-                                                                        >
-                                                                        <td><?php echo $items['name']; ?></td>
-                                                                        <td><center><?php echo $items['qty']; ?></center></td>
-                                                                <td>$<?php echo $this->cart->format_number($items['price']); ?></td>
-                                                                <td>$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
-                                                                <td><center><?php
-                                                                   
+  <tr>
+  <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
+  <td>
+  <?php echo $items['name']; ?>
 
-                                                                $btn_search = array(
-                                                                    'type'      => 'image',
-                                                                    'src'        => base_url().'images/delete.png',
-                                                                    
+  <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
 
-                                                                );
+  <p>
+  <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
 
-                                                                echo form_input($btn_search);
-                                                                
-                                                                ?></center></td>
-                                                                
-                                                                </tr>
+  <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
 
-        <?php $i++; ?>
-    <?php endforeach; ?>
+  <?php endforeach; ?>
+  </p>
 
-                                                            <tr>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td><strong>Total</strong></td>
-                                                                <td>$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table><br/>
+  <?php endif; ?>
 
-                                                        <p><?php echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>
-                                                        <?php
-                                                        echo form_close();
-                                                    endif;
-                                                    ?>
-                                                </div>
+  </td>
+  <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
+  <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+  </tr>
+<?php $i++; ?>
+<?php endforeach; ?>
+<tr>
+  <td colspan="2"> </td>
+  <td ><strong>Total</strong></td>
+  <td >$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+  </tr>
+</table>
+<p><?php echo form_submit('', 'Update your Cart'); ?></p>
+
+
                                             </div>
                                         </div><br/>
                                         <strong>Listo? Ahora teni que pagar po barsa ql! Crei que la wea es gratis:</strong><br/><br/>
