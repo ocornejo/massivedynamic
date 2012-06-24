@@ -3,8 +3,8 @@ class Controller_descarga extends CI_Controller {
     
     function bajar($codigo)
     {
-    $ruta=base_url()."/programas/".$codigo.".txt";
-    $datos = file_get_contents($ruta); //Leer el contenido del archivo 
+    
+    $datos = "Gracias por comprar ".$codigo;
     $nombre = $codigo.'txt'; 
     force_download($nombre,$datos);
     $data[mensaje]=$ruta;

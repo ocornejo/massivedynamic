@@ -148,7 +148,7 @@
             echo "<a href='" . site_url('controller_login/login/') . "'>Login</a>";
         }
     } else {
-         echo "<center><a href='".site_url('controller_descarga/bajar/').$row->Codigo."'>Descargar</a></center>";
+         echo "<center><a href='".site_url("controller_descarga/bajar/").$row->Codigo."'>Descargar</a></center>";
     }
 
     $options = array(
