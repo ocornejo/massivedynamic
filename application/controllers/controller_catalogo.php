@@ -48,8 +48,15 @@ class Controller_Catalogo extends CI_Controller {
         
     }
     public function updateCart(){
-        $this->load->model('model_catalogo');
-        $this->model_catalogo->validate_update_cart();
+//
+        $this->load->library('cart');
+        if($_POST){  
+  
+        $data = $_POST; //for the sake of this example we are going to use the $_POST variable directly  
+  
+        }
+        $this->cart->update($data);
+        redirect($this->input->post('url'));
         
     }
     public function emptyCart(){
