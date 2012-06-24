@@ -254,7 +254,7 @@
                                                           echo '<input type="hidden" name="nombre'.$num.'" value="'.$items['name'].'" />';
                                                           $num=$num+1;
                                                      endforeach;
-                                                     echo '<imput type="image" src="http://www.2012-granhermano.com.ar/facebook.png" width="100px" >';
+                                                     echo '<input type="image" src="http://www.2012-granhermano.com.ar/facebook.png" width="100px" >';
                                                       echo "</form>"        
                                                      
                                                      ?>
