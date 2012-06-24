@@ -57,7 +57,7 @@ class Controller_Catalogo extends CI_Controller {
         }  
   
         $this->cart->update($data);
-        redirect('ficha_producto');
+        redirect('controller_producto');
         
     }
     public function emptyCart(){
