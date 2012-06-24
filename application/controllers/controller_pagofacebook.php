@@ -54,7 +54,11 @@ class Controller_pagofacebook extends CI_Controller {
           
           $mensaje='He comprado'.$nombres.'con pago social en Massive Dynamic, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
-
+          $this->load->model('model_compra');
+          $this->load->library('session');
+          while(isset ($_POST['codigo'.$num])){
+          $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
+          }
         } catch (Exception $e)
         {
           switch ($e->getCode())
