@@ -118,7 +118,7 @@
                                     <h1><p><?php echo $row->Nombre; ?></p></h1>
                                     <table border="0" id="producto">
                                         <tr>
-                                            <td valign="top" rowspan="4" width="300"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' src='data:image/png;base64," . $row->Img . "'>"; ?></td>
+                                            <td valign="top" rowspan="4" width="300"><?php echo "<img style='border-radius:10px; border-top-right-radius:70px;' src='data:image/png;base64,".$row->Img."'>"; ?></td>
                                             <td width="90"><p><strong>C&oacute;digo:</strong></p></td>
                                             <td><p><?php echo $row->Codigo; ?></p></td>
                                             <td valign="right" width="200"><center><b>
