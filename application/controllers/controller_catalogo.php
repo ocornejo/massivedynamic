@@ -54,10 +54,9 @@ class Controller_Catalogo extends CI_Controller {
   
         $data = $_POST; //for the sake of this example we are going to use the $_POST variable directly  
   
-        }  
-  
+        }
         $this->cart->update($data);
-        redirect('controller_producto/producto/'+$this->input->post('product_id'));
+        redirect($this->input->post('url'));
         
     }
     public function emptyCart(){
