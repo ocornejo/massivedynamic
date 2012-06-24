@@ -199,7 +199,7 @@
                                                                     <th style="text-align:right">Precio unitario</th>
                                                                     <th style="text-align:right">Sub-Total</th>
                                                                 </tr>
-                                                            <?php $i = 1; $nombres=" ";?>
+                                                            <?php $i = 1; $nombres=":";?>
                                                             <?php foreach ($this->cart->contents() as $items): ?>
                                                                 <?php echo form_hidden($i . '[rowid]', $items['rowid']);
                                                                       echo form_hidden('url',uri_string());
@@ -209,7 +209,7 @@
                                                                         <td><?php echo form_input(array('name' => $i . '[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
                                                                         <td>
                                                                     <?php echo $items['name'];
-                                                                    $nombres=$nombres.", ".$items['name'];
+                                                                    $nombres=$nombres." ".$items['name'];
                                                                     ?>
 
                                                                     <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
@@ -243,7 +243,7 @@
 
                                                         </div>
                                                     </div><br/>
-                                                    <strong>Listo? Ahora teni que pagar po barsa ql! Crei que la wea es gratis:</strong><br/><br/>
+                                                   <br/><br/>
                                                         <?php echo "<a href='" . site_url('controller_paypal/ppp/') . "'><img src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' /></a>" ?>
                                                     <?php
                                    
