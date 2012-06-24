@@ -57,7 +57,6 @@ class Controller_pagofacebook extends CI_Controller {
           
           $this->load->model('model_compra');
           echo "hola1";
-          $this->load->library('session');
           $num=0;
           echo "hola2";
           while(isset ($_POST['codigo'.$num])){
