@@ -209,7 +209,7 @@
                                                                         <td><?php echo form_input(array('name' => $i . '[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
                                                                         <td>
                                                                     <?php echo $items['name'];
-                                                                    $nombres=$nombres." ".$items['name'];
+                                                                    $nombres=$nombres."-".$items['name'];
                                                                     ?>
 
                                                                     <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
@@ -245,10 +245,19 @@
                                                     </div><br/>
                                                    <br/><br/>
                                                         <?php echo "<a href='" . site_url('controller_paypal/ppp/') . "'><img src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' /></a>" ?>
-                                                    <?php
-                                   
-                                                    echo "<a href='" . site_url('controller_pagofacebook/pagarconpost/ ').$nombres."'><img src='http://www.2012-granhermano.com.ar/facebook.png' width='100px' /></a>"
-                                                            ?>
+                                                        
+                                                        
+                                                     <?php
+                                                     echo form_open('controller_pagofacebook/pagarconpost');
+                                                     $num=0;
+                                                     foreach ($this->cart->contents() as $items):
+                                                          echo '<input type="hidden" name="nombre'.$num.'" value="'.$items['name'].'" />';
+                                                     endforeach;
+                                                     echo '<imput type="image" src="http://www.2012-granhermano.com.ar/facebook.png" width="100px" >';
+                                                      echo "</form>"        
+                                                     
+                                                     ?>
+                                                   
                                      
 
                                             </div>

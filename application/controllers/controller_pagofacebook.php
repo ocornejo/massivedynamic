@@ -6,7 +6,7 @@ class Controller_pagofacebook extends CI_Controller {
         $this->load->view('view_facebook');
     }
     
-    public function pagarconpost($nombre)
+    public function pagarconpost()
 	{
         // cargamos la libreria
         $this->load->library('facebook');
@@ -44,9 +44,15 @@ class Controller_pagofacebook extends CI_Controller {
 
           if (!isset ($permissions['data'][0]['publish_stream']))
             throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
-          $nombre=substr($nombre, 1,-1);
-          $soft=str_replace("%20",", ",$nombre);
-          $mensaje='He comprado'.$soft.' con pago social en Massive Dynamic, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
+          
+          $num=0;
+          $nombres=" ";
+          while(isset ($_POST['nombre'.$num])){
+              $nombres=$nombres.$_POST['nombre'.$num]." ";
+            
+          }
+          
+          $mensaje='He comprado'.$nombres.' con pago social en Massive Dynamic, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
 
         } catch (Exception $e)
