@@ -7,7 +7,7 @@ class Controller_descarga extends CI_Controller {
     $datos = "Gracias por comprar ".$codigo;
     $nombre = $codigo.'txt'; 
     force_download($nombre,$datos);
-    $data[mensaje]=$ruta;
+    $data["mensaje"]=$ruta;
     $this->load->view('view_comprado',$data); 
     }
 }
