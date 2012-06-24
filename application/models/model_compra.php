@@ -1,5 +1,5 @@
 <?php
-class Model_registro extends CI_Model{
+class Model_Compra extends CI_Model{
 
         //Ingresará al usuario
     function IngresarCompra($usuario,$producto,$pago){ 
