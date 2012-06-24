@@ -184,16 +184,18 @@
                                                             <td></td>
                                                         </tr>
                                                         </table>
-<?php } ?>
+                                <?php } ?>
                                                     <div id="wrap">
 
                                                         <div class="cart_list">
                                                             
+                                                                                                                
+                                                            
                                                         <?php echo form_open('controller_catalogo/updateCart'); ?>
-                                                            <table cellpadding="6" cellspacing="1" style="width:100%" border="1">
+                                                            <table cellpadding="0" cellspacing="0" style="100%" border="1">
                                                                 <tr>
                                                                     <th>Cantidad</th>
-                                                                    <th>Descripción</th>
+                                                                    <th>Descripci&oacute;n</th>
                                                                     <th style="text-align:right">Precio unitario</th>
                                                                     <th style="text-align:right">Sub-Total</th>
                                                                 </tr>
@@ -230,7 +232,7 @@
                                                                     <td >$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                                                                 </tr>
                                                             </table>
-                                                            <p><?php echo form_submit('', 'Update your Cart'); ?></p>
+                                                            <p><?php echo form_submit('', 'Actualizar'); ?></p>
 
 
                                                         </div>
