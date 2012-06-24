@@ -56,9 +56,13 @@ class Controller_pagofacebook extends CI_Controller {
           $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
           $this->load->model('model_compra');
           $this->load->library('session');
+          $num=0;
           while(isset ($_POST['codigo'.$num])){
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
+          
           echo "Su usuario es ".$this->session->userdata('idUsuarios')." y ha comprado el producto con codigo ".$_POST['codigo'.$num];
+          $num=$num+1;
+          
           }
         } catch (Exception $e)
         {
