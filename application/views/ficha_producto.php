@@ -247,7 +247,7 @@
                                                         <?php echo "<a href='" . site_url('controller_paypal/ppp/') . "'><img src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' /></a>" ?>
                                                     <?php
                                    
-                                                    echo "<a href='" . site_url('controller_pagofacebook/pagarconpost/').$nombres."'><img src='http://www.2012-granhermano.com.ar/facebook.png' width='100px' /></a>"
+                                                    echo "<a href='" . site_url('controller_pagofacebook/pagarconpost/ ').$nombres."'><img src='http://www.2012-granhermano.com.ar/facebook.png' width='100px' /></a>"
                                                             ?>
                                      
 
