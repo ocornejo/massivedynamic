@@ -240,7 +240,7 @@
                                                             <p><?php echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>
                                                             
 
-
+                                                        </form>
                                                         </div>
                                                     </div><br/>
                                                    <br/><br/>
@@ -252,6 +252,7 @@
                                                      $num=0;
                                                      foreach ($this->cart->contents() as $items):
                                                           echo '<input type="hidden" name="nombre'.$num.'" value="'.$items['name'].'" />';
+                                                          $num=$num+1;
                                                      endforeach;
                                                      echo '<imput type="image" src="http://www.2012-granhermano.com.ar/facebook.png" width="100px" >';
                                                       echo "</form>"        
