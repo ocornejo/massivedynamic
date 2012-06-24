@@ -199,7 +199,7 @@
                                                                     <th style="text-align:right">Precio unitario</th>
                                                                     <th style="text-align:right">Sub-Total</th>
                                                                 </tr>
-                                                            <?php $i = 1; $nombres=":";?>
+                                                            <?php $i = 1; $nombres=" ";?>
                                                             <?php foreach ($this->cart->contents() as $items): ?>
                                                                 <?php echo form_hidden($i . '[rowid]', $items['rowid']);
                                                                       echo form_hidden('url',uri_string());
