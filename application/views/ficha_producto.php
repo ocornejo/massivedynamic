@@ -242,8 +242,7 @@
 
                                                         </form>
                                                         </div>
-                                                    </div><br/>
-                                                   <br/><br/>
+                                                    </div>
                                                    Elija su medio de pago:
                                                    <table>
                                                        <tr>
@@ -265,8 +264,8 @@
                                                         </td>
                                                        </tr>
                                                        <tr>
-                                                           <td>Paypal</td>
-                                                           <td>Facebook</td>
+                                                           <td><center>Paypal</center></td>
+                                                           <td><center>Facebook</center></td>
                                                        </tr>
                                                    </table>
                                      
