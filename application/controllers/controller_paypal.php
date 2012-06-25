@@ -7,46 +7,41 @@ class Controller_Paypal extends CI_Controller {
 
     public function ppp() {
         $this->load->library('cart');
+        $num = 1;
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
-        $item = 1;
-        //foreach ($this->cart->contents() as $items){
-        $desc[1] = "producto1";
-        $desc[2] = "producto2";
-        $desc[3] = "producto3";
-            //$desc = $items['name'];
-            //$orderno = $item;
-            //$nettotal = (int)($items['price'] / $data);
-            //$qty = $items['qty'];
-            //$item++;
-        //}
-//Save order information to database using the unique order number with status set as Pending...
-
+        $desc = $items['name'];
+        $orderno = $item;
+        $nettotal = (int)($items['price'] / $data);
+        $qty = $items['qty'];
 
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
         //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
         $ppAcc = "oc77_1338396747_biz@gmail.com"; //PayPal account email
         $cancelURL = "http://massivedynamic.inf.utfsm.cl";
-        $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index";
+        $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index";?>
 
-        $buffer =
-                "<form action='$url' method='post' name='frmPayPal'>\n" .
-                "<input type='hidden' name='business' value='$ppAcc'>\n" .
-                "<input type='hidden' name='cmd' value='_xclick'>\n" .
-                "<input type='hidden' name='item_name' value='$desc'>\n" .
-                "<input type='hidden' name='item_number' value='1'>\n" .
-                "<input type='hidden' name='amount' value='3'>\n" .
-                "<input type='hidden' name='quantity' value='1'>\n" .
-                "<input type='hidden' name='no_shipping' value='1'>\n" .
-                "<input type='hidden' name='currency_code' value='USD'>\n" .
-                "<input type='hidden' name='handling' value='0'>\n" .
-                "<input type='hidden' name='cancel_return' value='$cancelURL'>\n" .
-                "<input type='hidden' name='return' value='$returnURL'>\n" .
-                "<input type='image' src='https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' name='submit' alt='Pagar ahora' />" .
-                "</form>\n" .
-                "<script language='javascript'>document.frmPayPal.submit();'</script>\n'";
-
-        echo($buffer);  
+        <form action='$url' method='post' name='frmPayPal'>
+            <input type='hidden' name='business' value='$ppAcc'>
+            <input type='hidden' name='cmd' value='_xclick'>
+            <input type='hidden' name='item_name' value='$desc'>
+            <input type='hidden' name='item_number' value='$orderno'>
+            <input type='hidden' name='amount' value='$nettotal'>
+            <input type='hidden' name='quantity' value='$qty'>
+            <input type='hidden' name='no_shipping' value='1'>
+            <input type='hidden' name='currency_code' value='USD'>
+            <input type='hidden' name='handling' value='0'>
+            <input type='hidden' name='cancel_return' value='$cancelURL'>
+            <input type='hidden' name='return' value='$returnURL'>
+            <input type='image' src='https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' name='submit' alt='Pagar ahora' />
+        </form>
+        <script language="JavaScript" type="text/javascript">
+            window.onload=function() {
+            window.document.frmPaypal.submit();
+            }
+        </script>
+    
+    <?php
     }
 
     public function index() {
