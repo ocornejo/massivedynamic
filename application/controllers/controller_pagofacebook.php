@@ -54,9 +54,9 @@ class Controller_pagofacebook extends CI_Controller {
           }
           if($num>=0){
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
-          $res=$facebook->api('/me/feed', 'post', array ('message' => $mensaje));
+          $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
           
-         
+          echo "hola";
           $this->load->model('model_compra');
           
           $num=0;
