@@ -116,7 +116,7 @@
                 <table border="0">
                     <tr>
                         <td width="250px" rowspan="4"><?php echo "<a href='".site_url('controller_producto/producto/'.$row->Codigo)."'>
-                            <img style='border-radius:10px;' width='230px' src='data:image/png;base64,".base64_encode($row->Img)."'>
+                            <img style='border-radius:10px;' width='230px' src='data:image/png;base64,".$row->Img."'>
                                     </a>" ?></td>
                         <td width="400px"><u><h3><?php echo $row->Nombre ?></h3></u></td>
                     </tr>
