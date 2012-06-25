@@ -111,6 +111,7 @@
     <div id="container">
         <section id="intro">
             <center>
+                <?php echo $this->pagination->create_links(); ?>
             <?php
                 foreach($resultado->result() as $row){ ?>
                 <table border="0">
