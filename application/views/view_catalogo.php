@@ -119,7 +119,9 @@
                         <td width="250px" rowspan="4"><?php echo "<a href='".site_url('controller_producto/producto/'.$row->Codigo)."'>
                             <img style='border-radius:10px;' width='230px' src='data:image/png;base64,".$row->Img."'>
                                     </a>" ?></td>
-                        <td width="400px"><u><h3><?php echo $row->Nombre ?></h3></u></td>
+                        <td width="400px"><u><h3><?php echo "<a href='".site_url('controller_producto/producto/'.$row->Codigo)."'>";
+                                echo $row->Nombre ;
+                                echo "</a>";?></h3></u></td>
                     </tr>
                     <tr>
                         <td width="400px"><strong>Plataforma: </strong><?php echo $row->Plataforma ?></td>
