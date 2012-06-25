@@ -10,10 +10,12 @@ class Controller_Paypal extends CI_Controller {
         $num = 1;
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
+        foreach ($this->cart->contents() as $items){
         $desc = $items['name'];
-        $orderno = $item;
+        $orderno = $num;
         $nettotal = (int)($items['price'] / $data);
         $qty = $items['qty'];
+        }
 
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
         //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
