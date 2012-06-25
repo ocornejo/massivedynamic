@@ -10,12 +10,6 @@ class Controller_Paypal extends CI_Controller {
         $num = 1;
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
-        foreach ($this->cart->contents() as $items){
-        $desc = $items['name'];
-        $orderno = $num;
-        $nettotal = (int)($items['price'] / $data);
-        $qty = $items['qty'];
-        }
 
         $url = "https://www.sandbox.paypal.com/cgi-bin/webscr"; //Test
         //$url = "https://www.paypal.com/cgi-bin/webscr"; //Live
@@ -26,10 +20,13 @@ class Controller_Paypal extends CI_Controller {
         <form action='<?php echo $url ?>' method='post' name='frmPayPal'>
             <input type='hidden' name='business' value='<?php echo $ppAcc ?>'>
             <input type='hidden' name='cmd' value='_xclick'>
-            <input type='hidden' name='item_name' value='<?php echo $desc ?>'>
-            <input type='hidden' name='item_number' value='<?php echo $orderno ?>'>
-            <input type='hidden' name='amount' value='<?php echo $nettotal ?>'>
-            <input type='hidden' name='quantity' value='<?php echo $qty ?>'>
+            <?php foreach($this->cart->contents() as $items): ?>
+                <input type='hidden' name='item_name_<?php echo $num;?>' value='<?php echo $items['name']; ?>'>
+                <input type='hidden' name='item_number_<?php echo $num;?>' value='<?php echo $num ?>'>
+                <input type='hidden' name='amount_<?php echo $num;?>' value='<?php echo (int)($items['price'] / $data) ?>'>
+                <input type='hidden' name='quantity_<?php echo $num;?>' value='<?php echo $items['qty']; ?>'>
+                <?php $num = $num + 1; 
+            endforeach;?>
             <input type='hidden' name='no_shipping' value='1'>
             <input type='hidden' name='currency_code' value='USD'>
             <input type='hidden' name='handling' value='0'>
