@@ -7,7 +7,7 @@ class Controller_login extends CI_Controller {
         $this->load->helper('form');
         if($this->session->userdata('Username')!=null){
             $data['log']=$this->session->userdata('Username');
-            $this->load->controller("controller_catalogo/index");
+            $this->cargarcatalogo(); 
         }
         else{
         //Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa:
@@ -40,8 +40,7 @@ class Controller_login extends CI_Controller {
                     $this->session->set_userdata('Username',$_POST['username']);
                     $this->session->set_userdata('idUsuarios',$ExisteUsuarioyPassoword->idUsuario);
                     $data['log']=$this->session->userdata('Username');
-                    //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje de error a presentar en pantalla
-                    $this->load->controller("controller_catalogo/index");
+                    $this->cargarcatalogo(); 
                 }
                 else{//Si no logró validar
                     $data['error']="Usuario o password incorrecto, por favor vuelva a intentar";
@@ -58,8 +57,31 @@ class Controller_login extends CI_Controller {
     {
         $this->load->library('session');
         $this->session->destroy();//destruye la session y va a la vista de login
-      
-        $this->load->controller("controller_catalogo/index");
+        
+        $this->cargarcatalogo();
+    }
+    function cargarcatalogo() {
+        $this->load->library('pagination');
+        $this->load->model('model_catalogo');
+        
+        $config['base_url'] = site_url('controller_catalogo/index/');
+        $config['total_rows'] = $this->model_catalogo->get_productos_cantidad();
+        $config['per_page'] = '3';
+        $config['num_links'] = '2'; //Número de enlaces antes y después de la página actual
+        $config['first_link'] = '&lt;&lt;'; //Texto del enlace que nos lleva a la página
+        $config['last_link'] = '&gt;&gt;'; //Texto del enlace que nos lleva a la última página
+        
+        $this->pagination->initialize($config);
+        $data["resultado"] = $this->model_catalogo->get_productos($config['per_page'],$this->uri->segment(3));
+        
+        $this->load->library('session');
+        if ($this->session->userdata('Username') != null) {
+            $data["log"] = $this->session->userdata('Username');
+        } else {
+            $data["log"] = null;
+        }
+        /* note - you don't need to have the extension when it's a php file */
+        $this->load->view('view_catalogo', $data);
     }
 }
 ?>
