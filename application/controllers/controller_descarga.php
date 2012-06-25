@@ -4,12 +4,10 @@ class Controller_descarga extends CI_Controller {
     function bajar($codigo)
     {
     $this->load->helper('download');
-    $ruta=base_url()."programas/".$codigo.".txt";
+    $ruta=base_url()."programas/".$codigo.".md";
     $datos = file_get_contents($ruta); //Leer el contenido del archivo 
-    $nombre = $codigo.'txt'; 
-    force_download($nombre,$datos);
-    $data["mensaje"]=$ruta;
-    $this->load->view('view_comprado',$data); 
+    $nombre = $codigo.'md';
+    force_download($nombre, $datos);
     }
 }
 ?>
