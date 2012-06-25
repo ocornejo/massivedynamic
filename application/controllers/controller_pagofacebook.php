@@ -52,7 +52,7 @@ class Controller_pagofacebook extends CI_Controller {
               $nombres=$nombres.$_POST['nombre'.$num]."; ";
               $num=$num+1;
           }
-          if(num>0){
+          if($num>=0){
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $res=$facebook->api('/me/feed', 'post', array ('message' => $mensaje));
           
