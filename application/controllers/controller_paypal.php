@@ -20,13 +20,22 @@ class Controller_Paypal extends CI_Controller {
         <form action='<?php echo $url ?>' method='post' name='frmPayPal'>
             <input type='hidden' name='business' value='<?php echo $ppAcc ?>'>
             <input type='hidden' name='cmd' value='_xclick'>
-            <?php foreach($this->cart->contents() as $items): ?>
-                <input type='hidden' name='item_name_<?php echo $num;?>' value='<?php echo $items['name']; ?>'>
-                <input type='hidden' name='item_number_<?php echo $num;?>' value='<?php echo $num ?>'>
-                <input type='hidden' name='amount_<?php echo $num;?>' value='<?php echo (int)($items['price'] / $data) ?>'>
-                <input type='hidden' name='quantity_<?php echo $num;?>' value='<?php echo $items['qty']; ?>'>
-                <?php $num = $num + 1; 
-            endforeach;?>
+            
+            <input type='hidden' name='item_name_1' value='producto1'>
+            <input type='hidden' name='item_number_1' value='1'>
+            <input type='hidden' name='amount_1' value='5'>
+            <input type='hidden' name='quantity_1' value='2'>
+            
+            <input type='hidden' name='item_name_2' value='producto2'>
+            <input type='hidden' name='item_number_2' value='2'>
+            <input type='hidden' name='amount_2' value='4'>
+            <input type='hidden' name='quantity_2' value='4'>
+            
+            <input type='hidden' name='item_name_3' value='producto3'>
+            <input type='hidden' name='item_number_3' value='3'>
+            <input type='hidden' name='amount_3' value='2'>
+            <input type='hidden' name='quantity_3' value='10'>
+            
             <input type='hidden' name='no_shipping' value='1'>
             <input type='hidden' name='currency_code' value='USD'>
             <input type='hidden' name='handling' value='0'>
