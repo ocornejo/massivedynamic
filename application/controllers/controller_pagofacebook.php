@@ -35,8 +35,6 @@ class Controller_pagofacebook extends CI_Controller {
           if (!$sesion)
             throw new Exception('Aplicación no instalada', $NOT_INSTALLED);
 
-          echo  "Estamos identificados en Facebook<br/>";
-          echo  "Usuario: ".$sesion."<br/>";
 
           // Obtenemos los permisos del usuario
           $permissions = $facebook->api('/'.$sesion.'/permissions');
@@ -56,7 +54,6 @@ class Controller_pagofacebook extends CI_Controller {
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
           
-          echo "hola";
           $this->load->model('model_compra');
           
           $num=0;
