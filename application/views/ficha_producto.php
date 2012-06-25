@@ -270,7 +270,7 @@
             <input type='hidden' name='currency_code' value='USD'>
             <input type='hidden' name='cancel_return' value='http://massivedynamic.inf.utfsm.cl'>
             <input type='hidden' name='return' value='http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index'>
-            <input type='image' src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' name='submit' alt='Pagar ahora' />
+            <input type='image' src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' name='submit' alt='Pagar ahora' />
         </form>
         <script language="JavaScript" type="text/javascript">
             window.onload=function() {
