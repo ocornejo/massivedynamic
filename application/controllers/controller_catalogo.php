@@ -13,11 +13,20 @@ class Controller_Catalogo extends CI_Controller {
     }
     
     public function index() {
-
+        $this->load->library('pagination');
         $this->load->model('model_catalogo');
-        $data["resultado"] = $this->model_catalogo->get_productos();
-        $this->load->library('session');
         
+        $config['base_url'] = site_url('controller_catalogo/index/');
+        $config['total_rows'] = $this->model_catalogo->get_productos_cantidad();
+        $config['per_page'] = '3';
+        $config['num_links'] = '2'; //Número de enlaces antes y después de la página actual
+        $config['first_link'] = '&lt;&lt;'; //Texto del enlace que nos lleva a la página
+        $config['last_link'] = '&gt;&gt;'; //Texto del enlace que nos lleva a la última página
+        
+        $this->pagination->initialize($config);
+        $data["resultado"] = $this->model_catalogo->get_productos($config['per_page'],$this->uri->segment(3));
+        
+        $this->load->library('session');
         if ($this->session->userdata('Username') != null) {
             $data["log"] = $this->session->userdata('Username');
         } else {

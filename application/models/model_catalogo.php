@@ -1,10 +1,15 @@
 <?php
 class Model_Catalogo extends CI_Model{
     
-    function get_productos(){
+    function get_productos($num, $offset){
         $DB2 = $this->load->database('default2', TRUE); 
-        $resultado = $DB2->query('SELECT * FROM Productos');
+        $resultado = $DB2->get('productos', $num, $offset);
         return $resultado;
+    }
+    
+    function get_productos_cantidad(){
+        $DB2 = $this->load->database('default2', TRUE);
+        return $DB2->count_all('productos');
     }
     
     function get_producto($id){

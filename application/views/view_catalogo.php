@@ -110,17 +110,32 @@
     
     <div id="container">
         <section id="intro">
-            <div id="slider-three">
+            <center>
             <?php
-                foreach($resultado->result() as $row){
-                    echo "<div>"; 
-                    echo "<a href='".site_url('controller_producto/producto/'.$row->Codigo.'')."'>
-                        <img style='border-radius:10px;' src='data:image/png;base64,".$row->Img."'>
-                            </a><br /><br /><br />";
-                    echo "<p>".$row->Nombre."</p>";
-                    echo "</div>";
-                } ?>
-            </div>
+                foreach($resultado->result() as $row){ ?>
+                <table border="0">
+                    <tr>
+                        <td width="250px" rowspan="4"><?php echo "<a href='".site_url('controller_producto/producto/'.$row->Codigo)."'>
+                            <img style='border-radius:10px;' width='230px' src='data:image/png;base64,".base64_encode($row->Img)."'>
+                                    </a>" ?></td>
+                        <td width="400px"><u><h3><?php echo $row->Nombre ?></h3></u></td>
+                    </tr>
+                    <tr>
+                        <td width="400px"><strong>Plataforma: </strong><?php echo $row->Plataforma ?></td>
+                    </tr>
+                    <tr>
+                        <td width="400px"><strong>Precio: $</strong><?php echo $row->Precio ?></td>
+                    </tr>
+                    <tr>
+                        <td width="400px"><a href="<?php echo site_url('controller_producto/producto/'.$row->Codigo)?>">
+                                <i>Ver mas detalles...</i></a></td>
+                    </tr>
+                </table>
+                <br/><br/>
+                <?php } ?>
+                <br/>
+                <?php echo $this->pagination->create_links(); ?>
+            </center>
         </section>
     </div>
     
