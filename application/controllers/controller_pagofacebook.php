@@ -8,6 +8,7 @@ class Controller_pagofacebook extends CI_Controller {
     
     public function pagarconpost()
 	{
+        $this->load->library('session');
         // cargamos la libreria
         $this->load->library('facebook');
         // la apikey 
@@ -60,8 +61,9 @@ class Controller_pagofacebook extends CI_Controller {
           $num=0;
           echo "hola2";
           echo $_POST['codigo'.$num];
+         
           echo "holitas";
-          while(isset ($_POST['codigo'.$num])){
+          while(isset($_POST['codigo'.$num])){
               echo "hola3";
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
           echo "Su usuario es ".$this->session->userdata('idUsuarios')." y ha comprado el producto con codigo ".$_POST['codigo'.$num];
