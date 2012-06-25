@@ -11,7 +11,7 @@ class Controller_Paypal extends CI_Controller {
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
         $item = 1;
         //foreach ($this->cart->contents() as $items){
-        $desc = array(producto1, producto2, producto3);
+        $desc = array('producto1', 'producto2', 'producto3');
             //$desc = $items['name'];
             //$orderno = $item;
             //$nettotal = (int)($items['price'] / $data);
