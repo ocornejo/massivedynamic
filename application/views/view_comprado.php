@@ -117,7 +117,7 @@
 <h1>Enhorabuena!, el producto fue pagado correctamente.</h1>
 <?php
 $num=0;
-foreach($prod as $links){
+foreach($link as $prod){
     echo "<center>$prod</center>";
 }
 ?>
