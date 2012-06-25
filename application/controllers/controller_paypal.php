@@ -7,20 +7,19 @@ class Controller_Paypal extends CI_Controller {
 
     public function ppp() {
         $this->load->library('cart');
-        $desc = array();
-        $orderno = array();
-        $nettotal = array();
-        $qty = array();
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
         $item = 1;
-        foreach ($this->cart->contents() as $items){
-            $desc = array($desc, $items['name']);
-            $orderno = array($orderno, $item);
-            $nettotal = array($nettotal, (int)($items['price'] / $data));
-            $qty = array($qty, $items['qty']);
-            $item++;
-        }
+        //foreach ($this->cart->contents() as $items){
+        $desc[1] = "producto1";
+        $desc[2] = "producto2";
+        $desc[3] = "producto3";
+            //$desc = $items['name'];
+            //$orderno = $item;
+            //$nettotal = (int)($items['price'] / $data);
+            //$qty = $items['qty'];
+            //$item++;
+        //}
 //Save order information to database using the unique order number with status set as Pending...
 
 
@@ -35,9 +34,9 @@ class Controller_Paypal extends CI_Controller {
                 "<input type='hidden' name='business' value='$ppAcc'>\n" .
                 "<input type='hidden' name='cmd' value='_xclick'>\n" .
                 "<input type='hidden' name='item_name' value='$desc'>\n" .
-                "<input type='hidden' name='item_number' value='$orderno'>\n" .
-                "<input type='hidden' name='amount' value='$nettotal'>\n" .
-                "<input type='hidden' name='quantity' value='$qty'>\n" .
+                "<input type='hidden' name='item_number' value='1'>\n" .
+                "<input type='hidden' name='amount' value='3'>\n" .
+                "<input type='hidden' name='quantity' value='1'>\n" .
                 "<input type='hidden' name='no_shipping' value='1'>\n" .
                 "<input type='hidden' name='currency_code' value='USD'>\n" .
                 "<input type='hidden' name='handling' value='0'>\n" .
