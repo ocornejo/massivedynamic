@@ -3,13 +3,13 @@ class Model_Catalogo extends CI_Model{
     
     function get_productos($num, $offset){
         $DB2 = $this->load->database('default2', TRUE); 
-        $resultado = $DB2->get('productos', $num, $offset);
+        $resultado = $DB2->get('Productos', $num, $offset);
         return $resultado;
     }
     
     function get_productos_cantidad(){
         $DB2 = $this->load->database('default2', TRUE);
-        return $DB2->count_all('productos');
+        return $DB2->count_all('Productos');
     }
     
     function get_producto($id){
