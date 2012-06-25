@@ -22,17 +22,17 @@ class Controller_Paypal extends CI_Controller {
         $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index";?>
 
         <form action='$url' method='post' name='frmPayPal'>
-            <input type='hidden' name='business' value='$ppAcc'>
+            <input type='hidden' name='business' value='<?php echo $ppAcc ?>'>
             <input type='hidden' name='cmd' value='_xclick'>
-            <input type='hidden' name='item_name' value='$desc'>
-            <input type='hidden' name='item_number' value='$orderno'>
-            <input type='hidden' name='amount' value='$nettotal'>
-            <input type='hidden' name='quantity' value='$qty'>
+            <input type='hidden' name='item_name' value='<?php echo $desc ?>'>
+            <input type='hidden' name='item_number' value='<?php echo $orderno ?>'>
+            <input type='hidden' name='amount' value='<?php echo $nettotal ?>'>
+            <input type='hidden' name='quantity' value='<?php echo $qty ?>'>
             <input type='hidden' name='no_shipping' value='1'>
             <input type='hidden' name='currency_code' value='USD'>
             <input type='hidden' name='handling' value='0'>
-            <input type='hidden' name='cancel_return' value='$cancelURL'>
-            <input type='hidden' name='return' value='$returnURL'>
+            <input type='hidden' name='cancel_return' value='<?php echo $cancelURL ?>'>
+            <input type='hidden' name='return' value='<?php echo $returnURL ?>'>
             <input type='image' src='https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' name='submit' alt='Pagar ahora' />
         </form>
         <script language="JavaScript" type="text/javascript">
