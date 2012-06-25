@@ -52,13 +52,11 @@ class Controller_pagofacebook extends CI_Controller {
               $nombres=$nombres.$_POST['nombre'.$num]."; ";
               $num=$num+1;
           }
-          
+          if(num>0){
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $res=$facebook->api('/me/feed', 'post', array ('message' => $mensaje));
-           if(!$res or $res->error){
-               $this->load->view('view_nocomprado');
-           }
-           else{
+          
+         
           $this->load->model('model_compra');
           
           $num=0;
@@ -70,7 +68,7 @@ class Controller_pagofacebook extends CI_Controller {
           }
           
           $this->load->view('view_comprado',$data); 
-           }
+          }
         } catch (Exception $e)
         {
           switch ($e->getCode())
@@ -78,20 +76,24 @@ class Controller_pagofacebook extends CI_Controller {
             case $NOT_INSTALLED: 
               $login_url = $facebook->getLoginUrl();
               header ('Location: '.$login_url);
+              $this->load->view('view_nocomprado');
               die ();
               break;
             case $NO_PUBLISH_STREAM:
               $login_url = $facebook->getLoginUrl(array ('scope'=>'publish_stream'));
               header ('Location: '.$login_url);
+               $this->load->view('view_nocomprado');
               die ();
               break;
 
             case $MALFORMED_ARRAY:
               echo  $e->getMessage();
+             $this->load->view('view_nocomprado');
               break;
 
             default:
               echo  "Ocurrió un error no identificado";
+              $this->load->view('view_nocomprado');
             }
 	}
         }
