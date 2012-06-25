@@ -7,15 +7,20 @@ class Controller_Paypal extends CI_Controller {
 
     public function ppp() {
         $this->load->library('cart');
-        $item = 1;
-        foreach ($this->cart->contents() as $items){
-        $desc = $items['name'];
-        //$desc = "Compra en Massive Dynamic's Store";//set to the order description to be appear on the PayPal website;
-        $orderno = $item; //set to unique order number;
+        $desc = array();
+        $orderno = array();
+        $nettotal = array();
+        $qty = array();
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
-        $nettotal = (int)($items['price'] / $data);
-        $qty = $items['qty'];
+        $item = 1;
+        foreach ($this->cart->contents() as $items){
+            $desc = array($desc, $items['name']);
+            $orderno = array($orderno, $item);
+            $nettotal = array($nettotal, (int)($items['price'] / $data));
+            $qty = array($qty, $items['qty']);
+            $item++;
+        }
 //Save order information to database using the unique order number with status set as Pending...
 
 
@@ -42,10 +47,7 @@ class Controller_Paypal extends CI_Controller {
                 "</form>\n" .
                 "<script language='javascript'>document.frmPayPal.submit();'</script>\n'";
 
-        echo($buffer);
-        $item++;
-        }
-        
+        echo($buffer);  
     }
 
     public function index() {
