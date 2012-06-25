@@ -246,8 +246,41 @@
                                                    Elija su medio de pago:
                                                    <table>
                                                        <tr>
-                                                       <td>
-                                                        <?php echo "<a href='" . site_url('controller_paypal/ppp/') . "'><img src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' /></a>" ?>
+                                                       <td><?php
+                                                        $this->load->library('cart');
+        $num = 1;
+        $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
+        $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
+        
+        ?>
+
+        <form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal'>
+            <input type='hidden' name='cmd' value='_cart'>
+            <input type='hidden' name='upload' value='1'> 
+            <input type='hidden' name='business' value='oc77_1338396747_biz@gmail.com'>
+            
+            <?php foreach($this->cart->contents() as $items): ?>
+                <input type='hidden' name='item_name_<?php echo $num;?>' value='<?php echo $items['name']; ?>'>
+                <input type='hidden' name='item_number_<?php echo $num;?>' value='<?php echo $num ?>'>
+                <input type='hidden' name='amount_<?php echo $num;?>' value='<?php echo (int)($items['price'] / $data) ?>'>
+                <input type='hidden' name='quantity_<?php echo $num;?>' value='<?php echo $items['qty']; ?>'>
+                <?php $num = $num + 1; 
+            endforeach;?>
+            
+            <input type='hidden' name='currency_code' value='USD'>
+            <input type='hidden' name='cancel_return' value='http://massivedynamic.inf.utfsm.cl'>
+            <input type='hidden' name='return' value='http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index'>
+            <input type='image' src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' name='submit' alt='Pagar ahora' />
+        </form>
+        <script language="JavaScript" type="text/javascript">
+            window.onload=function() {
+            window.document.frmPaypal.submit();
+            }
+        </script>   
+                                                           
+                                                           
+                                                           
+                                                           
                                                         </td>
                                                         <td>
                                                      <?php
