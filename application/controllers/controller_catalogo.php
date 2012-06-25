@@ -24,7 +24,7 @@ class Controller_Catalogo extends CI_Controller {
         $config['last_link'] = '&gt;&gt;'; //Texto del enlace que nos lleva a la última página
         
         $this->pagination->initialize($config);
-        $data["resultado"] = $this->model_catalogo->get_productos($config['per_page'],$this->uri->segment(3));
+        $data["resultado"] = $this->model_catalogo->get_productos($config['per_page'],$this->uri->segment(1));
         
         $this->load->library('session');
         if ($this->session->userdata('Username') != null) {
