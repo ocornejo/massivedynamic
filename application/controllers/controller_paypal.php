@@ -7,6 +7,10 @@ class Controller_Paypal extends CI_Controller {
 
     public function ppp() {
         $this->load->library('cart');
+        $desc = array();
+        $orderno = array();
+        $nettotal = array();
+        $qty = array();
         $json = file_get_contents('http://currencies.apps.grandtrunk.net/getlatest/usd/clp');
         $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
         $item = 1;
