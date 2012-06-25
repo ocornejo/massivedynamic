@@ -54,20 +54,23 @@ class Controller_pagofacebook extends CI_Controller {
           }
           
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
-          $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
-          
+          $res=$facebook->api('/me/feed', 'post', array ('message' => $mensaje));
+           if(!$res or $res->error){
+               $this->load->view('view_nocomprado');
+           }
+           else{
           $this->load->model('model_compra');
           
           $num=0;
           $data["link"]=array();
           while(isset($_POST['codigo'.$num])){
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
-          $data["link"][]="<a href='".site_url("controller_descarga/bajar/").$_POST['codigo'.$num]."'>Descargar ".$_POST['nombre'.$num]."</a>";
+          $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$_POST['codigo'.$num]."'>Descargar ".$_POST['nombre'.$num]."</a>";
           $num=$num+1;       
           }
           
           $this->load->view('view_comprado',$data); 
-          
+           }
         } catch (Exception $e)
         {
           switch ($e->getCode())

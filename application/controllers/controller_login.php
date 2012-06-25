@@ -10,7 +10,7 @@ class Controller_login extends CI_Controller {
             $this->load->model('model_catalogo'); // carga los productos
             $data["resultado"]=  $this->model_catalogo->get_productos();
                     //Lo regresamos a la pantalla del catalogo y pasamos como parámetro el mensaje a presentar en pantalla
-            $this->load->view('view_catalogo',$data); 
+            $this->load->controller("controller_catalogo/index");
         }
         else{
         //Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa:
@@ -46,7 +46,7 @@ class Controller_login extends CI_Controller {
                     $this->load->model('model_catalogo'); // carga los productos
                     $data["resultado"]=  $this->model_catalogo->get_productos();
                     //Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje de error a presentar en pantalla
-                    $this->load->view('view_catalogo',$data);  
+                    $this->load->controller("controller_catalogo/index");
                 }
                 else{//Si no logró validar
                     $data['error']="Usuario o password incorrecto, por favor vuelva a intentar";
@@ -66,7 +66,7 @@ class Controller_login extends CI_Controller {
         $this->load->model('model_catalogo'); // carga los productos
         $data["resultado"]=  $this->model_catalogo->get_productos();
         $data["log"]=null;
-        $this->load->view('view_catalogo',$data);
+        $this->load->controller("controller_catalogo/index");
     }
 }
 ?>

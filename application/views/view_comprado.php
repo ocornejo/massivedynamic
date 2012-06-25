@@ -114,7 +114,7 @@
 
                         <div id="container" >
                             <section id="intro">
-<h1>Enhorabuena!, el producto fue pagado correctamente.</h1>
+<h3>Enhorabuena!, el producto fue pagado correctamente. Ya los puede descargar cuantas veces quiera!</h3>
 <?php
 $num=0;
 foreach($link as $prod){
