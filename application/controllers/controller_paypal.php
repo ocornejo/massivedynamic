@@ -21,7 +21,7 @@ class Controller_Paypal extends CI_Controller {
         $cancelURL = "http://massivedynamic.inf.utfsm.cl";
         $returnURL = "http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index";?>
 
-        <form action='$url' method='post' name='frmPayPal'>
+        <form action='<?php echo $url ?>' method='post' name='frmPayPal'>
             <input type='hidden' name='business' value='<?php echo $ppAcc ?>'>
             <input type='hidden' name='cmd' value='_xclick'>
             <input type='hidden' name='item_name' value='<?php echo $desc ?>'>
