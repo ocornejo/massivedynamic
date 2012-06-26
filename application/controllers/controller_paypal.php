@@ -52,31 +52,26 @@ class Controller_Paypal extends CI_Controller {
         $deformat = $this->deformat($result);
 
         if ($deformat === false) {
-            echo "There was an issue with your request, log data and research further.";
+            $this->load->view('view_nocomprado',$data);
         } else {
             if ($deformat['payment_status'] == "Completed") {
-                echo "Your transaction has been completed, and a receipt for your purchase has been emailed to you.<br>You may log into your account at <a href='https://www.paypal.com'>www.paypal.com</a> to view details of this transaction.";
-            } else {
-                echo "Payment might be echeck and still processing as it's not completed. I would suggest showing a thank you page but research this further.";
+                $num=1;
+                $data["link"]=array();
+                $this->load->model('model_compra');
+                while($num!=($deformat["num_cart_items"]+1)){
+                    $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$deformat["item_number".$num],0);
+                      $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$deformat["item_number".$num]."'>Descargar ".$deformat["item_name".$num]."</a>";
+                        $num=$num+1;       
+                    }
+                $this->load->view('view_comprado',$data);
+                
+                } else {
+                $this->load->view('view_comprado',$data);
             }
         }
 
-        echo "<ul>";
-        foreach ($deformat as $key => $value) {
-            echo "<li>" . $key . " ===> " . $value . "</li>";
-        }
-        echo "</ul>";
         //$this->model_paypal->ingresaPago($deformat);
-        $num=1;
-        $data["link"]=array();
-        $this->load->model('model_compra');
-        while($num!=($deformat["num_cart_items"]+1)){
-            echo "el jorge es gay".$num;
-          $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$deformat["item_number".$num],0);
-          $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$deformat["item_number".$num]."'>Descargar ".$deformat["item_name".$num]."</a>";
-          $num=$num+1;       
-          }
-       $this->load->view('view_comprado',$data);
+        
     }
 
     public function deformat($result) {

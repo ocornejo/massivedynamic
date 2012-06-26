@@ -64,7 +64,9 @@ class Controller_pagofacebook extends CI_Controller {
           $num=$num+1;       
           }
           
-          $this->load->view('view_comprado',$data); 
+          $this->load->view('view_comprado',$data);
+          $this->load->library('cart');
+           $this->cart->destroy();
           }
         } catch (Exception $e)
         {
