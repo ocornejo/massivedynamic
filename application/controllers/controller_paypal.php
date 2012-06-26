@@ -66,10 +66,11 @@ class Controller_Paypal extends CI_Controller {
             echo "<li>" . $key . " ===> " . $value . "</li>";
         }
         echo "</ul>";
-        $this->model_paypal->ingresaPago($deformat);
+        //$this->model_paypal->ingresaPago($deformat);
         $num=0;
         $data["link"]=array();
         while($deformat["item_name".$num]!=null){
+            echo "el jorge es gay".$num;
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$deformat["item_number".$num],0);
           $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$deformat["item_number".$num]."'>Descargar ".$deformat["item_name".$num]."</a>";
           $num=$num+1;       
