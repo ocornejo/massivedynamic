@@ -261,7 +261,7 @@
             
             <?php foreach($this->cart->contents() as $items): ?>
                 <input type='hidden' name='item_name_<?php echo $num;?>' value='<?php echo $items['name']; ?>'>
-                <input type='hidden' name='item_number_<?php echo $num;?>' value='<?php echo $num ?>'>
+                <input type='hidden' name='item_number_<?php echo $num;?>' value='<?php echo $items['id']?>'>
                 <input type='hidden' name='amount_<?php echo $num;?>' value='<?php echo (int)($items['price'] / $data) ?>'>
                 <input type='hidden' name='quantity_<?php echo $num;?>' value='<?php echo $items['qty']; ?>'>
                 <?php $num = $num + 1; 
