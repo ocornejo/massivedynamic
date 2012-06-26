@@ -83,7 +83,7 @@ class Controller_Paypal extends CI_Controller {
 
 //Check to see if request was a success
         if (strcmp($lines[0], "SUCCESS") == 0) {
-            for ($i = 1; $i < count($lines); $i++) {
+            for ($i = 0; $i < count($lines); $i++) {
                 list($key, $val) = explode("=", $lines[$i]);
                 $keyarray[urldecode($key)] = urldecode($val);
             }
