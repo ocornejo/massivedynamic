@@ -74,6 +74,7 @@ class Controller_Paypal extends CI_Controller {
           $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$deformat["item_number".$num]."'>Descargar ".$deformat["item_name".$num]."</a>";
           $num=$num+1;       
           }
+       $this->load->view('view_comprado',$data);
     }
 
     public function deformat($result) {
