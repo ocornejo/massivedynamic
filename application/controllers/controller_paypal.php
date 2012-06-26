@@ -70,7 +70,7 @@ class Controller_Paypal extends CI_Controller {
         $num=1;
         $data["link"]=array();
         $this->load->model('model_compra');
-        while($deformat["item_name".$num]!=null){
+        while($num!=($deformat["num_cart_items"]+1)){
             echo "el jorge es gay".$num;
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$deformat["item_number".$num],0);
           $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$deformat["item_number".$num]."'>Descargar ".$deformat["item_name".$num]."</a>";
