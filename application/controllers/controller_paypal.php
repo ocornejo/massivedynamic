@@ -69,6 +69,7 @@ class Controller_Paypal extends CI_Controller {
         //$this->model_paypal->ingresaPago($deformat);
         $num=1;
         $data["link"]=array();
+        $this->load->model('model_compra');
         while($deformat["item_name".$num]!=null){
             echo "el jorge es gay".$num;
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$deformat["item_number".$num],0);
