@@ -67,7 +67,7 @@ class Controller_Paypal extends CI_Controller {
         }
         echo "</ul>";
         //$this->model_paypal->ingresaPago($deformat);
-        $num=0;
+        $num=1;
         $data["link"]=array();
         while($deformat["item_name".$num]!=null){
             echo "el jorge es gay".$num;
