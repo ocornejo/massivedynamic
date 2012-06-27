@@ -4,6 +4,7 @@ class Controller_pagofacebook extends CI_Controller {
     
     public function pagarconpost()
 	{
+        echo "cantidad es".$_POST['cantidad'];
         $this->load->library('session');
         // cargamos la libreria
         $this->load->library('facebook');
