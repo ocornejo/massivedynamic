@@ -114,7 +114,7 @@
 
                         <div id="container" >
                             <section id="intro">
-<h3>Sus descargas disponibles</h3>
+<center><h3>Sus descargas disponibles</h3></center>
 <?php
 $num=0;
 foreach($link as $prod){

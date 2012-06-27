@@ -32,7 +32,7 @@ class Controller_producto extends CI_Controller{
         foreach($comprados->result() as $producto){
         $caracteristica=$this->model_catalogo->get_producto($producto->idProducto);
             foreach($caracteristica->result() as $row){
-            $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$row->Codigo."'>Descargar ".$row->Nombre."</a>";
+            $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$row->Codigo."'>".$row->Nombre."</a>";
         }
         
         }
