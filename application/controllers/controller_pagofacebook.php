@@ -28,17 +28,24 @@ class Controller_pagofacebook extends CI_Controller {
         {
 
           $sesion = $facebook->getUser();
-          if (!$sesion)
+          if (!$sesion){
             throw new Exception('Aplicación no instalada', $NOT_INSTALLED);
+            echo "primer";
+            }
 
 
           // Obtenemos los permisos del usuario
           $permissions = $facebook->api('/'.$sesion.'/permissions');
-          if (!isset ($permissions['data'][0]))
+          if (!isset ($permissions['data'][0])){
+              echo "segundo";
             throw new Exception('Facebook ha devuelto un array mal formado', $MALFORMED_ARRAY);
-
-          if (!isset ($permissions['data'][0]['publish_stream']))
-            throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
+            
+          }
+          if (!isset ($permissions['data'][0]['publish_stream'])){
+              echo "tercero";
+              throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
+          }
+           
           
           $num=0;
           echo"wena";

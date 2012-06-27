@@ -284,7 +284,7 @@
                                                         </td>
                                                         <td>
                                                      <?php
-                                                     echo form_open('controller_pagofacebook/prueba');
+                                                     echo form_open('controller_pagofacebook/pagarconpost');
                                                      $num=0;
                                                      foreach ($this->cart->contents() as $items):
                                                           echo '<input type="hidden" name="nombre'.$num.'" value="'.$items['name'].'" />';
