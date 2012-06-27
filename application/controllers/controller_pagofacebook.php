@@ -45,11 +45,14 @@ class Controller_pagofacebook extends CI_Controller {
             throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
           
           $num=0;
+          echo "-";
           $nombres=" ";
           while(isset ($_POST['nombre'.$num])){
+              echo $num;
               $nombres=$nombres.$_POST['nombre'.$num]."; ";
               $num=$num+1;
           }
+          echo "chori";
           if($num>=0){
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
@@ -60,7 +63,7 @@ class Controller_pagofacebook extends CI_Controller {
           $data["link"]=array();
           echo "hola";
           while(isset($_POST['codigo'.$num])){
-              echo $num;
+          echo $num;
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
           $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$_POST['codigo'.$num]."'>Descargar ".$_POST['nombre'.$num]."</a>";
           $num=$num+1;       
