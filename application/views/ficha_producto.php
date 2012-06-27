@@ -288,9 +288,10 @@
                                                      $num=0;
                                                      foreach ($this->cart->contents() as $items):
                                                           echo '<input type="hidden" name="nombre'.$num.'" value="'.$items['name'].'" />';
-                                                          echo '<input type="hidden" name="codigo'.$num.'" value="'.$items['id'].'" />';
+                                                          echo '<input type="hidden" name="codigo'.$num.'" value="'.$items['id'].'" />'; 
                                                           $num=$num+1;
                                                      endforeach;
+                                                     echo '<input type="hidden" name="cantidad" value="'.$num.'" />';
                                                      echo '<input type="image" src="http://www.2012-granhermano.com.ar/facebook.png" width="100px" >';
                                                       echo "</form>"        
                                                      

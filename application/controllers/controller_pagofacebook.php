@@ -2,10 +2,6 @@
 
 class Controller_pagofacebook extends CI_Controller {
     
-    public function cargar(){
-        $this->load->view('view_facebook');
-    }
-    
     public function pagarconpost()
 	{
         $this->load->library('session');
@@ -45,7 +41,8 @@ class Controller_pagofacebook extends CI_Controller {
             throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
           
           $num=0;
-          echo "-";
+          echo"wena";
+          echo "cantidad=".$_POST['cantidad'];
           $nombres=" ";
           while(isset ($_POST['nombre'.$num])){
               echo $num;
