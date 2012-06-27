@@ -109,66 +109,52 @@ class Controller_pagofacebook extends CI_Controller {
         }
         public function prueba()
 	{
-        echo "cantidad=".$_POST['cantidad'];
-         $this->load->library('session');
-        // cargamos la libreria
-        $this->load->library('facebook');
-        // la apikey 
-        $api_key = '120286514779426'; 
-        // el appsecret 
-        $api_sec = 'ca0251952252aecbc49a6a833ff78563';
-         // Definimos códigos de error
-        $NOT_INSTALLED= 1;
-        $NO_PUBLISH_STREAM=2;
-        $MALFORMED_ARRAY=90;
+           
+             $config = array(
+    'appId' => '120286514779426',
+    'secret' => 'ca0251952252aecbc49a6a833ff78563',
+  );
+             $this->load->library('facebook');
+              $facebook = new Facebook($config);
+  $user_id = $facebook->getUser();
+  if($user_id) {
 
-        $facebook = new Facebook(array (  
-                           'appId'  => $api_key,
-                           'secret' => $api_sec,
-                           'cookie' => true ,
-                         ));
-        try
-        {
-            echo "cantidad es".$_POST['cantidad'];
-             $sesion = $facebook->getUser();
-          if (!$sesion){
-              echo "primera";
-            throw new Exception('Aplicación no instalada', $NOT_INSTALLED);
-            echo "primer";
-            }
+      // We have a user ID, so probably a logged in user.
+      // If not, we'll get an exception, which we handle below.
+      try {
+        $ret_obj = $facebook->api('/me/feed', 'POST',
+                                    array(
+                                      'link' => 'http://massivedynamic.inf.utfsm.cl/',
+                                      'message' => 'He comprado en Massive Dynamic los siguientes'.$_POST['cantidad'].'programas; prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas'
+                                 ));
+        echo '<pre>Post ID: ' . $ret_obj['id'] . '</pre>';
 
-            echo"~~".$sesion."~~";
-          // Obtenemos los permisos del usuario
-          //$permissions = $facebook->api('/'.$sesion.'/permissions');
-         
-        }
-        catch (Exception $e)
-        {
-          switch ($e->getCode())
-            {
-            case $NOT_INSTALLED: 
-              $login_url = $facebook->getLoginUrl();
-              header ('Location: '.$login_url);
-              $this->load->view('view_nocomprado');
-              die ();
-              break;
-            case $NO_PUBLISH_STREAM:
-              $login_url = $facebook->getLoginUrl(array ('scope'=>'publish_stream'));
-              header ('Location: '.$login_url);
-               $this->load->view('view_nocomprado');
-              die ();
-              break;
+      } catch(FacebookApiException $e) {
+        // If the user is logged out, you can have a 
+        // user ID even though the access token is invalid.
+        // In this case, we'll get an exception, so we'll
+        // just ask the user to login again here.
+        $login_url = $facebook->getLoginUrl( array(
+                       'scope' => 'publish_stream'
+                       )); 
+        echo 'Please <a href="' . $login_url . '">login.</a>';
+        error_log($e->getType());
+        error_log($e->getMessage());
+      }   
+      // Give the user a logout link 
+      echo '<br /><a href="' . $facebook->getLogoutUrl() . '">logout</a>';
+    } else {
 
-            case $MALFORMED_ARRAY:
-              echo  $e->getMessage();
-             $this->load->view('view_nocomprado');
-              break;
+      // No user, so print a link for the user to login
+      // To post to a user's wall, we need publish_stream permission
+      // We'll use the current URL as the redirect_uri, so we don't
+      // need to specify it here.
+      $login_url = $facebook->getLoginUrl( array( 'scope' => 'publish_stream' ) );
+      echo 'Please <a href="' . $login_url . '">login.</a>';
 
-            default:
-              echo  "Ocurrió un error no identificado";
-              $this->load->view('view_nocomprado');
-            }
-	}
+    } 
+             
+        
 }
 }
 
