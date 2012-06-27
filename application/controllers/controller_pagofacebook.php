@@ -177,7 +177,6 @@ class Controller_pagofacebook extends CI_Controller {
           foreach ($this->cart->contents() as $items):
               $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$items['id'],1);
               $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$items['id']."'>Descargar ".$items['name']."</a>";
-          
           endforeach;
           
           
