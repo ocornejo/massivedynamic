@@ -125,7 +125,7 @@ class Controller_pagofacebook extends CI_Controller {
         $ret_obj = $facebook->api('/me/feed', 'POST',
                                     array(
                                       'link' => 'http://massivedynamic.inf.utfsm.cl/',
-                                      'message' => 'He comprado en Massive Dynamic los siguientes'.$_POST['cantidad'].'programas; prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas'
+                                      'message' => 'He comprado en Massive Dynamic '.$_REQUEST['cantidad'].' programas; prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas'
                                  ));
         echo '<pre>Post ID: ' . $ret_obj['id'] . '</pre>';
 
