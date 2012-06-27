@@ -31,7 +31,7 @@ class Controller_producto extends CI_Controller{
         
         foreach($comprados as $producto){
             
-        $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$producto->Codigo."'>Descargar ".$producto->Nombre."</a>";
+        $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$producto["Codigo"]."'>Descargar ".$producto["Nombre"]."</a>";
         }
         $this->load->view('view_misdescargas', $data);
         
