@@ -110,6 +110,15 @@ class Controller_pagofacebook extends CI_Controller {
         public function prueba()
 	{
         echo "cantidad=".$_POST['cantidad'];
+         $this->load->library('session');
+        // cargamos la libreria
+        $this->load->library('facebook');
+        // la apikey 
+        $api_key = '120286514779426'; 
+        // el appsecret 
+        $api_sec = 'ca0251952252aecbc49a6a833ff78563';
+        
+
 	}
 }
 
