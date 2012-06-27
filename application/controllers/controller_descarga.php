@@ -8,14 +8,13 @@ class Controller_descarga extends CI_Controller {
     echo $path;
     //$datos = file_get_contents($ruta); //Leer el contenido del archivo 
     $name = $codigo.'md';
-    echo "hola";
     //$logrado=force_download($nombre, $datos);
-    echo "chao";
     //echo $logrado;
     
      // make sure it's a file before doing anything!
   if(is_file($path))
   {
+      echo "Hola";
     // required for IE
     if(ini_get('zlib.output_compression')) { ini_set('zlib.output_compression', 'Off'); }
 
