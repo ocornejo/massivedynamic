@@ -4,7 +4,8 @@ class Controller_descarga extends CI_Controller {
     function bajar($codigo)
     {
     $this->load->model('model_producto');
-    $comprado=$this->model_producto->get_compra($this->session->userdata('idUsuarios'),$id);
+    $this->load->library('session');
+    $comprado=$this->model_producto->get_compra($this->session->userdata('idUsuarios'),$codigo);
     if($comprado){
     $this->load->helper('download');
     $path=base_url()."programas/".$codigo.".md";
