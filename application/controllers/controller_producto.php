@@ -29,9 +29,8 @@ class Controller_producto extends CI_Controller{
         $data['compra'] ="no";
         $comprados=$this->model_producto->get_compras($this->session->userdata('idUsuarios'));
         
-        foreach($comprados as $producto){
-            
-        $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$producto["Codigo"]."'>Descargar ".$producto["Nombre"]."</a>";
+        foreach($comprados->result() as $producto){  
+        $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$producto->Codigo."'>Descargar ".$producto->Nombre."</a>";
         }
         $this->load->view('view_misdescargas', $data);
         
