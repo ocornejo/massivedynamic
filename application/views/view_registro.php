@@ -71,8 +71,9 @@
         <div id="container">
             <h1 class="fontface" id="title">MDS</h1>
             <nav><ul>
-                    <li><a href="#">Home</a></li>
+                    
                     <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>"?></li>
+                    <li><?php echo "<a href='".site_url('controller_producto/productoscomprados/')."'>Descargas</a>"?></li>
                     <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>"?></li>
                 
             <?php
