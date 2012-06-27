@@ -37,7 +37,7 @@ class Controller_descarga extends CI_Controller {
     header('Content-Type: '.$mime);  // Add the mime type from Code igniter.
     header('Content-Disposition: attachment; filename="'.basename($name).'"');  // Add the file name
     header('Content-Transfer-Encoding: binary');
-    header('Content-Length: '.filesize($path)); // provide file size
+    //header('Content-Length: '.filesize($path)); // provide file size
     header('Connection: close');
     readfile($path); // push it out
     exit();
