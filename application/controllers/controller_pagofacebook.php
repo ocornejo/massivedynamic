@@ -142,25 +142,22 @@ class Controller_pagofacebook extends CI_Controller {
           $sesion = $facebook->getUser();
           if (!$sesion){
             throw new Exception('Aplicación no instalada', $NOT_INSTALLED);
-            echo "primer";
+           
             }
 
 
           // Obtenemos los permisos del usuario
           $permissions = $facebook->api('/'.$sesion.'/permissions');
           if (!isset ($permissions['data'][0])){
-              echo "segundo";
             throw new Exception('Facebook ha devuelto un array mal formado', $MALFORMED_ARRAY);
             
           }
           if (!isset ($permissions['data'][0]['publish_stream'])){
-              echo "tercero";
               throw new Exception('No tengo permiso publish_stream', $NO_PUBLISH_STREAM);
           }
            
           
           $num=0;
-          echo"wena";
           $nombres=" ";
           $this->load->library('cart');
           foreach ($this->cart->contents() as $items):
@@ -168,7 +165,6 @@ class Controller_pagofacebook extends CI_Controller {
               $nombres=$nombres.$items['name']."; ";
           endforeach;
           
-          echo "chori";
           
           if($num>0){
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
@@ -178,14 +174,12 @@ class Controller_pagofacebook extends CI_Controller {
           
           $num=0;
           $data["link"]=array();
-          echo "hola";
           foreach ($this->cart->contents() as $items):
               $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$items['id'],1);
               $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$items['id']."'>Descargar ".$items['name']."</a>";
           
           endforeach;
           
-          echo "chao";
           
           $this->load->view('view_comprado',$data);
           
