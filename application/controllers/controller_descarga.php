@@ -5,7 +5,6 @@ class Controller_descarga extends CI_Controller {
     {
     $this->load->helper('download');
     $path=base_url()."programas/".$codigo.".md";
-    echo $path;
     //$datos = file_get_contents($ruta); //Leer el contenido del archivo 
     $name = $codigo.'md';
     //$logrado=force_download($nombre, $datos);
@@ -14,7 +13,6 @@ class Controller_descarga extends CI_Controller {
      // make sure it's a file before doing anything!
   if(!is_file($path))
   {
-      echo "Hola";
     // required for IE
     if(ini_get('zlib.output_compression')) { ini_set('zlib.output_compression', 'Off'); }
 
@@ -42,7 +40,6 @@ class Controller_descarga extends CI_Controller {
     header('Content-Length: '.filesize($path)); // provide file size
     header('Connection: close');
     readfile($path); // push it out
-    echo "chao";
     exit();
     
     }}
