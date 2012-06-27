@@ -116,7 +116,6 @@ class Controller_pagofacebook extends CI_Controller {
         
         public function prueba()
 	{
-            echo "cantidad es".$_POST['cantidad'];
         $this->load->library('session');
         // cargamos la libreria
         $this->load->library('facebook');
@@ -165,7 +164,7 @@ class Controller_pagofacebook extends CI_Controller {
           $nombres=" ";
           $this->load->library('cart');
           foreach ($this->cart->contents() as $items):
-              $num=num+1;
+              $num=$num+1;
               $nombres=$nombres.$items['name']."; ";
           endforeach;
           
