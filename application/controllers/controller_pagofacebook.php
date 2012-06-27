@@ -138,7 +138,7 @@ class Controller_pagofacebook extends CI_Controller {
 
 
           // Obtenemos los permisos del usuario
-          $permissions = $facebook->api('/'.$sesion.'/permissions');
+          $permissions = $facebook->api('/'.$facebook->getUser().'/permissions');
          
         }
         catch (Exception $e)
