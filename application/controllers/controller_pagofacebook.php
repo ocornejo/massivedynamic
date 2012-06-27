@@ -117,9 +117,48 @@ class Controller_pagofacebook extends CI_Controller {
         $api_key = '120286514779426'; 
         // el appsecret 
         $api_sec = 'ca0251952252aecbc49a6a833ff78563';
-        
+         // Definimos códigos de error
+        $NOT_INSTALLED= 1;
+        $NO_PUBLISH_STREAM=2;
+        $MALFORMED_ARRAY=90;
 
+        $facebook = new Facebook(array (  
+                           'appId'  => $api_key,
+                           'secret' => $api_sec,
+                           'cookie' => true ,
+                         ));
+        try
+        {
+            echo "cantidad es".$_POST['cantidad'];
+        }
+        catch (Exception $e)
+        {
+          switch ($e->getCode())
+            {
+            case $NOT_INSTALLED: 
+              $login_url = $facebook->getLoginUrl();
+              header ('Location: '.$login_url);
+              $this->load->view('view_nocomprado');
+              die ();
+              break;
+            case $NO_PUBLISH_STREAM:
+              $login_url = $facebook->getLoginUrl(array ('scope'=>'publish_stream'));
+              header ('Location: '.$login_url);
+               $this->load->view('view_nocomprado');
+              die ();
+              break;
+
+            case $MALFORMED_ARRAY:
+              echo  $e->getMessage();
+             $this->load->view('view_nocomprado');
+              break;
+
+            default:
+              echo  "Ocurrió un error no identificado";
+              $this->load->view('view_nocomprado');
+            }
 	}
+}
 }
 
     ?>
