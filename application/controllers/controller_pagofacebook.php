@@ -136,7 +136,7 @@ class Controller_pagofacebook extends CI_Controller {
             //echo "primer";
             //}
 
-            //echo"~~".$sesion."~~";
+            echo"~~".$sesion."~~";
           // Obtenemos los permisos del usuario
           //$permissions = $facebook->api('/'.$sesion.'/permissions');
          
