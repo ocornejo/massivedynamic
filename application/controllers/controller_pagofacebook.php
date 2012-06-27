@@ -99,9 +99,9 @@ class Controller_pagofacebook extends CI_Controller {
             }
 	}
         }
-        public function nocomprado()
+        public function prueba()
 	{
-        $this->load->view('view_nocomprado');
+        echo "cantidad=".$_POST['cantidad'];
 	}
 }
 
