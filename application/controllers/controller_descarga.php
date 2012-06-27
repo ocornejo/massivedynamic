@@ -4,7 +4,7 @@ class Controller_descarga extends CI_Controller {
     function bajar($codigo)
     {
     $this->load->helper('download');
-    $path=base_url()."programas/".$codigo.".rar";
+    $path=base_url()."programas/".$codigo.".md";
     echo $path;
     //$datos = file_get_contents($ruta); //Leer el contenido del archivo 
     $name = $codigo.'md';
