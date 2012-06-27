@@ -42,6 +42,7 @@ class Controller_descarga extends CI_Controller {
     header('Content-Length: '.filesize($path)); // provide file size
     header('Connection: close');
     readfile($path); // push it out
+    echo "chao";
     exit();
     
     }}
