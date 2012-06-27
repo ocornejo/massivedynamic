@@ -31,14 +31,12 @@ class Controller_pagofacebook extends CI_Controller {
           $sesion = $facebook->getUser();
           if (!$sesion){
             throw new Exception('Aplicación no instalada', $NOT_INSTALLED);
-            echo "primer";
             }
 
 
           // Obtenemos los permisos del usuario
           $permissions = $facebook->api('/'.$sesion.'/permissions');
           if (!isset ($permissions['data'][0])){
-              echo "segundo";
             throw new Exception('Facebook ha devuelto un array mal formado', $MALFORMED_ARRAY);
             
           }
@@ -49,15 +47,12 @@ class Controller_pagofacebook extends CI_Controller {
            
           
           $num=0;
-          echo"wena";
-          echo "cantidad=".$_POST['cantidad'];
           $nombres=" ";
           while(isset ($_POST['nombre'.$num])){
               echo $num;
               $nombres=$nombres.$_POST['nombre'.$num]."; ";
               $num=$num+1;
           }
-          echo "chori";
           if($num>=0){
           $mensaje='He comprado en Massive Dynamic los siguientes programas:'.$nombres.'prueba ya el sistema de Pago Social de Massive Dynamics, un universo en software, revisa sus ofertas en http://massivedynamic.inf.utfsm.cl/';
           $facebook->api('/me/feed', 'post', array ('message' => $mensaje));
@@ -66,14 +61,11 @@ class Controller_pagofacebook extends CI_Controller {
           
           $num=0;
           $data["link"]=array();
-          echo "hola";
           while(isset($_POST['codigo'.$num])){
-          echo $num;
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
           $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$_POST['codigo'.$num]."'>Descargar ".$_POST['nombre'.$num]."</a>";
           $num=$num+1;       
           }
-          echo "chao";
           
           $this->load->view('view_comprado',$data);
           $this->load->library('cart');
