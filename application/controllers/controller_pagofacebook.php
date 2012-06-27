@@ -58,11 +58,14 @@ class Controller_pagofacebook extends CI_Controller {
           
           $num=0;
           $data["link"]=array();
+          echo "hola";
           while(isset($_POST['codigo'.$num])){
+              echo $num;
           $this->model_compra->IngresarCompra($this->session->userdata('idUsuarios'),$_POST['codigo'.$num],1);
           $data["link"][]="<a href='".site_url("controller_descarga/bajar/")."/".$_POST['codigo'.$num]."'>Descargar ".$_POST['nombre'.$num]."</a>";
           $num=$num+1;       
           }
+          echo "chao";
           
           $this->load->view('view_comprado',$data);
           $this->load->library('cart');
