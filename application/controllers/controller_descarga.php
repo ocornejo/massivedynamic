@@ -12,7 +12,7 @@ class Controller_descarga extends CI_Controller {
     //echo $logrado;
     
      // make sure it's a file before doing anything!
-  if(is_file($path))
+  if(!is_file($path))
   {
       echo "Hola";
     // required for IE
