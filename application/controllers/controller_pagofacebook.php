@@ -132,6 +132,7 @@ class Controller_pagofacebook extends CI_Controller {
             echo "cantidad es".$_POST['cantidad'];
              $sesion = $facebook->getUser();
           if (!$sesion){
+              echo "primera";
             throw new Exception('Aplicación no instalada', $NOT_INSTALLED);
             echo "primer";
             }
