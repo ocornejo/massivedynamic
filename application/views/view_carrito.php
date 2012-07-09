@@ -5,7 +5,8 @@
     <?php
     $this->load->helper('url');
     $this->load->helper('form');
-    $this->load->library('cart');?>
+    $this->load->library('cart');
+    $this->load->library('session');?>
     
     <link rel="icon" href="<?php echo base_url() ?>images/favicon.gif" type="image/x-icon"/>
     <link rel="shortcut icon" href="<?php echo base_url() ?>images/favicon.gif" type="image/x-icon"/> 
@@ -45,14 +46,15 @@
         <nav><ul>
             <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>" ?></li>
             
-        <?php $this->load->library('session');
+        <?php 
         if ($this->session->userdata('Username') != null) { ?>
             <li><?php echo "<a href='".site_url('controller_producto/productoscomprados/')."'>Descargas</a>" ?></li>
             <li><?php echo "<a href='".site_url('controller_catalogo/showCart/')."'>Carrito</a>" ?></li>
             <li><?php echo "<a href='".site_url('controller_login/logout/')."'>Logout</a>" ?></li>
             </ul></nav>
-            <?php echo " Bienvenido " . $this->session->userdata('Username'); ?>
-            <?php } else { ?>
+            <?php
+            echo " Bienvenido " . $this->session->userdata('Username');
+            } else { ?>
             <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>" ?></li>
             <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>" ?></li>
             </ul></nav>
