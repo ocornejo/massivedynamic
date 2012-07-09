@@ -167,6 +167,7 @@
                                                                 echo form_hidden('product_id', $row->Codigo);
                                                                 echo form_submit('add', 'Agregar');
                                                                 echo form_close();
+                                                                $this->load->view('view_carrito');
                                                             }
                                                         }
                                                         ?>

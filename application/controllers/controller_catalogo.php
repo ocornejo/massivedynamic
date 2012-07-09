@@ -51,7 +51,6 @@ class Controller_Catalogo extends CI_Controller {
             echo json_encode(array('retorno'=>1)); // If javascript is enabled, return true, so the cart gets updated 
             
         }
-        $this->load->view('view_carrito');
         
     }  
     
