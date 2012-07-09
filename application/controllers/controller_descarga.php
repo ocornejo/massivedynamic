@@ -8,6 +8,7 @@ class Controller_descarga extends CI_Controller {
 
         // open the current directory
         $dhandle = opendir('/opt/programas/');
+        $dir= "/opt/programas/";
 // define an array to hold the files
         $files = array();
         $fname= $codigo+".md";
@@ -37,7 +38,7 @@ class Controller_descarga extends CI_Controller {
         if ($comprado) {
             $this->load->helper('download');
             //$path = base_url() . "programas/" . $codigo . ".md";
-            $path = $dhandle+$fname;
+            $path = $dhandle.$fname;
             echo "HOLA"+$path;
             $name = $codigo . 'md';
 
