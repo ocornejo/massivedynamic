@@ -9,7 +9,7 @@ class Controller_descarga extends CI_Controller {
         // open the current directory
         $dhandle = opendir('/opt/programas/');
         $dir= "/opt/programas/";
-        // define an array to hold the files
+// define an array to hold the files
         $files = array();
         $fname= $codigo+".md";
         if ($dhandle) {
@@ -27,17 +27,23 @@ class Controller_descarga extends CI_Controller {
             closedir($dhandle);
         }
 
+
         $comprado = $this->model_producto->get_compra($this->session->userdata('idUsuarios'), $codigo);
         if ($comprado) {
             $this->load->helper('download');
             //$path = base_url() . "programas/" . $codigo . ".md";
             $path = $dir.$fname;
+            echo "HOLA"+$path;
             $name = $codigo . 'md';
 
             if (ini_get('zlib.output_compression')) {
                 ini_set('zlib.output_compression', 'Off');
             }
+
+
             $this->load->helper('file');
+
+
             $mime = get_mime_by_extension($path);
 
             // Build the headers to push out the file properly.
