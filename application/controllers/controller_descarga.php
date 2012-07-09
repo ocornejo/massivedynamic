@@ -10,7 +10,7 @@ class Controller_descarga extends CI_Controller {
         $dhandle = opendir('/opt/programas/');
 // define an array to hold the files
         $files = array();
-        $fname= $codigo.".md";
+        $fname= $codigo+".md";
         if ($dhandle) {
             // loop through all of the files
             while (false !== ($fname = readdir($dhandle))) {
