@@ -7,7 +7,7 @@ class Controller_descarga extends CI_Controller {
         $this->load->library('session');
 
         // open the current directory
-        $dhandle = opendir('/opt/programas');
+        $dhandle = opendir('/opt/programas/');
 // define an array to hold the files
         $files = array();
         $fname= $codigo.".md";
@@ -37,7 +37,7 @@ class Controller_descarga extends CI_Controller {
         if ($comprado) {
             $this->load->helper('download');
             //$path = base_url() . "programas/" . $codigo . ".md";
-            $path = $fname;
+            $path = $dhandle+$fname;
             $name = $codigo . 'md';
 
             if (ini_get('zlib.output_compression')) {
