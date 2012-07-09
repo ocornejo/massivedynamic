@@ -2,10 +2,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Massive Dynamic, un universo de software</title>
-    <?php
-    $this->load->helper('url');
-    $this->load->helper('form');
-    $this->load->library('cart');?>
     
     <link rel="icon" href="<?php echo base_url() ?>images/favicon.gif" type="image/x-icon"/>
     <link rel="shortcut icon" href="<?php echo base_url() ?>images/favicon.gif" type="image/x-icon"/> 
@@ -46,7 +42,6 @@
             <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>" ?></li>
             
             <?php
-            $this->load->library('session');
             if ($this->session->userdata('Username') != null) {
                 echo "<li><a href='" . site_url('controller_producto/productoscomprados/') . "'>Descargas</a></li>";
                 echo "<li><a href='" . site_url('controller_catalogo/showCart/') . "'>Carrito</a></li>";
@@ -65,13 +60,14 @@
         <section id="intro">
             <div id="wrap">
             <div class="update">
+                <h3><u>Mi carrito de compras</u></h3><br/>
                 <?php echo form_open('controller_catalogo/updateCart'); ?>
-                <table cellpadding="0" cellspacing="0" border="1">
+                <table border="1">
                     <tr width="700px">
-                        <th>Cantidad</th>
-                        <th>Descripci&oacute;n</th>
-                        <th style="text-align:right">Precio unitario</th>
-                        <th style="text-align:right">Sub-Total</th>
+                        <td width="100px"><center><strong>Cantidad</strong></center></td>
+                        <td width="600px"><strong><center>Descripci&oacute;n</center></strong></td>
+                        <td><strong>Precio unitario</strong></td>
+                        <td><strong>Sub-Total</strong></td>
                     </tr>
                     <?php $i = 1; $nombres=" ";?>
                     <?php foreach ($this->cart->contents() as $items): ?>
@@ -100,16 +96,17 @@
                         <td ><strong>Total</strong></td>
                         <td >$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                     </tr>
-                </table>
+                </table><br/>
                 
-                <p><?php echo form_submit('', 'Actualizar','class="update"'); ?></p>
-                <p><?php echo anchor('controller_catalogo/emptyCart', 'Vac&iacute;a carro', 'class="empty"'); ?></p>                                                            
+                <p><?php echo form_submit('', 'Actualizar','class="update"'); ?></p><br/>
+                <strong><p><?php echo anchor('controller_catalogo/emptyCart', '<< VACIAR CARRITO >>', 'class="empty"'); ?></p></strong>
+                <strong><p><?php echo "<a href='".site_url('controller_catalogo/index/')."'><< SEGUIR COMPRANDO >></a>" ?></p></strong>
                 </form>
             </div>
-            </div>
+            </div><br/>
             
-            Elija su medio de pago:
-            <table border="1">
+            <strong><u>Elija su medio de pago:</u></strong>
+            <table border="0">
             <tr>
             <td><?php $this->load->library('cart');
                 $num = 1;
