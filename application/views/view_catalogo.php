@@ -94,7 +94,7 @@
             $this->load->library('session');
             if ($this->session->userdata('Username') != null) {
                 echo "<li><a href='" . site_url('controller_producto/productoscomprados/') . "'>Descargas</a></li>";
-                echo "<li><a href='" . site_url('controller_carrito/carrito/') . "'>Carrito</a></li>";
+                echo "<li><a href='" . site_url('controller_catalogo/showCart/') . "'>Carrito</a></li>";
                 echo "<li><a href='" . site_url('controller_login/logout/') . "'>Logout</a></li>";
                 echo "</ul></nav>";
                 echo " Bienvenido " . $this->session->userdata('Username');
