@@ -38,6 +38,7 @@ class Controller_descarga extends CI_Controller {
             $this->load->helper('download');
             //$path = base_url() . "programas/" . $codigo . ".md";
             $path = $dhandle+$fname;
+            echo "HOLA"+$path;
             $name = $codigo . 'md';
 
             if (ini_get('zlib.output_compression')) {
