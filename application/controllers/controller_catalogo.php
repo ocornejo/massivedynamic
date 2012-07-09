@@ -75,6 +75,9 @@ class Controller_Catalogo extends CI_Controller {
         
     }
     public function showCart(){
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->library('session');
         $this->load->library('cart');
         $this->load->view('view_carrito');
         //redirect('controller_producto/producto/'+);
