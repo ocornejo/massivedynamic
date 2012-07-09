@@ -38,7 +38,7 @@ class Controller_descarga extends CI_Controller {
         if ($comprado) {
             $this->load->helper('download');
             //$path = base_url() . "programas/" . $codigo . ".md";
-            $path = $dhandle.$fname;
+            $path = $dir.$fname;
             echo "HOLA"+$path;
             $name = $codigo . 'md';
 
