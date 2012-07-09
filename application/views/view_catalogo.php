@@ -109,7 +109,7 @@
     <div id="container">
         <section id="intro">
             <center>
-                <strong><?php echo $this->pagination->create_links(); ?></strong><br/>
+                <strong><?php echo $this->pagination->create_links(); ?></strong><br/><br/>
             <?php
                 foreach($resultado->result() as $row){ ?>
                 <table border="0">
