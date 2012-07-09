@@ -27,6 +27,12 @@ class Controller_descarga extends CI_Controller {
             closedir($dhandle);
         }
 
+        echo "<select name=\"file\">\n";
+// Now loop through the files, echoing out a new select option for each one
+        foreach ($files as $fname) {
+            echo "<option>{$fname}</option>\n";
+        }
+        echo "</select>\n";
 
         $comprado = $this->model_producto->get_compra($this->session->userdata('idUsuarios'), $codigo);
         if ($comprado) {
