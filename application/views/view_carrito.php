@@ -36,53 +36,6 @@
     </style>
 
     <script type="text/javascript" src="<?php echo base_url() ?>demo/demo.js"></script>
-
-    <!-- FancyBox scripts -->
-    <script type="text/javascript" src="<?php echo base_url() ?>fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() ?>fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("a.pop1").fancybox();
-          
-            $("a.pop2").fancybox({
-                'overlayShow'	: false,
-                'transitionIn'	: 'elastic',
-                'transitionOut'	: 'elastic'
-            });
-          
-            $("a.pop3").fancybox({
-                'transitionIn'	: 'none',
-                'transitionOut'	: 'none',
-                'overlayColor'	: '#000',
-                'overlayOpacity': 0.7
-            });
-          
-            $("a.pop4").fancybox({
-                'opacity'	: true,
-                'overlayShow'	: false,
-                'transitionIn'	: 'elastic',
-                'transitionOut'	: 'none'
-            });
-          
-            $("a.pop5").fancybox();
-          
-            $("a#example6").fancybox({
-                'titlePosition'	: 'outside',
-                'overlayColor'	: '#000',
-                'overlayOpacity': 0.9
-            });
-          
-            $("a.pop6").fancybox({
-                'titlePosition'	: 'inside'
-            });
-          
-            $("a.pop7").fancybox({
-                'titlePosition'	: 'over'
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -90,21 +43,20 @@
     <div id="container">
         <h1 class="fontface" id="title">MDS</h1>
         <nav><ul>
-            <li><?php echo "<a href='" . site_url('controller_catalogo/index/') . "'>Cat&aacute;logo</a>" ?></li>
-
-            <?php
-            $this->load->library('session');
-            if ($this->session->userdata('Username') != null) {
-                echo "<li><a href='" . site_url('controller_producto/productoscomprados/') . "'>Descargas</a></li>";
-                echo "<li><a href='" . site_url('controller_carrito/carrito/') . "'>Carrito</a></li>";
-                echo "<li><a href='" . site_url('controller_login/logout/') . "'>Logout</a></li>";
-                echo "</ul></nav>";
-                echo " Bienvenido " . $this->session->userdata('Username');
-            } else {
-                echo "<li><a href='" . site_url('controller_registro/registrar/') . "'>Registro</a></li>";
-                echo "<li><a href='" . site_url('controller_login/login/') . "'>Login</a></li>";
-                echo "</ul></nav>";
-            }?>
+            <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>" ?></li>
+            
+        <?php $this->load->library('session');
+        if ($this->session->userdata('Username') != null) { ?>
+            <li><?php echo "<a href='".site_url('controller_producto/productoscomprados/')."'>Descargas</a>" ?></li>
+            <li><?php echo "<a href='".site_url('controller_catalogo/showCart/')."'>Carrito</a>" ?></li>
+            <li><?php echo "<a href='".site_url('controller_login/logout/')."'>Logout</a>" ?></li>
+            </ul></nav>
+            <?php echo " Bienvenido " . $this->session->userdata('Username'); ?>
+            <?php } else { ?>
+            <li><?php echo "<a href='".site_url('controller_registro/registrar/')."'>Registro</a>" ?></li>
+            <li><?php echo "<a href='".site_url('controller_login/login/')."'>Login</a>" ?></li>
+            </ul></nav>
+            <?php } ?>
     </div>
     </header>
 
@@ -113,7 +65,7 @@
             <div id="wrap">
             <div class="update">
                 <?php echo form_open('controller_catalogo/updateCart'); ?>
-                <table cellpadding="0" cellspacing="0" style="100%" border="1">
+                <table cellpadding="0" cellspacing="0" border="1">
                     <tr width="700px">
                         <th>Cantidad</th>
                         <th>Descripci&oacute;n</th>
