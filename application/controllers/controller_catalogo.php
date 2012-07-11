@@ -41,7 +41,7 @@ class Controller_Catalogo extends CI_Controller {
     public function addToCart(){
         $this->load->model('model_catalogo');
         if($this->model_catalogo->validate_add_cart_item() == TRUE){
-            redirect('view_carrito');
+            redirect('controller_catalogo/showCart');
         }
        
         // Check if user has javascript enabled  
