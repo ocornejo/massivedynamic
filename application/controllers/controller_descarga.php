@@ -53,7 +53,7 @@ class Controller_descarga extends CI_Controller {
             header('Connection: close');
             readfile($path); // push it out
         } else {
-            $this->load->view('view_descargado');
+            $this->load->view('view_nodescargado');
         }
     }
 
