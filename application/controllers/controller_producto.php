@@ -28,7 +28,7 @@ class Controller_producto extends CI_Controller{
         $this->load->library('session');
         $data['compra'] ="no";
         $comprados=$this->model_producto->get_compras($this->session->userdata('idUsuarios'));
-        
+        $data["link"]=null;
         foreach($comprados->result() as $producto){
         $caracteristica=$this->model_catalogo->get_producto($producto->idProducto);
             foreach($caracteristica->result() as $row){
