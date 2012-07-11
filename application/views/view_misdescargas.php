@@ -114,7 +114,16 @@
 
                         <div id="container" >
                             <section id="intro">
-<center><h3>Sus descargas disponibles</h3></center>
+<center><h3>
+        <?php
+        if($link!=null){
+        echo "Sus descargas disponibles";
+        }
+        else{
+            echo "Usted no tiene descargas disponibles";
+        }
+        ?>
+    </h3></center>
 <?php
 $num=0;
 if($link!=null){
