@@ -117,8 +117,10 @@
 <center><h3>Sus descargas disponibles</h3></center>
 <?php
 $num=0;
+if($link!=null){
 foreach($link as $prod){
     echo "<center>$prod</center>";
+}
 }
 ?>
  </section>
