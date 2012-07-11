@@ -10,7 +10,7 @@
 * @author      Dariusz Debowczyk
 * @link        http://www.codeigniter.com/user_guide/libraries/sessions.html
 */
-class CI_Session2 {
+class CI_Session {
 
 	var $flash_key = 'flash'; // prefix for "flash" variables (eg. flash:new:message)
 
