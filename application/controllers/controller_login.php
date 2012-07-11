@@ -56,8 +56,7 @@ class Controller_login extends CI_Controller {
     function logout()
     {
         $this->load->library('session');
-        $this->session->sess_destroy();//destruye la session y va a la vista de login
-        $this->session->sess_destroy();
+        $this->session->destroy();//destruye la session y va a la vista de login
         $this->cargarcatalogo();
     }
     function cargarcatalogo() {
