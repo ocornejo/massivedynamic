@@ -89,28 +89,27 @@
 
     </head>
     <body>
-        <header>
-            <div id="container">
-                <h1 class="fontface" id="title">MDS</h1>
-                <nav><ul>
-                        
-                        <li><?php echo "<a href='" . site_url('controller_catalogo/index/') . "'>Cat&aacute;logo</a>" ?></li>
-                        <li><?php echo "<a href='".site_url('controller_producto/productoscomprados/')."'>Descargas</a>"?></li>
-                        <li><?php echo "<a href='" . site_url('controller_registro/registrar/') . "'>Registro</a>" ?></li>
-
-                        <?php
-                        $this->load->library('session');
-                        if ($this->session->userdata('Username') != null) {
-                            echo "<li><a href='" . site_url('controller_login/logout/') . "'>Logout</a></li>";
-                            echo "</ul></nav>";
-                            echo " Bienvenido " . $this->session->userdata('Username');
-                        } else {
-                            echo "<li><a href='" . site_url('controller_login/login/') . "'>Login</a></li>";
-                            echo "</ul></nav>";
-                        }
-                        ?>
-                        </div>
-                        </header>
+    <header>
+    <div id="container">
+        <h1 class="fontface" id="title">MDS</h1>
+        <nav><ul>
+            <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>" ?></li>
+            
+            <?php
+            $this->load->library('session');
+            if ($this->session->userdata('Username') != null) {
+                echo "<li><a href='" . site_url('controller_producto/productoscomprados/') . "'>Descargas</a></li>";
+                echo "<li><a href='" . site_url('controller_catalogo/showCart/') . "'>Carrito</a></li>";
+                echo "<li><a href='" . site_url('controller_login/logout/') . "'>Logout</a></li>";
+                echo "</ul></nav>";
+                echo " Bienvenido " . $this->session->userdata('Username');
+            } else {
+                echo "<li><a href='" . site_url('controller_registro/registrar/') . "'>Registro</a></li>";
+                echo "<li><a href='" . site_url('controller_login/login/') . "'>Login</a></li>";
+                echo "</ul></nav>";
+            }?>
+    </div>
+    </header>
 
 
                         <div id="container" >

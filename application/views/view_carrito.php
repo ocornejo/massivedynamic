@@ -42,6 +42,7 @@
             <li><?php echo "<a href='".site_url('controller_catalogo/index/')."'>Cat&aacute;logo</a>" ?></li>
             
             <?php
+            $this->load->library('session');
             if ($this->session->userdata('Username') != null) {
                 echo "<li><a href='" . site_url('controller_producto/productoscomprados/') . "'>Descargas</a></li>";
                 echo "<li><a href='" . site_url('controller_catalogo/showCart/') . "'>Carrito</a></li>";
