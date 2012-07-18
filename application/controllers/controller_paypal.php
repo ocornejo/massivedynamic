@@ -48,13 +48,18 @@ class Controller_Paypal extends CI_Controller {
         $data['tx'] = $this->input->get('tx');
         $data['at'] = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO";
 
-        $result = $this->curl->setUrl("ssl://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
+        $result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
+        if ($result!=null){
         if($result){
          
         echo $result;
         }
         else{
             echo "no hay result";
+        }
+        }
+        else{
+            echo "result es null";
         }
         //$data["result"]=$result;
         //$this->load->view('view_test',$data);
