@@ -115,7 +115,7 @@
                 $data = (int) json_decode($json, TRUE); //set to productTotal + shipmentFee + tax;
                 ?>
 
-                <form action='ssl://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal'>
+                <form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal'>
                     <input type='hidden' name='cmd' value='_cart'>
                     <input type='hidden' name='upload' value='1'> 
                     <input type='hidden' name='business' value='oc77_1338396747_biz@gmail.com'>
@@ -129,8 +129,8 @@
                     endforeach;?>
             
                     <input type='hidden' name='currency_code' value='USD'>
-                    <input type='hidden' name='cancel_return' value='ssl://massivedynamic.inf.utfsm.cl'>
-                    <input type='hidden' name='return' value='ssl://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index'>
+                    <input type='hidden' name='cancel_return' value='https://massivedynamic.inf.utfsm.cl'>
+                    <input type='hidden' name='return' value='https://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index'>
                     <input type='image' src='http://cdn5.iconfinder.com/data/icons/socialize-part-3-icons-set/128/paypal.png' width='100px' name='submit' alt='Pagar ahora' />
                 </form>
                 <script language="JavaScript" type="text/javascript">
