@@ -75,23 +75,26 @@ class Controller_Paypal extends CI_Controller {
     }
 
     public function deformat($result) {
+        
         $lines = explode("\n", $result);
         $keyarray = array();
-
+        $data["link"]=array();
+        $data["link"][]=$result;
+         $this->load->view('view_comprado',$data);
 //Check to see if request was a success
-        if (strcmp($lines[0], "SUCCESS") == 0) {
+        if (strcmp($lines[0], "SUCCESS") == 0) 
+                {
+            
             for ($i = 1; $i < (count($lines)-1); $i++) {
                 list($key, $val) = explode("=", $lines[$i]);
                 $keyarray[urldecode($key)] = urldecode($val);
             }
             return $keyarray;
-        } else {
+        } 
+        else {
 //Their was an issue with the request so return false
             return false;
         }
     }
 
 }
-
-/* End of file pdttest.php */
-/* Location: ./application/controllers/pdttest.php */
