@@ -46,7 +46,7 @@ class Controller_Paypal extends CI_Controller {
         $this->cart->destroy();
         $data['cmd'] = "_notify-synch";
         $data['tx'] = $this->input->get('tx');
-        $data['at'] = "aPcbzSq_3mEj0NTjpbPtmI7mTi_muYnUkcO36VaKdq3TXgFO_oq6KcJkzVy";
+        $data['at'] = "iEENmcSqKHBfmXwiMTmYS0B3XzNkfrDH-2I1hFn5QBZhnKKcEIV0OSvXeG8";
         $result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
         
   
