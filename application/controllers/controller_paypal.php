@@ -45,22 +45,23 @@ class Controller_Paypal extends CI_Controller {
         $this->load->library('cart');
         $this->cart->destroy();
         $data['cmd'] = "_notify-synch";
-        $data['tx'] = $this->input->get('tx');
+        //$data['tx'] = $this->input->get('tx');
+        $data['tx'] ="83J33660PN157825D";
         $data['at'] = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO";
 
         $result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
-        if ($result!=null){
-        if($result){
-         
-        echo $result;
-        }
-        else{
-            echo "no hay result";
-        }
-        }
-        else{
-            echo "result es null";
-        }
+//        if ($result!=null){
+//        if($result){
+//         
+//        echo $result;
+//        }
+//        else{
+//            echo "no hay result";
+//        }
+//        }
+//        else{
+//            echo "result es null";
+//        }
         //$data["result"]=$result;
         //$this->load->view('view_test',$data);
         $deformat = $this->deformat($result);
