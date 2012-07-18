@@ -111,7 +111,3 @@ class Controller_Paypal extends CI_Controller {
     }
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 1d56df815787379d1a76c8c69cd471eadd726550
