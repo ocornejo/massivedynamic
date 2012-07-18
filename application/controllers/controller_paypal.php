@@ -52,7 +52,7 @@ class Controller_Paypal extends CI_Controller {
         $result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
         if ($result!=null){
         if($result){
-         
+         echo "result:";
         echo $result;
         }
         else{
@@ -66,7 +66,7 @@ class Controller_Paypal extends CI_Controller {
         //$this->load->view('view_test',$data);
         $deformat = $this->deformat($result);
         
-        if ($deformat === false) {
+        if ($deformat == false) {
             $this->load->view('view_nocomprado',$data);
         } else {
             if ($deformat['payment_status'] == "Completed") {
