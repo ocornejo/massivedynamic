@@ -9,11 +9,15 @@
 ?>
 <html>
 <head>
-	<title>403 Forbidden</title>
+	<title>Hola</title>
 </head>
 <body>
 
-<p>Directory access is forbidden.</p>
+<p>
+<?php 
+echo "<center>$result</center>";
+
+?></p>
 
 </body>
 </html>

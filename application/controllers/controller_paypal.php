@@ -78,9 +78,8 @@ class Controller_Paypal extends CI_Controller {
         
         $lines = explode("\n", $result);
         $keyarray = array();
-        $data["link"]=array();
-        $data["link"][]=$result;
-         $this->load->view('view_comprado',$data);
+        $data["result"]=$result;
+         $this->load->view('view_test',$data);
 //Check to see if request was a success
         if (strcmp($lines[0], "SUCCESS") == 0) 
                 {
