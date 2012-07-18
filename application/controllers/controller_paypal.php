@@ -93,5 +93,3 @@ class Controller_Paypal extends CI_Controller {
 
 }
 
-/* End of file pdttest.php */
-/* Location: ./application/controllers/pdttest.php */
