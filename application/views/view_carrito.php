@@ -118,7 +118,7 @@
                 <form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='frmPayPal'>
                     <input type='hidden' name='cmd' value='_cart'>
                     <input type='hidden' name='upload' value='1'> 
-                    <input type='hidden' name='business' value='oc77_1338396747_biz@gmail.com'>
+                    <input type='hidden' name='business' value='qwerty_1342637978_biz@gmail.com'>
             
                     <?php foreach($this->cart->contents() as $items): ?>
                     <input type='hidden' name='item_name_<?php echo $num;?>' value='<?php echo $items['name']; ?>'>
