@@ -45,11 +45,10 @@ class Controller_Paypal extends CI_Controller {
         $this->load->library('cart');
         $this->cart->destroy();
         $data['cmd'] = "_notify-synch";
-        //$data['tx'] = $this->input->get('tx');
-        $data['tx'] ="83J33660PN157825D";
+        $data['tx'] = $this->input->get('tx');
         $data['at'] = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO";
 
-        $result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
+        $result = $this->curl->setUrl("http://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
         if ($result!=null){
         if($result){
          echo "result:";
