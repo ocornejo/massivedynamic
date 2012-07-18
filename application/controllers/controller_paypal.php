@@ -49,8 +49,10 @@ class Controller_Paypal extends CI_Controller {
         $data['at'] = "6dzmGdM2ss-OIeouBGzXLdtdzJfCkpRjdH92pDnxCxSZYHkkG9JDYgtqtGO";
 
         $result = $this->curl->setUrl("https://www.sandbox.paypal.com/cgi-bin/webscr")->post($data);
+         $data["result"]=$result;
+         $this->load->view('view_test',$data);
         $deformat = $this->deformat($result);
-
+        
         if ($deformat === false) {
             $this->load->view('view_nocomprado',$data);
         } else {
@@ -78,8 +80,7 @@ class Controller_Paypal extends CI_Controller {
         
         $lines = explode("\n", $result);
         $keyarray = array();
-        $data["result"]=$result;
-         $this->load->view('view_test',$data);
+       
 //Check to see if request was a success
         if (strcmp($lines[0], "SUCCESS") == 0) 
                 {
