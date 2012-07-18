@@ -27,8 +27,8 @@ class Controller_Paypal extends CI_Controller {
             endforeach;?>
             
             <input type='hidden' name='currency_code' value='USD'>
-            <input type='hidden' name='cancel_return' value='http://massivedynamic.inf.utfsm.cl'>
-            <input type='hidden' name='return' value='http://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index'>
+            <input type='hidden' name='cancel_return' value='https://massivedynamic.inf.utfsm.cl'>
+            <input type='hidden' name='return' value='https://massivedynamic.inf.utfsm.cl/index.php/controller_paypal/index'>
             <input type='image' src='https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' name='submit' alt='Pagar ahora' />
         </form>
         <script language="JavaScript" type="text/javascript">
