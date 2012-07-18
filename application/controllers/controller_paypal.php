@@ -52,20 +52,7 @@ class Controller_Paypal extends CI_Controller {
   
  
         
-        if ($result!=null){
-        if($result){
-         echo "result:";
-        echo $result;
-        }
-        else{
-            echo "no hay result";
-        }
-        }
-        else{
-            echo "result es null";
-        }
-        //$data["result"]=$result;
-        //$this->load->view('view_test',$data);
+       
         $deformat = $this->deformat($result);
         
         if ($deformat == false) {
